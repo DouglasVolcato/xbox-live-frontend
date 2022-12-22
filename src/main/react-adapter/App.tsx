@@ -3,8 +3,8 @@ import "../../presentation/styles/input.css";
 import "../../presentation/styles/button.css";
 import "../../presentation/styles/paragraph.css";
 import { useEffect, useState } from "react";
-import { HtmlElement } from "../../Helpers/html-element-helper";
 import { makeHomePageFactory } from "../factories/home-page-factory";
+import { changeStateValue } from "../../utils/functions/change-state-value";
 
 export function App() {
   const homepage = makeHomePageFactory();
@@ -13,13 +13,11 @@ export function App() {
   });
 
   useEffect(() => {
-    const mainInput = new HtmlElement("home-page-input");
-    const mainButton = new HtmlElement("home-page-button");
-    const mainParagraph = new HtmlElement("home-page-paragraph");
-
-    mainButton.addEventListener("click", () => {
-      mainParagraph.setInnerText(mainInput.getValue());
-    });
+    changeStateValue(
+      "home-page-button",
+      "home-page-input",
+      "home-page-paragraph"
+    );
   }, []);
 
   return (

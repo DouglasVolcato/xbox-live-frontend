@@ -28,10 +28,10 @@ export function App() {
 
   return (
     <div>
-      <div dangerouslySetInnerHTML={{ __html: Header("Homepage") }} />;
-      <div dangerouslySetInnerHTML={{ __html: Input() }} />;
-      <div dangerouslySetInnerHTML={{ __html: Button() }} />;
-      <div dangerouslySetInnerHTML={{ __html: Paragraph(state.inputValue) }} />;
+      <div dangerouslySetInnerHTML={{ __html: Header("Homepage") }} />
+      <div dangerouslySetInnerHTML={{ __html: Input() }} />
+      <div dangerouslySetInnerHTML={{ __html: Button() }} />
+      <div dangerouslySetInnerHTML={{ __html: Paragraph(state.inputValue) }} />
     </div>
   );
 }

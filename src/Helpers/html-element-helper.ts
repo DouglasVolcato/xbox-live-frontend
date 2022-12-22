@@ -10,13 +10,18 @@ export class HtmlElement {
     return element.value;
   }
 
+  setValue(value: string): void {
+    const element: any = document.getElementById(this.id);
+    element.value = value;
+  }
+
   addEventListener(type: string, callBackFunction = () => {}): void {
     document.getElementById(this.id)?.addEventListener(type, callBackFunction);
   }
 
-  setValue(value: string): void {
+  getInnerText(): string {
     const element: any = document.getElementById(this.id);
-    element.value = value;
+    return element.innerText;
   }
 
   setInnerText(value: string): void {

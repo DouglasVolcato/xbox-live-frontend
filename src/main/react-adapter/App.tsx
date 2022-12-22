@@ -8,9 +8,6 @@ import { changeStateValue } from "../../utils/functions/change-state-value";
 
 export function App() {
   const homepage = makeHomePageFactory();
-  const [state, setState] = useState<any>({
-    inputValue: "teste",
-  });
 
   useEffect(() => {
     changeStateValue(

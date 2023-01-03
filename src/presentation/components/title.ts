@@ -1,13 +1,17 @@
+import { HtmlElement } from "../Helpers/html-element-helper";
 import { ComponentInterface } from "../abstract/component-interface";
 
-export class Title implements ComponentInterface {
-  constructor(
-    private readonly title: string,
-    private readonly className: string,
-    private readonly id: string
-  ) {}
+export class Title extends HtmlElement implements ComponentInterface {
+  private readonly title: string;
+  private readonly className: string;
 
-  execute(): string {
+  constructor(title: string, className: string, id: string) {
+    super(id);
+    this.title = title;
+    this.className = className;
+  }
+
+  render(): string {
     return `
         <h1 id="${this.id}" class="${this.className}">${this.title}</h1>
     `;

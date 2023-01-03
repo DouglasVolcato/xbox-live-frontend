@@ -9,17 +9,23 @@ export class HomePage implements PageInterface {
     private readonly header: Header,
     private readonly input: Input,
     private readonly button: Button,
-    private readonly Paragraph: Paragraph
+    private readonly paragraph: Paragraph
   ) {}
 
-  render() {
+  render(): string {
     return `
         <html>
-            ${this.header.execute()}
-            ${this.input.execute()}
-            ${this.button.execute()}
-            ${this.Paragraph.execute()}
+            ${this.header.render()}
+            ${this.input.render()}
+            ${this.button.render()}
+            ${this.paragraph.render()}
         </html>
     `;
+  }
+
+  changeStateValue(): void {
+    this.button.addEventListener("click", () => {
+      this.paragraph.setInnerText(this.input.getValue());
+    });
   }
 }

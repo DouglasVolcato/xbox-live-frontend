@@ -1,4 +1,4 @@
-import { HtmlElement } from "../Helpers/html-element-helper";
+import { HtmlElement } from "../helpers/html-element-helper";
 import { ComponentInterface } from "../abstract/component-interface";
 
 export class Input extends HtmlElement implements ComponentInterface {

@@ -1,3 +1,3 @@
 export interface ComponentInterface {
-  execute(): string;
+  render(): string;
 }

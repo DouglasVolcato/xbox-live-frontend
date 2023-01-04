@@ -1,17 +1,15 @@
-import { HtmlElement } from "../Helpers/html-element-helper";
+import { HtmlElement } from "../helpers/html-element";
 import { ComponentInterface } from "../abstract/component-interface";
 
 export class Paragraph extends HtmlElement implements ComponentInterface {
   private readonly text: string;
-  private readonly className: string;
 
-  constructor(text: string, className: string, id: string) {
+  constructor(text: string, id: string) {
     super(id);
     this.text = text;
-    this.className = className;
   }
 
   render() {
-    return `<p id="${this.id}" class="${this.className}">${this.text}</p>`;
+    return `<p id="${this.id}" class="paragraph">${this.text}</p>`;
   }
 }

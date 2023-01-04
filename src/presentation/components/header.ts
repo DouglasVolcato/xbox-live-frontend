@@ -1,14 +1,12 @@
-import { HtmlElement } from "../Helpers/html-element-helper";
 import { ComponentInterface } from "../abstract/component-interface";
+import { HtmlElement } from "../helpers/html-element";
 
 export class Header extends HtmlElement implements ComponentInterface {
   private readonly components: ComponentInterface[];
-  private readonly className: string;
 
-  constructor(components: ComponentInterface[], className: string, id: string) {
+  constructor(components: ComponentInterface[], id: string) {
     super(id);
     this.components = components;
-    this.className = className;
   }
 
   render(): string {
@@ -17,7 +15,7 @@ export class Header extends HtmlElement implements ComponentInterface {
       componentComposer = componentComposer + component.render();
     });
     return `
-        <header id="${this.id}" class="${this.className}">
+        <header id="${this.id}" class="header">
             ${componentComposer}
         </header>
     `;

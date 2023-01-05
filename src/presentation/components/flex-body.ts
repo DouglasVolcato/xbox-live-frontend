@@ -25,6 +25,7 @@ export class FlexBody extends HtmlElement implements ComponentInterface {
     this.components.map((component) => {
       componentComposer = componentComposer + component.render();
     });
+
     return `
         <div id="${this.id}" class="flex-body ${this.getFlexType(
       this.flexType

@@ -14,6 +14,7 @@ export class Header extends HtmlElement implements ComponentInterface {
     this.components.map((component) => {
       componentComposer = componentComposer + component.render();
     });
+    
     return `
         <header id="${this.id}" class="header">
             ${componentComposer}

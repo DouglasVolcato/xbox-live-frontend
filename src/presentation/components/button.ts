@@ -13,6 +13,8 @@ export class Button extends HtmlElement implements ComponentInterface {
   }
 
   render(): string {
-    return `<button id="${this.id}" class="button" type="${this.type}">${this.name}</button>`;
+    return `
+      <button id="${this.id}" class="button" type="${this.type}">${this.name}</button>
+    `;
   }
 }

@@ -21,11 +21,7 @@ export class FlexBody extends HtmlElement implements ComponentInterface {
   }
 
   render(): string {
-    let componentComposer: string = "";
-    this.components.map((component) => {
-      componentComposer = componentComposer + component.render();
-    });
-
+    const componentComposer = this.getComponents(this.components);
     return `
         <div id="${this.id}" class="flex-body ${this.getFlexType(
       this.flexType
@@ -57,5 +53,13 @@ export class FlexBody extends HtmlElement implements ComponentInterface {
       default:
         return "";
     }
+  }
+
+  private getComponents(components: ComponentInterface[]): string {
+    let componentComposer = "";
+    components.map((component) => {
+      componentComposer = componentComposer + component.render();
+    });
+    return componentComposer;
   }
 }

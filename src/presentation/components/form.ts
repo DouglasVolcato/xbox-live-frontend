@@ -38,8 +38,22 @@ export class Form extends HtmlElement implements ComponentInterface {
 
   render(): string {
     const title = new Title(this.title, "form-title").render();
+    const inputs = this.getInputs(this.inputs);
+    const buttonComposer = this.getButtons(this.buttons);
 
-    let inputs = "";
+    return `
+        <form id="${this.id}" class="form">
+            ${title}
+            ${inputs}
+            <div class="form-buttons">
+                ${buttonComposer}
+            </div>
+        </header>
+    `;
+  }
+
+  private getInputs(inputs: InputTypeParam[]): string {
+    let inputComposer = "";
     this.inputs.map((input) => {
       const newInput = new Input(
         input.type,
@@ -48,27 +62,22 @@ export class Form extends HtmlElement implements ComponentInterface {
         input.placeholder
       );
       const newLabel = new Label(input.label, "form-label");
-      inputs = inputs + `${newLabel.render()} ${newInput.render()}`;
+      inputComposer =
+        inputComposer + `${newLabel.render()} ${newInput.render()}`;
     });
+    return inputComposer;
+  }
 
-    let buttons = "";
-    this.buttons.map((button) => {
+  private getButtons(buttons: ButtonTypeParam[]): string {
+    let buttonComposer = "";
+    buttons.map((button) => {
       const newButton = new Button(
         button.name,
         button.type,
         "form-buttons-" + button.name
       );
-      buttons = buttons + newButton.render();
+      buttonComposer = buttonComposer + newButton.render();
     });
-
-    return `
-        <form id="${this.id}" class="form">
-            ${title}
-            ${inputs}
-            <div class="form-buttons">
-                ${buttons}
-            </div>
-        </header>
-    `;
+    return buttonComposer;
   }
 }

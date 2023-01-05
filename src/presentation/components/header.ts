@@ -10,15 +10,19 @@ export class Header extends HtmlElement implements ComponentInterface {
   }
 
   render(): string {
-    let componentComposer: string = "";
-    this.components.map((component) => {
-      componentComposer = componentComposer + component.render();
-    });
-    
+    const componentComposer = this.getComponents(this.components);
     return `
         <header id="${this.id}" class="header">
             ${componentComposer}
         </header>
     `;
+  }
+
+  private getComponents(components: ComponentInterface[]): string {
+    let componentComposer = "";
+    components.map((component) => {
+      componentComposer = componentComposer + component.render();
+    });
+    return componentComposer;
   }
 }

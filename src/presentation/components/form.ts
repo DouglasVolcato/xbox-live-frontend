@@ -54,7 +54,7 @@ export class Form extends HtmlElement implements ComponentInterface {
 
   private getInputs(inputs: InputTypeParam[]): string {
     let inputComposer = "";
-    this.inputs.map((input) => {
+    inputs.map((input) => {
       const newInput = new Input(
         input.type,
         input.value,

@@ -35,7 +35,7 @@ export class FlexBody extends HtmlElement implements ComponentInterface {
     switch (type.toLowerCase()) {
       case "column":
         return "flex-d-column";
-      case "column":
+      case "row":
         return "flex-d-row";
       default:
         return "";

@@ -12,9 +12,10 @@ export class Div extends HtmlElement implements ComponentInterface {
     components: ComponentInterface[],
     flexType: FlexTypeEnum,
     flexDirection: FlexDirectionEnum,
-    id: string
+    id: string,
+    classes: string[] = []
   ) {
-    super(id);
+    super(id, classes);
     this.components = components;
     this.flexType = flexType;
     this.flexDirection = flexDirection;
@@ -25,7 +26,7 @@ export class Div extends HtmlElement implements ComponentInterface {
     return `
         <div id="${this.id}" class="flex-body ${this.getFlexType(
       this.flexType
-    )} ${this.getFlexDirection(this.flexDirection)}">
+    )} ${this.getFlexDirection(this.flexDirection)} ${this.classes}">
             ${componentComposer}
         </div>
     `;

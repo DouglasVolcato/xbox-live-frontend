@@ -4,14 +4,14 @@ import { ComponentInterface } from "../abstract/component-interface";
 export class Label extends HtmlElement implements ComponentInterface {
   private readonly text: string;
 
-  constructor(text: string, id: string) {
-    super(id);
+  constructor(text: string, id: string, classes: string[] = []) {
+    super(id, classes);
     this.text = text;
   }
 
   render(): string {
     return `
-        <label class="label" id="${this.id}">${this.text}</label>
+        <label class="label ${this.classes}" id="${this.id}">${this.text}</label>
     `;
   }
 }

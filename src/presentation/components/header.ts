@@ -4,15 +4,19 @@ import { HtmlElement } from "../helpers/html-element";
 export class Header extends HtmlElement implements ComponentInterface {
   private readonly components: ComponentInterface[];
 
-  constructor(components: ComponentInterface[], id: string) {
-    super(id);
+  constructor(
+    components: ComponentInterface[],
+    id: string,
+    classes: string[] = []
+  ) {
+    super(id, classes);
     this.components = components;
   }
 
   render(): string {
     const componentComposer = this.getComponents(this.components);
     return `
-        <header id="${this.id}" class="header">
+        <header id="${this.id}" class="header ${this.classes}">
             ${componentComposer}
         </header>
     `;

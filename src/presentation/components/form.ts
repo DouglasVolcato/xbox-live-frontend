@@ -28,9 +28,10 @@ export class Form extends HtmlElement implements ComponentInterface {
     title: string,
     inputs: InputTypeParam[],
     buttons: ButtonTypeParam[],
-    id: string
+    id: string,
+    classes: [] = []
   ) {
-    super(id);
+    super(id, classes);
     this.title = title;
     this.inputs = inputs;
     this.buttons = buttons;
@@ -45,7 +46,7 @@ export class Form extends HtmlElement implements ComponentInterface {
         <form id="${this.id}" class="form">
             ${title}
             ${inputs}
-            <div class="form-buttons">
+            <div class="form-buttons ${this.classes}">
                 ${buttonComposer}
             </div>
         </header>

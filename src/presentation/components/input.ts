@@ -11,9 +11,10 @@ export class Input extends HtmlElement implements ComponentInterface {
     type: InputTypeEnum,
     value: string,
     id: string,
-    placeholder = ""
+    placeholder = "",
+    classes: string[] = []
   ) {
-    super(id);
+    super(id, classes);
     this.type = type;
     this.value = value;
     this.placeholder = placeholder;
@@ -21,7 +22,7 @@ export class Input extends HtmlElement implements ComponentInterface {
 
   render(): string {
     return `
-        <input class="input" id="${this.id}" type="${this.type}" value="${this.value}" placeholder="${this.placeholder}" />
+        <input class="input ${this.classes}" id="${this.id}" type="${this.type}" value="${this.value}" placeholder="${this.placeholder}" />
     `;
   }
 }

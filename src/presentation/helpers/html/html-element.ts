@@ -1,0 +1,41 @@
+export class HtmlElement {
+  protected readonly id: string;
+  protected readonly classes: string;
+
+  constructor(id: string, classes: string[]) {
+    this.id = id;
+    this.classes = this.setClasses(classes);
+  }
+
+  private setClasses(classes: string[]) {
+    return classes.join(" ");
+  }
+
+  public getElement(): any {
+    return document.getElementById(this.id);
+  }
+
+  public getValue(): string {
+    const element: any = document.getElementById(this.id);
+    return element.value;
+  }
+
+  public setValue(value: string): void {
+    const element: any = document.getElementById(this.id);
+    element.value = value;
+  }
+
+  public addEventListener(type: string, callBackFunction = () => {}): void {
+    document.getElementById(this.id)?.addEventListener(type, callBackFunction);
+  }
+
+  public getInnerText(): string {
+    const element: any = document.getElementById(this.id);
+    return element.innerText;
+  }
+
+  public setInnerText(value: string): void {
+    const element: any = document.getElementById(this.id);
+    element.innerText = value;
+  }
+}

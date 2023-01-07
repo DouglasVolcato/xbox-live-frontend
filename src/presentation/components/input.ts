@@ -1,4 +1,4 @@
-import { HtmlElement } from "../helpers/html-element";
+import { HtmlElement } from "../helpers/html/html-element";
 import { ComponentInterface } from "../abstract/component-interface";
 import { InputTypeEnum } from "../enums/input/input-type-enum";
 
@@ -11,7 +11,7 @@ export class Input extends HtmlElement implements ComponentInterface {
     type: InputTypeEnum,
     value: string,
     id: string,
-    placeholder = "",
+    placeholder: string = "",
     classes: string[] = []
   ) {
     super(id, classes);

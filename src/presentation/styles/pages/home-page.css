@@ -1,0 +1,11 @@
+.gameCardImage{
+    width: 250px;
+    max-width: 90vw;
+}
+
+.homepage-gameCard{
+    color: wheat;
+    margin: 20px;
+    border-width: 5px;
+    cursor: pointer;
+}

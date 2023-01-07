@@ -24,7 +24,7 @@ export class Div extends HtmlElement implements ComponentInterface {
   render(): string {
     const componentComposer = this.getComponents(this.components);
     return `
-        <div id="${this.id}" class="flex-body ${this.getFlexType(
+        <div id="${this.id}" class="div ${this.getFlexType(
       this.flexType
     )} ${this.getFlexDirection(this.flexDirection)} ${this.classes}">
             ${componentComposer}

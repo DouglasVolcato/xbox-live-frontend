@@ -1,0 +1,4 @@
+Future features checklist:
+
+-Navbar component;
+-Modal component.

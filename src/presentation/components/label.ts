@@ -1,7 +1,7 @@
 import { HtmlElement } from "../helpers/html/html-element";
 import { ComponentInterface } from "../abstract/component-interface";
 
-export class Paragraph extends HtmlElement implements ComponentInterface {
+export class Label extends HtmlElement implements ComponentInterface {
   private readonly text: string;
 
   constructor(text: string, id: string, classes: string[] = []) {
@@ -9,7 +9,9 @@ export class Paragraph extends HtmlElement implements ComponentInterface {
     this.text = text;
   }
 
-  render() {
-    return `<p id="${this.id}" class="paragraph ${this.classes}">${this.text}</p>`;
+  render(): string {
+    return `
+        <label class="label ${this.classes}" id="${this.id}">${this.text}</label>
+    `;
   }
 }

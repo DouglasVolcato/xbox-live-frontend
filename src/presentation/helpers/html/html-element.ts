@@ -1,30 +1,40 @@
 export class HtmlElement {
-  constructor(protected readonly id: string) {}
+  protected readonly id: string;
+  protected readonly classes: string;
 
-  getElement(): any {
+  constructor(id: string, classes: string[]) {
+    this.id = id;
+    this.classes = this.setClasses(classes);
+  }
+
+  private setClasses(classes: string[]) {
+    return classes.join(" ");
+  }
+
+  public getElement(): any {
     return document.getElementById(this.id);
   }
 
-  getValue(): string {
+  public getValue(): string {
     const element: any = document.getElementById(this.id);
     return element.value;
   }
 
-  setValue(value: string): void {
+  public setValue(value: string): void {
     const element: any = document.getElementById(this.id);
     element.value = value;
   }
 
-  addEventListener(type: string, callBackFunction = () => {}): void {
+  public addEventListener(type: string, callBackFunction = () => {}): void {
     document.getElementById(this.id)?.addEventListener(type, callBackFunction);
   }
 
-  getInnerText(): string {
+  public getInnerText(): string {
     const element: any = document.getElementById(this.id);
     return element.innerText;
   }
 
-  setInnerText(value: string): void {
+  public setInnerText(value: string): void {
     const element: any = document.getElementById(this.id);
     element.innerText = value;
   }

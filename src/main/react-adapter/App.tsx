@@ -1,11 +1,10 @@
-import "../../presentation/styles/title.css";
-import "../../presentation/styles/input.css";
-import "../../presentation/styles/button.css";
-import "../../presentation/styles/paragraph.css";
 import { useEffect } from "react";
+import { makeStyleComposerFactory } from "../factories/style-composer-factory";
 import { makeHomePageFactory } from "../factories/home-page-factory";
+import { HtmlComponent } from "./helpers/html-component-helper";
 
 export function App() {
+  const styles = makeStyleComposerFactory();
   const homepage = makeHomePageFactory();
 
   useEffect(() => {
@@ -14,7 +13,8 @@ export function App() {
 
   return (
     <div>
-      <div dangerouslySetInnerHTML={{ __html: homepage.render() }} />
+      <HtmlComponent component={styles.render()} />
+      <HtmlComponent component={homepage.render()} />
     </div>
   );
 }

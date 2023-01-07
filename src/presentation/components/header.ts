@@ -1,22 +1,24 @@
 import { ComponentInterface } from "../abstract/component-interface";
-import { HtmlElement } from "../helpers/html-element";
+import { ComponentComposer } from "../helpers/composers/component-composer";
+import { HtmlElement } from "../helpers/html/html-element";
 
 export class Header extends HtmlElement implements ComponentInterface {
   private readonly components: ComponentInterface[];
 
-  constructor(components: ComponentInterface[], id: string) {
-    super(id);
+  constructor(
+    components: ComponentInterface[],
+    id: string,
+    classes: string[] = []
+  ) {
+    super(id, classes);
     this.components = components;
   }
 
   render(): string {
-    let componentComposer: string = "";
-    this.components.map((component) => {
-      componentComposer = componentComposer + component.render();
-    });
+    const components = new ComponentComposer(this.components);
     return `
-        <header id="${this.id}" class="header">
-            ${componentComposer}
+        <header id="${this.id}" class="header ${this.classes}">
+            ${components.compose()}
         </header>
     `;
   }

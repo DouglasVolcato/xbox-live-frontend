@@ -1,31 +1,36 @@
 import { PageInterface } from "../abstract/page-interface";
-import { Button } from "../components/button";
+import { Div } from "../components/div";
 import { Header } from "../components/header";
-import { Input } from "../components/input";
-import { Paragraph } from "../components/paragraph";
+import { HtmlElement } from "../helpers/html/html-element";
 
 export class HomePage implements PageInterface {
-  constructor(
-    private readonly header: Header,
-    private readonly input: Input,
-    private readonly button: Button,
-    private readonly paragraph: Paragraph
-  ) {}
+  private readonly header: Header;
+  private readonly gamesDiv: Div;
+  private readonly menuDiv: Div;
+  private readonly gameCards: Div[];
+
+  constructor(header: Header, gamesDiv: Div, menuDiv: Div, gameCards: Div[]) {
+    this.header = header;
+    this.gamesDiv = gamesDiv;
+    this.menuDiv = menuDiv;
+    this.gameCards = gameCards;
+  }
 
   render(): string {
     return `
         <main>
             ${this.header.render()}
-            ${this.input.render()}
-            ${this.button.render()}
-            ${this.paragraph.render()}
+            ${this.gamesDiv.render()}
+            ${this.menuDiv.render()}
         </main>
     `;
   }
 
-  changeStateValue(): void {
-    this.button.addEventListener("click", () => {
-      this.paragraph.setInnerText(this.input.getValue());
+  public gameCardClickTest(): void {
+    this.gameCards.map((gameCard) => {
+      gameCard.addEventListenerToAll("click", () => {
+        console.log("teste");
+      });
     });
   }
 }

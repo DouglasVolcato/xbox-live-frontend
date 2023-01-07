@@ -8,7 +8,7 @@ export function App() {
   const homepage = makeHomePageFactory();
 
   useEffect(() => {
-    homepage.changeStateValue();
+    homepage.gameCardClickTest();
   }, []);
 
   return (

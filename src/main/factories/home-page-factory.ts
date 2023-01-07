@@ -24,7 +24,7 @@ export function makeHomePageFactory(): HomePage {
     "Game image",
     mockedGame.coverImageUrl,
     "homepage-gamesDiv-gameCard-gameImage",
-    ["homepage-gamesDiv-gameCard-gameImage", "gameCardImage"]
+    ["gameCardImage"]
   );
   const gameCard = new Div(
     DIV,
@@ -32,22 +32,18 @@ export function makeHomePageFactory(): HomePage {
     EVENLY,
     [gameImage, gameTitle],
     "homepage-gamesDiv-gameCard",
-    [
-      "homepage-gamesDiv-gameCard",
-      "homepage-gameCard",
-      "background-dark-blue",
-      "border-light-gray",
-    ]
+    ["homepage-gameCard", "background-dark-blue", "border-light-gray"]
   );
   const gamesDiv = new Div(
     DIV,
     ROW,
     EVENLY,
-    [gameCard, gameCard, gameCard, gameCard, gameCard, gameCard],
-    "homepage-gamesDiv"
+    [gameCard, gameCard, gameCard, gameCard],
+    "homepage-gamesDiv",
+    ["flex-wrap"]
   );
 
   const manuDiv = new Div(DIV, COLUMN, BETWEEN, [], "homepage-menuDiv");
 
-  return new HomePage(header, gamesDiv, manuDiv, [gameCard]);
+  return new HomePage(header, gamesDiv, manuDiv);
 }

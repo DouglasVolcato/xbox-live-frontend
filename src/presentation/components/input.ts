@@ -1,21 +1,28 @@
-import { HtmlElement } from "../helpers/html-element-helper";
+import { HtmlElement } from "../helpers/html/html-element";
 import { ComponentInterface } from "../abstract/component-interface";
+import { InputTypeEnum } from "../enums/input/input-type-enum";
 
 export class Input extends HtmlElement implements ComponentInterface {
   private readonly type: string;
   private readonly value: string;
-  private readonly className: string;
+  private readonly placeholder: string;
 
-  constructor(type: string, value: string, className: string, id: string) {
-    super(id);
+  constructor(
+    type: InputTypeEnum,
+    value: string,
+    id: string,
+    placeholder: string = "",
+    classes: string[] = []
+  ) {
+    super(id, classes);
     this.type = type;
     this.value = value;
-    this.className = className;
+    this.placeholder = placeholder;
   }
 
   render(): string {
     return `
-        <input class="${this.className}" id="${this.id}" type=${this.type} value=${this.value} />
+        <input class="input ${this.classes}" id="${this.id}" type="${this.type}" value="${this.value}" placeholder="${this.placeholder}" />
     `;
   }
 }

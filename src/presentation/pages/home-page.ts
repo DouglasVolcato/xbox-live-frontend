@@ -14,12 +14,12 @@ export class HomePage implements PageInterface {
 
   render(): string {
     return `
-        <html>
+        <main>
             ${this.header.render()}
             ${this.input.render()}
             ${this.button.render()}
             ${this.paragraph.render()}
-        </html>
+        </main>
     `;
   }
 

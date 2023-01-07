@@ -1,19 +1,25 @@
-import { HtmlElement } from "../helpers/html-element-helper";
+import { HtmlElement } from "../Helpers/html-element-helper";
 import { ComponentInterface } from "../abstract/component-interface";
+import { ButtonTypeEnum } from "../enums/button/button-type-enum";
 
 export class Button extends HtmlElement implements ComponentInterface {
   private readonly name: string;
   private readonly type: string;
-  private readonly className: string;
 
-  constructor(name: string, type: string, className: string, id: string) {
-    super(id);
+  constructor(
+    name: string,
+    type: ButtonTypeEnum,
+    id: string,
+    classes: string[] = []
+  ) {
+    super(id, classes);
     this.name = name;
     this.type = type;
-    this.className = className;
   }
 
   render(): string {
-    return `<button id="${this.id}" class="${this.className}" type="${this.type}">${this.name}</button>`;
+    return `
+      <button id="${this.id}" class="button ${this.classes}" type="${this.type}">${this.name}</button>
+    `;
   }
 }

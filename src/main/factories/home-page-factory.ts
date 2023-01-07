@@ -13,7 +13,10 @@ export function makeHomePageFactory(): HomePage {
   const title = new Title("HomePage", "home-page-title");
   const header = new Header([title], "home-page-header");
   const input = new Input(TEXT, "Text", "home-page-input");
-  const button = new Button("Send", BUTTON, "home-page-button");
+  const button = new Button("Send", BUTTON, "home-page-button", [
+    "background-dark-green",
+    "border-light-gray",
+  ]);
   const paragraph = new Paragraph("Text", "home-page-paragraph");
 
   return new HomePage(header, input, button, paragraph);

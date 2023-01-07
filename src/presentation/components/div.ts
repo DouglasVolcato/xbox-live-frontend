@@ -1,34 +1,41 @@
 import { ComponentInterface } from "../abstract/component-interface";
-import { FlexDirectionEnum } from "../enums/flex-body/flex-direction-enum";
-import { FlexTypeEnum } from "../enums/flex-body/flex-type-enum";
-import { HtmlElement } from "../helpers/html-element";
+import { DivTypeEnum } from "../enums/div/div-type-enum";
+import { FlexDirectionEnum } from "../enums/div/flex-direction-enum";
+import { FlexTypeEnum } from "../enums/div/flex-type-enum";
+import { ComponentComposer } from "../helpers/composers/component-composer";
+import { HtmlElement } from "../helpers/html/html-element";
 
 export class Div extends HtmlElement implements ComponentInterface {
+  private readonly divType: DivTypeEnum;
   private readonly components: ComponentInterface[];
   private readonly flexType: string;
   private readonly flexDirection: string;
 
   constructor(
-    components: ComponentInterface[],
+    divType: DivTypeEnum,
     flexType: FlexTypeEnum,
     flexDirection: FlexDirectionEnum,
+    components: ComponentInterface[],
     id: string,
     classes: string[] = []
   ) {
     super(id, classes);
+    this.divType = divType;
     this.components = components;
     this.flexType = flexType;
     this.flexDirection = flexDirection;
   }
 
   render(): string {
-    const componentComposer = this.getComponents(this.components);
+    const flexType = this.getFlexType(this.flexType);
+    const flexDirection = this.getFlexDirection(this.flexDirection);
+    const components = new ComponentComposer(this.components);
     return `
-        <div id="${this.id}" class="div ${this.getFlexType(
-      this.flexType
-    )} ${this.getFlexDirection(this.flexDirection)} ${this.classes}">
-            ${componentComposer}
-        </div>
+        <${this.divType} id="${
+      this.id
+    }" class="div ${flexType} ${flexDirection} ${this.classes}">
+            ${components.compose()}
+        </${this.divType}>
     `;
   }
 
@@ -54,13 +61,5 @@ export class Div extends HtmlElement implements ComponentInterface {
       default:
         return "";
     }
-  }
-
-  private getComponents(components: ComponentInterface[]): string {
-    let componentComposer = "";
-    components.map((component) => {
-      componentComposer = componentComposer + component.render();
-    });
-    return componentComposer;
   }
 }

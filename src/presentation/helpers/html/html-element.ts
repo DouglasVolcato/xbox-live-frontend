@@ -38,4 +38,18 @@ export class HtmlElement {
     const element: any = document.getElementById(this.id);
     element.innerText = value;
   }
+
+  public addEventListenerToAll(
+    type: string,
+    callBackFunction = () => {}
+  ): void {
+    const elements = document.querySelectorAll("." + this.id);
+    Array.from(elements).forEach(function (element) {
+      element.addEventListener(type, callBackFunction);
+    });
+  }
+
+  public getAllElements(): any {
+    return document.querySelectorAll("." + this.classes[0]);
+  }
 }

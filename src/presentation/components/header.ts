@@ -1,4 +1,3 @@
-
 import { ComponentInterface } from "../abstract/component-interface";
 import { ComponentComposer } from "../helpers/composers/component-composer";
 import { HtmlElement } from "../helpers/html/html-element";

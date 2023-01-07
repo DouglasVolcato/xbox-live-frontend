@@ -1,19 +1,16 @@
 import { PageInterface } from "../abstract/page-interface";
 import { Div } from "../components/div";
 import { Header } from "../components/header";
-import { HtmlElement } from "../helpers/html/html-element";
 
 export class HomePage implements PageInterface {
   private readonly header: Header;
   private readonly gamesDiv: Div;
   private readonly menuDiv: Div;
-  private readonly gameCards: Div[];
 
-  constructor(header: Header, gamesDiv: Div, menuDiv: Div, gameCards: Div[]) {
+  constructor(header: Header, gamesDiv: Div, menuDiv: Div) {
     this.header = header;
     this.gamesDiv = gamesDiv;
     this.menuDiv = menuDiv;
-    this.gameCards = gameCards;
   }
 
   render(): string {
@@ -27,10 +24,8 @@ export class HomePage implements PageInterface {
   }
 
   public gameCardClickTest(): void {
-    this.gameCards.map((gameCard) => {
-      gameCard.addEventListenerToAll("click", () => {
-        console.log("teste");
-      });
+    this.gamesDiv.addEventListenerToChildren("click", (event: any) => {
+      event.currentTarget.remove();
     });
   }
 }

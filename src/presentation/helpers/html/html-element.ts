@@ -29,6 +29,28 @@ export class HtmlElement {
     document.getElementById(this.id)?.addEventListener(type, callBackFunction);
   }
 
+  public addEventListenerToChildren(type: string, callBackFunction: any): void {
+    const children = document.getElementById(this.id)?.children;
+    if (children) {
+      Array.from(children).forEach((element) => {
+        element.addEventListener(type, callBackFunction);
+      });
+    }
+  }
+
+  public getChildren(): any {
+    return document.getElementById(this.id)?.children;
+  }
+
+  public deleteChildren(): any {
+    const children = document.getElementById(this.id)?.children;
+    if (children) {
+      Array.from(children).forEach((element) => {
+        element.remove();
+      });
+    }
+  }
+
   public getInnerText(): string {
     const element: any = document.getElementById(this.id);
     return element.innerText;
@@ -37,19 +59,5 @@ export class HtmlElement {
   public setInnerText(value: string): void {
     const element: any = document.getElementById(this.id);
     element.innerText = value;
-  }
-
-  public addEventListenerToAll(
-    type: string,
-    callBackFunction = () => {}
-  ): void {
-    const elements = document.querySelectorAll("." + this.id);
-    Array.from(elements).forEach(function (element) {
-      element.addEventListener(type, callBackFunction);
-    });
-  }
-
-  public getAllElements(): any {
-    return document.querySelectorAll("." + this.classes[0]);
   }
 }

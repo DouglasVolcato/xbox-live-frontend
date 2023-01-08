@@ -24,10 +24,12 @@ export class HomePage implements PageInterface {
   }
 
   public updateHours(): void {
-    const currentHours = `${new Date().toLocaleTimeString()}`;
     const clock = document.getElementById("homepage-header-clockDiv-clock");
     if (clock && clock.innerText) {
-      clock.innerText = currentHours;
+      clock.innerText = `${new Date().toLocaleTimeString()}`;
+      clock.addEventListener("click", () => {
+        clock.innerText = `${new Date().toLocaleTimeString()}`;
+      });
     }
   }
 

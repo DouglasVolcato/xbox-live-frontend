@@ -1,6 +1,7 @@
 import { PageInterface } from "../abstract/page-interface";
 import { Div } from "../components/div";
 import { Header } from "../components/header";
+import { updateHour } from "./helpers/update-hour";
 
 export class HomePage implements PageInterface {
   private readonly header: Header;
@@ -24,13 +25,7 @@ export class HomePage implements PageInterface {
   }
 
   public updateHours(): void {
-    const clock = document.getElementById("homepage-header-clockDiv-clock");
-    if (clock && clock.innerText) {
-      clock.innerText = `${new Date().toLocaleTimeString()}`;
-      clock.addEventListener("click", () => {
-        clock.innerText = `${new Date().toLocaleTimeString()}`;
-      });
-    }
+    updateHour();
   }
 
   public getMenuRoute(callbackFunction: (event: any) => void): void {

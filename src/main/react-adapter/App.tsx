@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { makeStyleComposerFactory } from "../factories/style-composer-factory";
 import { makeHomePageFactory } from "../factories/home-page-factory";
 import { HtmlComponent } from "./helpers/html-component-helper";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 export function App() {
   const styles = makeStyleComposerFactory();
@@ -18,8 +19,15 @@ export function App() {
 
   return (
     <div>
-      <HtmlComponent component={styles.render()} />
-      <HtmlComponent component={homepage.render()} />
+      <BrowserRouter>
+        <HtmlComponent component={styles.render()} />
+        <Routes>
+          <Route
+            path="/"
+            element={<HtmlComponent component={homepage.render()} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

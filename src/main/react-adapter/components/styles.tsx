@@ -1,4 +1,4 @@
-import { makeStyleComposerFactory } from "../../factories/style-composer-factory";
+import { makeStyleComposerFactory } from "../../factories/styles/style-composer-factory";
 import { HtmlComponent } from "../helpers/html-component-helper";
 
 export function Styles() {

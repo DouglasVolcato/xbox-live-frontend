@@ -9,10 +9,13 @@ import { FlexDirectionEnum } from "../../presentation/enums/div/flex-direction-e
 import { FlexJustificationEnum } from "../../presentation/enums/div/flex-justification-enum";
 import { mockedUser } from "../../infra/mocks/user";
 import { mockedProfile } from "../../infra/mocks/profile";
+import { Button } from "../../presentation/components/button";
+import { ButtonTypeEnum } from "../../presentation/enums/button/button-type-enum";
 
 const { DIV } = DivTypeEnum;
 const { COLUMN, ROW } = FlexDirectionEnum;
-const { BETWEEN, EVENLY } = FlexJustificationEnum;
+const { EVENLY } = FlexJustificationEnum;
+const { BUTTON } = ButtonTypeEnum;
 
 export function makeHomePageFactory(): HomePage {
   const userName = new Paragraph(
@@ -77,7 +80,34 @@ export function makeHomePageFactory(): HomePage {
     ["flex-wrap"]
   );
 
-  const manuDiv = new Div(DIV, COLUMN, BETWEEN, [], "homepage-menuDiv");
+  const favoriteGamesButton = new Button(
+    "Favorite Games",
+    BUTTON,
+    "homepage-menuDiv-favoriteGames",
+    ["menuButton"]
+  );
 
-  return new HomePage(header, gamesDiv, manuDiv);
+  const topImdbGamesButton = new Button(
+    "Top IMDBs",
+    BUTTON,
+    "homepage-menuDiv-topImdbGames",
+    ["menuButton"]
+  );
+
+  const gameCategoriesButton = new Button(
+    "Categories",
+    BUTTON,
+    "homepage-menuDiv-gameCategories",
+    ["menuButton"]
+  );
+
+  const menuDiv = new Div(
+    DIV,
+    ROW,
+    EVENLY,
+    [favoriteGamesButton, topImdbGamesButton, gameCategoriesButton],
+    "homepage-menuDiv"
+  );
+
+  return new HomePage(header, gamesDiv, menuDiv);
 }

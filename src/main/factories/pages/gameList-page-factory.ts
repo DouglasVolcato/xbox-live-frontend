@@ -6,7 +6,7 @@ import { makeMenuFactory } from "../components/menu-component-factory";
 
 export function makeGameListPageFactory(): GameListPage {
   const header = makeHeaderFactory();
-  const pageTitle = new Title("Game List", "gameList-titleDiv-title");
+  const pageTitle = new Title("Game List", "gameList-title");
   const menuDiv = makeMenuFactory();
   const gamesDiv = makeGameListFactory();
 

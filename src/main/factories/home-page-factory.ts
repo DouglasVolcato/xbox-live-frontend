@@ -34,14 +34,17 @@ export function makeHomePageFactory(): HomePage {
     "homepage-header-userInfo"
   );
 
-  const clock = new Paragraph("10:20", "homepage-header-clock", ["clock"]);
+  const clock = new Paragraph("10:20", "homepage-header-clockDiv-clock", [
+    "clock",
+  ]);
 
   const clockDiv = new Div(
     DIV,
     ROW,
     EVENLY,
     [clock],
-    "homepage-header-userInfo", ["clockDiv"]
+    "homepage-header-clockDiv",
+    ["clockDiv"]
   );
 
   const header = new Header([userInfo, clockDiv], "homepage-header");

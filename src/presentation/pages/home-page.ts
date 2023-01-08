@@ -23,9 +23,17 @@ export class HomePage implements PageInterface {
     `;
   }
 
-  public gameCardClickTest(): void {
-    this.gamesDiv.addEventListenerToChildren("click", (event: any) => {
-      event.currentTarget.remove();
-    });
+  // public gameCardClickTest(): void {
+  //   this.gamesDiv.addEventListenerToChildren("click", (event: any) => {
+  //     event.currentTarget.remove();
+  //   });
+  // }
+
+  public updateHours(): void {
+    const currentHours = `${new Date().toLocaleTimeString()}`;
+    const clock = document.getElementById("homepage-header-clockDiv-clock");
+    if (clock && clock.innerText) {
+      clock.innerText = currentHours;
+    }
   }
 }

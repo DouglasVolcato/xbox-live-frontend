@@ -7,8 +7,13 @@ export function App() {
   const styles = makeStyleComposerFactory();
   const homepage = makeHomePageFactory();
 
+  function getMenuRoute(route: string) {
+    console.log(route);
+  }
+
   useEffect(() => {
     homepage.updateHours();
+    homepage.getMenuRoute(getMenuRoute);
   }, []);
 
   return (

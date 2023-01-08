@@ -30,4 +30,10 @@ export class HomePage implements PageInterface {
       clock.innerText = currentHours;
     }
   }
+
+  public getMenuRoute(callbackFunction: (event: any) => void): void {
+    this.menuDiv.addEventListenerToChildren("click", (event: any) =>
+      callbackFunction(event.target.innerText)
+    );
+  }
 }

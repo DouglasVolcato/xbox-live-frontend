@@ -13,7 +13,7 @@ export class HomePage implements PageInterface {
     this.menuDiv = menuDiv;
   }
 
-  render(): string {
+  public render(): string {
     return `
         <main>
             ${this.header.render()}

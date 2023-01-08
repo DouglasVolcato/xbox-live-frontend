@@ -20,7 +20,7 @@ export class Input extends HtmlElement implements ComponentInterface {
     this.placeholder = placeholder;
   }
 
-  render(): string {
+  public render(): string {
     return `
         <input class="input ${this.classes}" id="${this.id}" type="${this.type}" value="${this.value}" placeholder="${this.placeholder}" />
     `;

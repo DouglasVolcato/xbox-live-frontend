@@ -9,7 +9,7 @@ export class Title extends HtmlElement implements ComponentInterface {
     this.title = title;
   }
 
-  render(): string {
+  public render(): string {
     return `
         <h1 id="${this.id}" class="title ${this.classes}">${this.title}</h1>
     `;

@@ -9,7 +9,7 @@ export class Label extends HtmlElement implements ComponentInterface {
     this.text = text;
   }
 
-  render(): string {
+  public render(): string {
     return `
         <label class="label ${this.classes}" id="${this.id}">${this.text}</label>
     `;

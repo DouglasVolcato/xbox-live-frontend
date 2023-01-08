@@ -26,7 +26,7 @@ export class Div extends HtmlElement implements ComponentInterface {
     this.components = components;
   }
 
-  render(): string {
+  public render(): string {
     const flexDirection = this.getFlexDirection(this.flexDirection);
     const flexJustification = this.getFlexJustification(this.flexJustification);
     const components = new ComponentComposer(this.components);

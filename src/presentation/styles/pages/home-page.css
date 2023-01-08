@@ -45,6 +45,18 @@
     margin: 20px;
 }
 
+.menuButton{
+    border-radius: 10px;
+    border: solid 2px white;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#homepage-menuDiv{
+    margin-top: 50px;
+}
+
 @media(max-width: 550px){
     #homepage-header{
         justify-content: center;

@@ -5,7 +5,52 @@
 
 .homepage-gameCard{
     color: wheat;
-    margin: 20px;
     border-width: 5px;
     cursor: pointer;
+}
+
+#homepage-header{
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#homepage-header-userInfo{
+    width:fit-content;
+    color: wheat;
+    max-width: 90vw;
+    margin: 20px;
+}
+
+.profileImage{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin-right: 20px;
+}
+
+.profileName{
+    margin: auto;
+    font-size: 20px;
+}
+
+.clock{
+    font-size: 30px;
+    color: white;
+    margin: auto;
+}
+
+.clockDiv{
+    margin: 20px;
+}
+
+@media(max-width: 550px){
+    #homepage-header{
+        justify-content: center;
+    }
+
+    .clockDiv{
+       display: none; 
+    }
 }

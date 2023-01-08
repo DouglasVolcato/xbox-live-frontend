@@ -4,8 +4,6 @@ export function getMenuRoute(route: string): string {
       return "/favorite-games";
     case "game list":
       return "/game-list";
-    case "categories":
-      return "/categories";
     default:
       return "/";
   }

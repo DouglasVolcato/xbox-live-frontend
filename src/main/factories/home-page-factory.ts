@@ -106,7 +106,8 @@ export function makeHomePageFactory(): HomePage {
     ROW,
     EVENLY,
     [favoriteGamesButton, topImdbGamesButton, gameCategoriesButton],
-    "homepage-menuDiv"
+    "homepage-menuDiv",
+    ["flex-wrap"]
   );
 
   return new HomePage(header, gamesDiv, menuDiv);

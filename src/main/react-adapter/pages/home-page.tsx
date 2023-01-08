@@ -1,32 +1,20 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { makeHomePageFactory } from "../../factories/home-page-factory";
+import { makeHomePageFactory } from "../../factories/pages/home-page-factory";
+import { getMenuRoute } from "../helpers/get-menu-route";
 import { HtmlComponent } from "../helpers/html-component-helper";
 
 export function Homepage() {
   const navigate = useNavigate();
   const homepage = makeHomePageFactory();
 
-  function getMenuRoute(route: string): void {
-    switch (route.toLowerCase()) {
-      case "favorite games":
-        navigate("/favorite-games");
-        return;
-      case "top imdbs":
-        navigate("/top-imdbs");
-        return;
-      case "categories":
-        navigate("/categories");
-        return;
-      default:
-        navigate("/");
-        return;
-    }
+  function setRoute(route: string): void {
+    navigate(getMenuRoute(route));
   }
 
   useEffect(() => {
     homepage.updateHours();
-    homepage.getMenuRoute(getMenuRoute);
+    homepage.getMenuRoute(setRoute);
   }, []);
 
   return <HtmlComponent component={homepage.render()} />;

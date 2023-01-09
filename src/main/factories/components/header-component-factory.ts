@@ -32,9 +32,7 @@ export function makeHeaderFactory(): Header {
     "homepage-header-userInfo"
   );
 
-  const clock = new Paragraph("0", "homepage-header-clockDiv-clock", [
-    "clock",
-  ]);
+  const clock = new Paragraph("0", "homepage-header-clockDiv-clock", ["clock"]);
 
   const clockDiv = new Div(
     DIV,

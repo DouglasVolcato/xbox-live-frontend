@@ -1,7 +1,7 @@
 import { HomePage } from "../../../presentation/pages/home-page";
+import { makeGameListFactory } from "../components/gameList-component-factory";
 import { makeHeaderFactory } from "../components/header-component-factory";
 import { makeMenuFactory } from "../components/menu-component-factory";
-import { makeGameListFactory } from "../components/gameList-component-factory";
 
 export function makeHomePageFactory(): HomePage {
   const header = makeHeaderFactory();

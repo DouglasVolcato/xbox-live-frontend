@@ -1,4 +1,4 @@
-import { StyleComposer } from "../../presentation/helpers/composers/style-composer";
+import { StyleComposer } from "../../../presentation/helpers/composers/style-composer";
 
 export function makeStyleComposerFactory(): StyleComposer {
   const globals = ["./src/presentation/styles/global/global.css"];
@@ -11,7 +11,10 @@ export function makeStyleComposerFactory(): StyleComposer {
     "./src/presentation/styles/components/input.css",
     "./src/presentation/styles/components/button.css",
     "./src/presentation/styles/components/paragraph.css",
+    "./src/presentation/styles/components/div.css",
+    "./src/presentation/styles/components/image.css",
   ];
+  const pages = ["./src/presentation/styles/pages/home-page.css"];
 
-  return new StyleComposer([...globals, ...colors, ...components]);
+  return new StyleComposer([...globals, ...colors, ...components, ...pages]);
 }

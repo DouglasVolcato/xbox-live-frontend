@@ -17,7 +17,7 @@ export class Button extends HtmlElement implements ComponentInterface {
     this.type = type;
   }
 
-  render(): string {
+  public render(): string {
     return `
       <button id="${this.id}" class="button ${this.classes}" type="${this.type}">${this.name}</button>
     `;

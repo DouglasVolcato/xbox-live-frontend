@@ -11,7 +11,7 @@ export class Image extends HtmlElement implements ComponentInterface {
     this.src = src;
   }
 
-  render(): string {
+  public render(): string {
     return `
         <img id="${this.id}" class="image ${this.classes}" src="${this.src}" alt="${this.alt}" />
     `;

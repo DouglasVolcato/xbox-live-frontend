@@ -9,7 +9,7 @@ export class Paragraph extends HtmlElement implements ComponentInterface {
     this.text = text;
   }
 
-  render() {
+  public render() {
     return `<p id="${this.id}" class="paragraph ${this.classes}">${this.text}</p>`;
   }
 }

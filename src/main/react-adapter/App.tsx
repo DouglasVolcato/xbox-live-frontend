@@ -1,20 +1,20 @@
-import { useEffect } from "react";
-import { makeStyleComposerFactory } from "../factories/style-composer-factory";
-import { makeHomePageFactory } from "../factories/home-page-factory";
-import { HtmlComponent } from "./helpers/html-component-helper";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Styles } from "./components/styles";
+import { FavoriteGames } from "./pages/favoriteGames-page";
+import { GameList } from "./pages/gameList-page";
+import { Homepage } from "./pages/home-page";
 
 export function App() {
-  const styles = makeStyleComposerFactory();
-  const homepage = makeHomePageFactory();
-
-  useEffect(() => {
-    homepage.changeStateValue();
-  }, []);
-
   return (
     <div>
-      <HtmlComponent component={styles.render()} />
-      <HtmlComponent component={homepage.render()} />
+      <BrowserRouter>
+        <Styles />
+        <Routes>
+          <Route path="favorite-games" element={<FavoriteGames />} />
+          <Route path="game-list" element={<GameList />} />
+          <Route path="*" element={<Homepage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

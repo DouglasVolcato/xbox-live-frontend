@@ -10,5 +10,5 @@ export const mockedProfile: Profile = {
   createdAt: "2023-01-02",
   updatedAt: "2023-01-02",
   favoriteGames: ["234d234123d15d1"],
-  Games: [mockedGame],
+  Game: [mockedGame],
 };

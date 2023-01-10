@@ -1,0 +1,43 @@
+{
+  "statusCode": 200,
+  "body": {
+    "id": "0bf62db9-3a12-4573-b72c-b8d0514e2156",
+    "name": "Douglas Volcato",
+    "email": "douglasvolcato@gmail.com",
+    "password": "$2b$10$M1pXQjHNI9djqAevcVoYTus1Wq.YyFp1TEs.rXRH9KLyghtmLPpXy",
+    "cpf": "12345678910",
+    "isAdmin": true,
+    "createdAt": "2023-01-10",
+    "updatedAt": "2023-01-10",
+    "profiles": [
+      {
+        "id": "fa54bba4-1302-4d53-ac11-9ad52f1ae83a",
+        "title": "Douglas Volcato",
+        "imageUrl": "https://avatars.githubusercontent.com/u/106124397?v=4",
+        "createdAt": "2023-01-10",
+        "updatedAt": "2023-01-10",
+        "userId": "0bf62db9-3a12-4573-b72c-b8d0514e2156",
+        "favoriteGames": [
+          "3218b4ab-d5dc-4576-907e-de911b9eab47"
+        ],
+        "Game": [
+          {
+            "id": "3218b4ab-d5dc-4576-907e-de911b9eab47",
+            "title": "Super Game",
+            "coverImageUrl": "Super Game",
+            "description": "This is a great game!",
+            "year": 2000,
+            "gender": "Adventure",
+            "imdbScore": 7,
+            "trailerYouTubeUrl": "https://www.youtube.com/watch?v=oRN6341NB7Y",
+            "gameplayYouTubeUrl": "https://www.youtube.com/watch?v=SNESYou9gy8",
+            "createdAt": "2023-01-10",
+            "updatedAt": "2023-01-10",
+            "userId": "0bf62db9-3a12-4573-b72c-b8d0514e2156",
+            "profileId": "fa54bba4-1302-4d53-ac11-9ad52f1ae83a"
+          }
+        ]
+      }
+    ]
+  }
+}

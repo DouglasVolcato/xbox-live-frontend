@@ -7,7 +7,7 @@ export type User = {
   password: string;
   cpf: string;
   isAdmin: boolean;
-  profiles: Profile[];
   createdAt: string;
   updatedAt: string;
+  profiles: Profile[];
 };

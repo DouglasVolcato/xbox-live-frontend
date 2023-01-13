@@ -34,13 +34,13 @@ export function makeLoginPage(): LoginPage {
     "Login",
     ButtonTypeEnum.BUTTON,
     "loginForm-buttonsDiv-loginButon",
-    ["border-light-blue", "background-dark-green"]
+    ["border-light-green", "background-dark-green"]
   );
   const registerButton = new Button(
     "Register",
     ButtonTypeEnum.BUTTON,
     "loginForm-buttonsDiv-registerButton",
-    ["border-light-green", "background-dark-blue"]
+    ["border-light-blue", "background-dark-blue"]
   );
 
   const buttonsDiv = new Div(

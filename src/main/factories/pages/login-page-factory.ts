@@ -3,6 +3,7 @@ import { Button } from "../../../presentation/components/button";
 import { Div } from "../../../presentation/components/div";
 import { Input } from "../../../presentation/components/input";
 import { Label } from "../../../presentation/components/label";
+import { Title } from "../../../presentation/components/title";
 import { ButtonTypeEnum } from "../../../presentation/enums/button/button-type-enum";
 import { DivTypeEnum } from "../../../presentation/enums/div/div-type-enum";
 import { FlexDirectionEnum } from "../../../presentation/enums/div/flex-direction-enum";
@@ -11,6 +12,8 @@ import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum
 import { LoginPage } from "../../../presentation/pages/login-page";
 
 export function makeLoginPage(): LoginPage {
+  const formTitle = new Title("Login", "loginForm-title");
+
   const emailLabel = new Label("Email", "loginForm-emailLabel");
   const emailInput = new Input(
     InputTypeEnum.EMAIL,
@@ -52,7 +55,14 @@ export function makeLoginPage(): LoginPage {
     DivTypeEnum.FORM,
     FlexDirectionEnum.COLUMN,
     FlexJustificationEnum.EVENLY,
-    [emailLabel, emailInput, passwordLabel, passwordInput, buttonsDiv],
+    [
+      formTitle,
+      emailLabel,
+      emailInput,
+      passwordLabel,
+      passwordInput,
+      buttonsDiv,
+    ],
     "loginForm",
     ["form"]
   );

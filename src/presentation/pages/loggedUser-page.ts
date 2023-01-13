@@ -12,7 +12,7 @@ export class LoggedUserPage implements PageInterface {
     this.formsDiv = formsDiv;
   }
 
-  render(): string {
+  public render(): string {
     return `
         <main>
             ${this.menuDiv.render()}

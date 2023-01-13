@@ -19,6 +19,7 @@ export function makeStyleComposerFactory(): StyleComposer {
   const pages = [
     "./src/presentation/styles/pages/home-page.css",
     "./src/presentation/styles/pages/loggedUser-page.css",
+    "./src/presentation/styles/pages/login-page.css",
   ];
 
   return new StyleComposer([...globals, ...colors, ...components, ...pages]);

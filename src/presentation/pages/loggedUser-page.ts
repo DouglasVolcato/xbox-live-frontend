@@ -1,6 +1,5 @@
 import { PageInterface } from "../abstract/page-interface";
 import { Div } from "../components/div";
-import { getPageRoute } from "./helpers/get-page-route";
 import { updateHour } from "./helpers/update-hour";
 
 export class LoggedUserPage implements PageInterface {
@@ -23,9 +22,5 @@ export class LoggedUserPage implements PageInterface {
 
   public updateHours(): void {
     updateHour();
-  }
-
-  public getMenuRoute(callbackFunction: (event: any) => void): void {
-    getPageRoute(this.menuDiv, callbackFunction);
   }
 }

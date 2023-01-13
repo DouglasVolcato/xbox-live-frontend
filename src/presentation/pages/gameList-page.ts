@@ -2,7 +2,6 @@ import { PageInterface } from "../abstract/page-interface";
 import { Div } from "../components/div";
 import { Header } from "../components/header";
 import { Title } from "../components/title";
-import { getPageRoute } from "./helpers/get-page-route";
 import { updateHour } from "./helpers/update-hour";
 
 export class GameListPage implements PageInterface {
@@ -31,9 +30,5 @@ export class GameListPage implements PageInterface {
 
   public updateHours(): void {
     updateHour();
-  }
-
-  public getMenuRoute(callbackFunction: (event: any) => void): void {
-    getPageRoute(this.menuDiv, callbackFunction);
   }
 }

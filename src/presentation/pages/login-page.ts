@@ -8,7 +8,7 @@ export class LoginPage implements PageInterface {
     this.loginForm = loginForm;
   }
 
-  render(): string {
+  public render(): string {
     return `
         <main>
             ${this.loginForm.render()}

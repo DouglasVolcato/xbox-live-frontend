@@ -6,7 +6,7 @@ export function updateHour() {
     let second = today.getSeconds();
     minute = checkTime(minute);
     second = checkTime(second);
-    const clock = document.getElementById("homepage-header-clockDiv-clock");
+    const clock = document.getElementById("header-clockDiv-clock");
     if (clock) {
       clock.innerHTML = hour + ":" + minute + ":" + second;
       setTimeout(startTime, 500);

@@ -4,6 +4,8 @@ export function getMenuRoute(route: string): string {
       return "/favorite-games";
     case "game list":
       return "/game-list";
+    case "logged profile":
+      return "/logged-profile";
     default:
       return "/";
   }

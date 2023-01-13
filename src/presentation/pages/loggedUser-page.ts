@@ -1,26 +1,22 @@
 import { PageInterface } from "../abstract/page-interface";
 import { Div } from "../components/div";
-import { Header } from "../components/header";
 import { getPageRoute } from "./helpers/get-page-route";
 import { updateHour } from "./helpers/update-hour";
 
-export class HomePage implements PageInterface {
-  private readonly header: Header;
-  private readonly gamesDiv: Div;
+export class LoggedUserPage implements PageInterface {
   private readonly menuDiv: Div;
+  private readonly formsDiv: Div;
 
-  constructor(header: Header, gamesDiv: Div, menuDiv: Div) {
-    this.header = header;
-    this.gamesDiv = gamesDiv;
+  constructor(menuDiv: Div, formsDiv: Div) {
     this.menuDiv = menuDiv;
+    this.formsDiv = formsDiv;
   }
 
-  public render(): string {
+  render(): string {
     return `
         <main>
-            ${this.header.render()}
-            ${this.gamesDiv.render()}
             ${this.menuDiv.render()}
+            ${this.formsDiv.render()}
         </main>
     `;
   }

@@ -13,15 +13,13 @@ const { ROW } = FlexDirectionEnum;
 const { EVENLY } = FlexJustificationEnum;
 
 export function makeHeaderFactory(): Header {
-  const userName = new Paragraph(
-    mockedUser.name,
-    "homepage-header-userInfo-userName",
-    ["profileName"]
-  );
+  const userName = new Paragraph(mockedUser.name, "header-userInfo-userName", [
+    "profileName",
+  ]);
   const userImage = new Image(
     "User",
     mockedProfile.imageUrl,
-    "homepage-header-userInfo-userImage",
+    "header-userInfo-userImage",
     ["profileImage"]
   );
   const userInfo = new Div(
@@ -29,19 +27,14 @@ export function makeHeaderFactory(): Header {
     ROW,
     EVENLY,
     [userImage, userName],
-    "homepage-header-userInfo"
+    "header-userInfo"
   );
 
-  const clock = new Paragraph("0", "homepage-header-clockDiv-clock", ["clock"]);
+  const clock = new Paragraph("0", "header-clockDiv-clock", ["clock"]);
 
-  const clockDiv = new Div(
-    DIV,
-    ROW,
-    EVENLY,
-    [clock],
-    "homepage-header-clockDiv",
-    ["clockDiv"]
-  );
+  const clockDiv = new Div(DIV, ROW, EVENLY, [clock], "header-clockDiv", [
+    "clockDiv",
+  ]);
 
-  return new Header([userInfo, clockDiv], "homepage-header");
+  return new Header([userInfo, clockDiv], "header");
 }

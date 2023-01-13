@@ -1,7 +1,7 @@
 export class StyleComposer {
   constructor(private readonly styleFilePaths: string[]) {}
 
-  public render(): string {
+  public compose(): string {
     let styleComposer = "";
     this.styleFilePaths.map((stylePath) => {
       styleComposer =

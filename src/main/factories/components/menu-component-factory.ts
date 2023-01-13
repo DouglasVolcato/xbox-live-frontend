@@ -11,21 +11,21 @@ const { EVENLY } = FlexJustificationEnum;
 const { BUTTON } = ButtonTypeEnum;
 
 export function makeMenuFactory(): Div {
-  const homeButton = new Button("Home Page", BUTTON, "homepage-menuDiv-home", [
+  const homeButton = new Button("Home Page", BUTTON, "menuDiv-home", [
     "menuButton",
   ]);
 
   const favoriteGamesButton = new Button(
     "Favorite Games",
     BUTTON,
-    "homepage-menuDiv-favoriteGames",
+    "menuDiv-favoriteGames",
     ["menuButton"]
   );
 
   const topImdbGamesButton = new Button(
     "Game List",
     BUTTON,
-    "homepage-menuDiv-gameList",
+    "menuDiv-gameList",
     ["menuButton"]
   );
 
@@ -34,7 +34,7 @@ export function makeMenuFactory(): Div {
     ROW,
     EVENLY,
     [homeButton, favoriteGamesButton, topImdbGamesButton],
-    "homepage-menuDiv",
+    "menuDiv",
     ["flex-wrap"]
   );
 }

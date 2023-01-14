@@ -5,6 +5,7 @@ import { RouteComposer } from "./components/routes";
 import { StyleComposer } from "./components/styles";
 import { FavoriteGames } from "./pages/favoriteGames-page";
 import { GameList } from "./pages/gameList-page";
+import { GamesAdmin } from "./pages/gamesAdmin-page";
 import { Homepage } from "./pages/home-page";
 import { HomeAdmin } from "./pages/homeAdmin-page";
 import { LoggedUser } from "./pages/loggedUser-page";
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <RouteComposer />
       <Routes>
         <Route path="home-admin" element={<HomeAdmin />} />
+        <Route path="games-admin" element={<GamesAdmin />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="profile-list" element={<ProfileList />} />

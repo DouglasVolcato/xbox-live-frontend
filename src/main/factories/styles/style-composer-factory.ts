@@ -21,6 +21,7 @@ export function makeStyleComposerFactory(): StyleComposer {
     "./src/presentation/styles/pages/loggedUser-page.css",
     "./src/presentation/styles/pages/login-page.css",
     "./src/presentation/styles/pages/register-page.css",
+    "./src/presentation/styles/pages/profileList-page.css",
   ];
 
   return new StyleComposer([...globals, ...colors, ...components, ...pages]);

@@ -6,6 +6,7 @@ import { StyleComposer } from "./components/styles";
 import { FavoriteGames } from "./pages/favoriteGames-page";
 import { GameList } from "./pages/gameList-page";
 import { Homepage } from "./pages/home-page";
+import { HomeAdmin } from "./pages/homeAdmin-page";
 import { LoggedUser } from "./pages/loggedUser-page";
 import { Login } from "./pages/login-page";
 import { ProfileCreation } from "./pages/profileCreation-page";
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <StyleComposer />
       <RouteComposer />
       <Routes>
+        <Route path="home-admin" element={<HomeAdmin />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="profile-list" element={<ProfileList />} />

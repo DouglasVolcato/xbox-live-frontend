@@ -1,8 +1,4 @@
-#homeAdmin-buttonsDiv{
-   height: 20vh;
-}
-
-#homeAdmin-buttonsDiv button{
+#adminHeader-buttonsDiv button{
     font-size: 20px;
     padding: 20px;
     margin: 10px;

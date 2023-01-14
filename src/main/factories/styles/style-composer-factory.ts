@@ -23,6 +23,7 @@ export function makeStyleComposerFactory(): StyleComposer {
     "./src/presentation/styles/pages/register-page.css",
     "./src/presentation/styles/pages/profileList-page.css",
     "./src/presentation/styles/pages/profileCreation-page.css",
+    "./src/presentation/styles/pages/homeAdmin-page.css",
   ];
 
   return new StyleComposer([...globals, ...colors, ...components, ...pages]);

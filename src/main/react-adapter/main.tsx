@@ -8,6 +8,7 @@ import { GameList } from "./pages/gameList-page";
 import { Homepage } from "./pages/home-page";
 import { LoggedUser } from "./pages/loggedUser-page";
 import { Login } from "./pages/login-page";
+import { ProfileList } from "./pages/profileList-page";
 import { Register } from "./pages/register-page";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Routes>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="profile-list" element={<ProfileList />} />
         <Route path="logged-profile" element={<LoggedUser />} />
         <Route path="favorite-games" element={<FavoriteGames />} />
         <Route path="game-list" element={<GameList />} />

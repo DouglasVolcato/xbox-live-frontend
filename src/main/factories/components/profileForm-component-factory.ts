@@ -19,7 +19,7 @@ export function makeProfileFormFactory(): Div {
     InputTypeEnum.TEXT,
     mockedProfile.title,
     "profileForm-nameInput",
-    "Name"
+    "Profile title"
   );
 
   const imageLabel = new Label("Image", "profileForm-imageLabel");
@@ -27,7 +27,7 @@ export function makeProfileFormFactory(): Div {
     InputTypeEnum.TEXT,
     mockedProfile.imageUrl,
     "profileForm-imageInput",
-    "Email"
+    "Image url"
   );
 
   const profileImage = new Image(

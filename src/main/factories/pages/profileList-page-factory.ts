@@ -49,7 +49,8 @@ export function makeProfileListPageFactory(): ProfileListPage {
     FlexDirectionEnum.ROW,
     FlexJustificationEnum.EVENLY,
     [profileDiv, profileDiv, profileDiv, addProfileButton],
-    "profileList-flexBody"
+    "profileList-flexBody",
+    ["flex-wrap"]
   );
 
   return new ProfileListPage(pageTitle, flexBody);

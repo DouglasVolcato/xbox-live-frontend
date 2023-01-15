@@ -8,6 +8,7 @@ import { GameCreationAdmin } from "./pages/gameCreationAdmin";
 import { GameEditionAdmin } from "./pages/gameEditionAdmin";
 import { GameList } from "./pages/gameList-page";
 import { GamesAdmin } from "./pages/gamesAdmin-page";
+import { GameView } from "./pages/gameView-page";
 import { Homepage } from "./pages/home-page";
 import { HomeAdmin } from "./pages/homeAdmin-page";
 import { LoggedUser } from "./pages/loggedUser-page";
@@ -37,6 +38,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Route path="logged-profile" element={<LoggedUser />} />
         <Route path="favorite-games" element={<FavoriteGames />} />
         <Route path="game-list" element={<GameList />} />
+        <Route path="game-view" element={<GameView />} />
         <Route path="*" element={<Homepage />} />
       </Routes>
     </BrowserRouter>

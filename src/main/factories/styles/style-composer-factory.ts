@@ -26,6 +26,7 @@ export function makeStyleComposerFactory(): StyleComposer {
     "./src/presentation/styles/pages/homeAdmin-page.css",
     "./src/presentation/styles/pages/usersAdmin-page.css",
     "./src/presentation/styles/pages/userEditionAdmin-page.css",
+    "./src/presentation/styles/pages/gameEditionAdmin-page.css",
   ];
 
   return new StyleComposer([...globals, ...colors, ...components, ...pages]);

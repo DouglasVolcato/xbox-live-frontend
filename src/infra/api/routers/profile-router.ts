@@ -1,11 +1,11 @@
-import { ApiConection } from "../connection/apiConnection";
+import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { TokenHandler } from "../../helpers/tokenHandler-helper";
 import { ProfileDto } from "../dtos/profile-dto";
 import { Profile } from "../../../domain/profile";
 import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
 
-export class ProfileRouter extends ApiConection {
+export class ProfileRouter extends ApiConnection {
   private readonly tokenHandler: TokenHandler;
   private readonly httpRequestAdapter: HttpRequestAdapter;
 

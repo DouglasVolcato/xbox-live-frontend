@@ -1,11 +1,11 @@
-import { ApiConection } from "../connection/apiConnection";
+import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { TokenHandler } from "../../helpers/tokenHandler-helper";
 import { Game } from "../../../domain/game";
 import { GameDto } from "../dtos/game-dto";
 import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
 
-export class GameRouter extends ApiConection {
+export class GameRouter extends ApiConnection {
   private readonly tokenHandler: TokenHandler;
   private readonly httpRequestAdapter: HttpRequestAdapter;
 

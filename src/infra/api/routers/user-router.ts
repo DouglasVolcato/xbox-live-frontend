@@ -1,11 +1,11 @@
 import { User } from "../../../domain/user";
-import { ApiConection } from "../connection/apiConnection";
+import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { UserDto } from "../dtos/user-dto";
 import { TokenHandler } from "../../helpers/tokenHandler-helper";
 import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
 
-export class UserRouter extends ApiConection {
+export class UserRouter extends ApiConnection {
   private readonly tokenHandler: TokenHandler;
   private readonly httpRequestAdapter: HttpRequestAdapter;
 

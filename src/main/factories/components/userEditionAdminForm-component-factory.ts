@@ -11,7 +11,7 @@ import { FlexJustificationEnum } from "../../../presentation/enums/div/flex-just
 import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum";
 
 export function makeUserEditionAdminFormFactory(): Div {
-  const formTitle = new Title("My account", "userEditionAdminForm-title");
+  const formTitle = new Title("User account", "userEditionAdminForm-title");
 
   const nameLabel = new Label("Name", "userAccountForm-nameLabel");
   const nameInput = new Input(

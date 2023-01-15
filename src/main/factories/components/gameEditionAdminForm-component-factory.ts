@@ -12,7 +12,7 @@ import { FlexJustificationEnum } from "../../../presentation/enums/div/flex-just
 import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum";
 
 export function makeGameEditionAdminFormFactory(): Div {
-  const formTitle = new Title("Game", "userEditionAdminForm-title");
+  const formTitle = new Title("Game", "gameEditionAdminForm-title");
 
   const titleLabel = new Label("Title", "gameEditionAdminForm-titleLabel");
   const titleInput = new Input(
@@ -74,7 +74,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   );
   const trailerUrlInput = new Input(
     InputTypeEnum.TEXT,
-    mockedGame.coverImageUrl,
+    mockedGame.trailerYouTubeUrl,
     "gameEditionAdminForm-trailerUrlInput",
     "Trailer url"
   );
@@ -85,7 +85,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   );
   const gameplayUrlInput = new Input(
     InputTypeEnum.TEXT,
-    mockedGame.coverImageUrl,
+    mockedGame.gameplayYouTubeUrl,
     "gameEditionAdminForm-gameplayUrlInput",
     "Gameplay url"
   );

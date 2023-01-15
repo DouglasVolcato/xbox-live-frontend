@@ -3,7 +3,7 @@ import { ApiConection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { UserDto } from "../dtos/user-dto";
 import { TokenHandler } from "../../helpers/tokenHandler-helper";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
 
 export class UserRouter extends ApiConection {
   private readonly tokenHandler: TokenHandler;

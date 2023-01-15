@@ -3,7 +3,7 @@ import { ApiResponse } from "../dtos/apiResponse-dto";
 import { TokenHandler } from "../../helpers/tokenHandler-helper";
 import { Game } from "../../../domain/game";
 import { GameDto } from "../dtos/game-dto";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
 
 export class GameRouter extends ApiConection {
   private readonly tokenHandler: TokenHandler;

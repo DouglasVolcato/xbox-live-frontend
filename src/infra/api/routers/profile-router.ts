@@ -3,7 +3,7 @@ import { ApiResponse } from "../dtos/apiResponse-dto";
 import { TokenHandler } from "../../helpers/tokenHandler-helper";
 import { ProfileDto } from "../dtos/profile-dto";
 import { Profile } from "../../../domain/profile";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
 
 export class ProfileRouter extends ApiConection {
   private readonly tokenHandler: TokenHandler;

@@ -13,6 +13,7 @@ import { Login } from "./pages/login-page";
 import { ProfileCreation } from "./pages/profileCreation-page";
 import { ProfileList } from "./pages/profileList-page";
 import { Register } from "./pages/register-page";
+import { UserEditionAdmin } from "./pages/userEditionAdmin-page";
 import { UsersAdmin } from "./pages/usersAdmin-page";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Route path="home-admin" element={<HomeAdmin />} />
         <Route path="games-admin" element={<GamesAdmin />} />
         <Route path="users-admin" element={<UsersAdmin />} />
+        <Route path="user-edition-admin" element={<UserEditionAdmin />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="profile-list" element={<ProfileList />} />

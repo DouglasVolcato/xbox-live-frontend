@@ -15,6 +15,7 @@ export function makeStyleComposerFactory(): StyleComposer {
     "./src/presentation/styles/components/image.css",
     "./src/presentation/styles/components/label.css",
     "./src/presentation/styles/components/form.css",
+    "./src/presentation/styles/components/anchor.css",
   ];
   const pages = [
     "./src/presentation/styles/pages/home-page.css",
@@ -28,6 +29,7 @@ export function makeStyleComposerFactory(): StyleComposer {
     "./src/presentation/styles/pages/userEditionAdmin-page.css",
     "./src/presentation/styles/pages/gameEditionAdmin-page.css",
     "./src/presentation/styles/pages/gameCreationAdmin-page.css",
+    "./src/presentation/styles/pages/gameView-page.css",
   ];
 
   return new StyleComposer([...globals, ...colors, ...components, ...pages]);

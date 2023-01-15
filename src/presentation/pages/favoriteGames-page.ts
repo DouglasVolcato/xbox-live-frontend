@@ -27,8 +27,4 @@ export class FavoriteGamesPage implements PageInterface {
         </main>
     `;
   }
-
-  public updateHours(): void {
-    updateHour();
-  }
 }

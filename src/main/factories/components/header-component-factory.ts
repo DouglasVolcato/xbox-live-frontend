@@ -30,7 +30,7 @@ export function makeHeaderFactory(): Header {
     "header-userInfo"
   );
 
-  const clock = new Paragraph("0", "header-clockDiv-clock", ["clock"]);
+  const clock = new Paragraph("", "header-clockDiv-clock", ["clock"]);
 
   const clockDiv = new Div(DIV, ROW, EVENLY, [clock], "header-clockDiv", [
     "clockDiv",

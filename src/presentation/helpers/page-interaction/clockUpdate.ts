@@ -1,4 +1,4 @@
-export function updateHour() {
+export function clockUpdate() {
   function startTime() {
     const today = new Date();
     const hour = today.getHours();

@@ -2,7 +2,6 @@ import { PageInterface } from "../abstract/page-interface";
 import { Div } from "../components/div";
 import { Header } from "../components/header";
 import { Title } from "../components/title";
-import { updateHour } from "./helpers/update-hour";
 
 export class GameListPage implements PageInterface {
   private readonly header: Header;
@@ -26,9 +25,5 @@ export class GameListPage implements PageInterface {
             ${this.gameList.render()}
         </main>
     `;
-  }
-
-  public updateHours(): void {
-    updateHour();
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { ClockUpdate } from "./components/clockUpdate";
 import { RouteComposer } from "./components/routes";
 import { StyleComposer } from "./components/styles";
 import { FavoriteGames } from "./pages/favoriteGames-page";
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <BrowserRouter>
       <StyleComposer />
       <RouteComposer />
+      <ClockUpdate />
       <Routes>
         <Route path="home-admin" element={<HomeAdmin />} />
         <Route path="games-admin" element={<GamesAdmin />} />

@@ -1,6 +1,5 @@
 import { PageInterface } from "../abstract/page-interface";
 import { Div } from "../components/div";
-import { updateHour } from "./helpers/update-hour";
 
 export class LoggedUserPage implements PageInterface {
   private readonly menuDiv: Div;
@@ -18,9 +17,5 @@ export class LoggedUserPage implements PageInterface {
             ${this.formsDiv.render()}
         </main>
     `;
-  }
-
-  public updateHours(): void {
-    updateHour();
   }
 }

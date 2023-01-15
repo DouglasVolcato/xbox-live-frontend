@@ -13,7 +13,7 @@ import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum
 export function makeUserEditionAdminFormFactory(): Div {
   const formTitle = new Title("User account", "userEditionAdminForm-title");
 
-  const nameLabel = new Label("Name", "userAccountForm-nameLabel");
+  const nameLabel = new Label("Name", "userEditionAdminForm-nameLabel");
   const nameInput = new Input(
     InputTypeEnum.TEXT,
     mockedUser.name,
@@ -21,7 +21,7 @@ export function makeUserEditionAdminFormFactory(): Div {
     "Name"
   );
 
-  const emailLabel = new Label("Email", "userAccountForm-emailLabel");
+  const emailLabel = new Label("Email", "userEditionAdminForm-emailLabel");
   const emailInput = new Input(
     InputTypeEnum.EMAIL,
     mockedUser.email,
@@ -29,7 +29,10 @@ export function makeUserEditionAdminFormFactory(): Div {
     "Email"
   );
 
-  const passwordLabel = new Label("Password", "userAccountForm-passwordLabel");
+  const passwordLabel = new Label(
+    "Password",
+    "userEditionAdminForm-passwordLabel"
+  );
   const passwordInput = new Input(
     InputTypeEnum.PASSWORD,
     mockedUser.password,
@@ -37,7 +40,7 @@ export function makeUserEditionAdminFormFactory(): Div {
     "Password"
   );
 
-  const cpfLabel = new Label("CPF", "userAccountForm-cpfLabel");
+  const cpfLabel = new Label("CPF", "userEditionAdminForm-cpfLabel");
   const cpfInput = new Input(
     InputTypeEnum.TEXT,
     mockedUser.cpf,

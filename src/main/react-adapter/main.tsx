@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { RouteComposer } from "./components/routes";
 import { StyleComposer } from "./components/styles";
 import { FavoriteGames } from "./pages/favoriteGames-page";
+import { GameCreationAdmin } from "./pages/gameCreationAdmin";
 import { GameEditionAdmin } from "./pages/gameEditionAdmin";
 import { GameList } from "./pages/gameList-page";
 import { GamesAdmin } from "./pages/gamesAdmin-page";
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Route path="users-admin" element={<UsersAdmin />} />
         <Route path="user-edition-admin" element={<UserEditionAdmin />} />
         <Route path="game-edition-admin" element={<GameEditionAdmin />} />
+        <Route path="game-creation-admin" element={<GameCreationAdmin />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="profile-list" element={<ProfileList />} />

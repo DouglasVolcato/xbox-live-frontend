@@ -1,4 +1,4 @@
-import { HtmlElement } from "../helpers/html/html-element";
+import { HtmlElement } from "../../helpers/html/html-element";
 import { ComponentInterface } from "../abstract/component-interface";
 
 export class Title extends HtmlElement implements ComponentInterface {

@@ -1,6 +1,6 @@
 import { ComponentInterface } from "../abstract/component-interface";
 import { ComponentComposer } from "../helpers/composers/component-composer";
-import { HtmlElement } from "../helpers/html/html-element";
+import { HtmlElement } from "../../helpers/html/html-element";
 
 export class Header extends HtmlElement implements ComponentInterface {
   private readonly components: ComponentInterface[];

@@ -2,7 +2,7 @@ export class HtmlElement {
   protected readonly id: string;
   protected readonly classes: string;
 
-  constructor(id: string, classes: string[]) {
+  constructor(id: string, classes: string[] = []) {
     this.id = id;
     this.classes = this.setClasses(classes);
   }

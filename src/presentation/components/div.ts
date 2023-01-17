@@ -3,7 +3,7 @@ import { DivTypeEnum } from "../enums/div/div-type-enum";
 import { FlexDirectionEnum } from "../enums/div/flex-direction-enum";
 import { FlexJustificationEnum } from "../enums/div/flex-justification-enum";
 import { ComponentComposer } from "../helpers/composers/component-composer";
-import { HtmlElement } from "../helpers/html/html-element";
+import { HtmlElement } from "../../helpers/html/html-element";
 
 export class Div extends HtmlElement implements ComponentInterface {
   private readonly divType: DivTypeEnum;

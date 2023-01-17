@@ -1,5 +1,5 @@
 import { ComponentInterface } from "../abstract/component-interface";
-import { HtmlElement } from "../helpers/html/html-element";
+import { HtmlElement } from "../../helpers/html/html-element";
 
 export class Anchor extends HtmlElement implements ComponentInterface {
   private readonly text: string;

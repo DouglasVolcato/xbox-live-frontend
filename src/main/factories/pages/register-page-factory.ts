@@ -12,7 +12,7 @@ import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum
 import { RegisterPage } from "../../../presentation/pages/register-page";
 
 export function makeRegisterPage(): RegisterPage {
-  const formTitle = new Title("Login", "registerForm-title");
+  const formTitle = new Title("Register", "registerForm-title");
 
   const nameLabel = new Label("Name", "registerForm-nameLabel");
   const nameInput = new Input(
@@ -54,7 +54,7 @@ export function makeRegisterPage(): RegisterPage {
   );
 
   const closeButtonButton = new Button(
-    "Register",
+    "Close",
     ButtonTypeEnum.BUTTON,
     "registerForm-buttonsDiv-closeButtonButton",
     ["border-light-red", "background-dark-red"]

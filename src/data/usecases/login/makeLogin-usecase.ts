@@ -9,7 +9,7 @@ export class MakeLoginUseCase implements Service {
     this.authRouter = authRouter;
   }
 
-  execute(navigateCallbackFunction = () => {}): void {
+  public execute(navigateCallbackFunction = () => {}): void {
     const loginButton = new HtmlElement("loginForm-buttonsDiv-loginButon");
     const emailInput = new HtmlElement("loginForm-emailInput");
     const passwordInput = new HtmlElement("loginForm-passwordInput");

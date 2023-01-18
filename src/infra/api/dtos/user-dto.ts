@@ -3,4 +3,5 @@ export type UserDto = {
   email: string;
   password: string;
   cpf: string;
+  message?: string;
 };

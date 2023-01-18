@@ -22,8 +22,12 @@ export class MakeLoginUseCase implements Service {
         email: emailInput.getValue(),
         password: passwordInput.getValue(),
       });
+      if (response.message) {
+        alert(response.message);
+      }
       if (response.statusCode === 200) {
-        this.tokenHandler.storeToken(response.body.token);
+        const token = response.body.token;
+        this.tokenHandler.storeToken(token);
         navigateCallbackFunction();
       }
     });

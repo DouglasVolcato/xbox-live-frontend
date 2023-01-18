@@ -7,4 +7,5 @@ export type GameDto = {
   imdbScore: number;
   trailerYouTubeUrl: string;
   gameplayYouTubeUrl: string;
+  message?: string;
 };

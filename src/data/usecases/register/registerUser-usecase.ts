@@ -25,6 +25,9 @@ export class RegisterUserUseCase implements Service {
         password: passwordInput.getValue(),
         cpf: cpfInput.getValue(),
       });
+      if (response.message) {
+        alert(response.message);
+      }
       if (response.statusCode === 201) {
         navigateCallbackFunction();
       }

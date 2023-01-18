@@ -6,7 +6,7 @@ export function Login() {
   const loginPage = makeLoginControllerFactory();
 
   function teste() {
-    alert("teste");
+    alert("Logged in!");
   }
 
   useEffect(() => {

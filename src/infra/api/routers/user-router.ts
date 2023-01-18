@@ -2,7 +2,7 @@ import { User } from "../../../domain/user";
 import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { UserDto } from "../dtos/user-dto";
-import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
+import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 
 export class UserRouter extends ApiConnection {
   private readonly httpRequestAdapter: HttpRequestAdapter;

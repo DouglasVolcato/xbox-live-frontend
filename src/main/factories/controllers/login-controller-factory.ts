@@ -2,7 +2,7 @@ import { MakeLoginUseCase } from "../../../data/usecases/login/makeLogin-usecase
 import { AuthRouter } from "../../../infra/api/routers/auth-router";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { LoginController } from "../../../presentation/controllers/login-controller";
-import { HttpRequestAdapter } from "../../adapters/httpRequest-adapter";
+import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { makeLoginPage } from "../pages/login-page-factory";
 
 export function makeLoginControllerFactory(): LoginController {

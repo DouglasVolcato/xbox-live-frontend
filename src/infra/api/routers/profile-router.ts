@@ -2,7 +2,7 @@ import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { ProfileDto } from "../dtos/profile-dto";
 import { Profile } from "../../../domain/profile";
-import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
+import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 
 export class ProfileRouter extends ApiConnection {
   private readonly httpRequestAdapter: HttpRequestAdapter;

@@ -2,7 +2,7 @@ import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { TokenDto } from "../dtos/token-dto";
 import { LoginDto } from "../dtos/login-dto";
-import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
+import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 
 export class AuthRouter extends ApiConnection {
   private readonly httpRequestAdapter: HttpRequestAdapter;

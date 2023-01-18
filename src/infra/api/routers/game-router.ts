@@ -2,7 +2,7 @@ import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { Game } from "../../../domain/game";
 import { GameDto } from "../dtos/game-dto";
-import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
+import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 
 export class GameRouter extends ApiConnection {
   private readonly httpRequestAdapter: HttpRequestAdapter;

@@ -1,4 +1,4 @@
-import { MakeLoginUseCase } from "../../data/usecases/login/makeLogin-usecase";
+import { MakeLoginUseCase } from "../../data/usecases/auth/makeLogin-usecase";
 import { ControllerInterface } from "../abstract/controller.interface";
 import { LoginPage } from "../pages/login-page";
 

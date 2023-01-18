@@ -1,4 +1,4 @@
-import { RegisterUserUseCase } from "../../data/usecases/register/registerUser-usecase";
+import { RegisterUserUseCase } from "../../data/usecases/user/registerUser-usecase";
 import { ControllerInterface } from "../abstract/controller.interface";
 import { RegisterPage } from "../pages/register-page";
 

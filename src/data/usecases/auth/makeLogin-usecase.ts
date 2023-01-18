@@ -29,6 +29,8 @@ export class MakeLoginUseCase implements Service {
         const token = response.body.token;
         this.tokenHandler.storeToken(token);
         navigateCallbackFunction();
+      } else {
+        this.tokenHandler.removeToken();
       }
     });
   }

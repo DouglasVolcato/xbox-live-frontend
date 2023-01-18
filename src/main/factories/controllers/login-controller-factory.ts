@@ -1,4 +1,4 @@
-import { MakeLoginUseCase } from "../../../data/usecases/login/makeLogin-usecase";
+import { MakeLoginUseCase } from "../../../data/usecases/auth/makeLogin-usecase";
 import { AuthRouter } from "../../../infra/api/routers/auth-router";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { LoginController } from "../../../presentation/controllers/login-controller";

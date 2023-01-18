@@ -1,4 +1,4 @@
-import { RegisterUserUseCase } from "../../../data/usecases/register/registerUser-usecase";
+import { RegisterUserUseCase } from "../../../data/usecases/user/registerUser-usecase";
 import { UserRouter } from "../../../infra/api/routers/user-router";
 import { RegisterController } from "../../../presentation/controllers/register-controller";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";

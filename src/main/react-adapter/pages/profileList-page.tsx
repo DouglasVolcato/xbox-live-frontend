@@ -1,7 +1,13 @@
-import { makeProfileListPageFactory } from "../../factories/pages/profileList-page-factory";
+import { useEffect } from "react";
+import { makeProfileListControllerFactory } from "../../factories/controllers/profileList-controller-factory";
 import { HtmlComponent } from "../helpers/html-component-helper";
 
 export function ProfileList() {
-  const profileList = makeProfileListPageFactory();
-  return <HtmlComponent component={profileList.render()} />;
+  const profileList = makeProfileListControllerFactory();
+
+  useEffect(() => {
+    profileList.updateProfileCards()
+  })
+
+  return <HtmlComponent component={profileList.renderPage()} />;
 }

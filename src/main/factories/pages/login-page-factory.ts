@@ -17,7 +17,7 @@ export function makeLoginPage(): LoginPage {
   const emailLabel = new Label("Email", "loginForm-emailLabel");
   const emailInput = new Input(
     InputTypeEnum.EMAIL,
-    mockedUser.email,
+    "douglasvolcato@gmail.com",
     "loginForm-emailInput",
     "Email"
   );
@@ -25,7 +25,7 @@ export function makeLoginPage(): LoginPage {
   const passwordLabel = new Label("Password", "loginForm-passwordLabel");
   const passwordInput = new Input(
     InputTypeEnum.PASSWORD,
-    mockedUser.password,
+    "SuperPassword2000!",
     "loginForm-passwordInput",
     "Password"
   );

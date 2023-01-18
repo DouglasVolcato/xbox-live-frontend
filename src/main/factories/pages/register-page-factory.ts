@@ -17,7 +17,7 @@ export function makeRegisterPageFactory(): RegisterPage {
   const nameLabel = new Label("Name", "registerForm-nameLabel");
   const nameInput = new Input(
     InputTypeEnum.TEXT,
-    mockedUser.name,
+    "",
     "registerForm-nameInput",
     "Name"
   );
@@ -25,7 +25,7 @@ export function makeRegisterPageFactory(): RegisterPage {
   const emailLabel = new Label("Email", "registerForm-emailLabel");
   const emailInput = new Input(
     InputTypeEnum.EMAIL,
-    mockedUser.email,
+    "",
     "registerForm-emailInput",
     "Email"
   );
@@ -33,7 +33,7 @@ export function makeRegisterPageFactory(): RegisterPage {
   const passwordLabel = new Label("Password", "registerForm-passwordLabel");
   const passwordInput = new Input(
     InputTypeEnum.PASSWORD,
-    mockedUser.password,
+    "",
     "registerForm-passwordInput",
     "Password"
   );
@@ -41,7 +41,7 @@ export function makeRegisterPageFactory(): RegisterPage {
   const cpfLabel = new Label("CPF", "registerForm-cpfLabel");
   const cpfInput = new Input(
     InputTypeEnum.TEXT,
-    mockedUser.cpf,
+    "",
     "registerForm-cpfInput",
     "CPF"
   );

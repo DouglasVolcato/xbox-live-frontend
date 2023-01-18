@@ -1,6 +1,6 @@
 import { HtmlElement } from "../../../helpers/html/html-element";
 import { AuthRouter } from "../../../infra/api/routers/auth-router";
-import { TokenHandler } from "../../../infra/helpers/tokenHandler-helper";
+import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { Service } from "../../abstract/service-interface";
 
 export class MakeLoginUseCase implements Service {

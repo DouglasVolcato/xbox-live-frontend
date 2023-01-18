@@ -1,60 +1,66 @@
 import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
-import { TokenHandler } from "../../helpers/tokenHandler-helper";
 import { Game } from "../../../domain/game";
 import { GameDto } from "../dtos/game-dto";
 import { HttpRequestAdapter } from "../../../main/adapters/httpRequest-adapter";
 
 export class GameRouter extends ApiConnection {
-  private readonly tokenHandler: TokenHandler;
   private readonly httpRequestAdapter: HttpRequestAdapter;
 
-  constructor(
-    tokenHandler: TokenHandler,
-    httpRequestAdapter: HttpRequestAdapter
-  ) {
+  constructor(httpRequestAdapter: HttpRequestAdapter) {
     super();
-    this.tokenHandler = tokenHandler;
     this.httpRequestAdapter = httpRequestAdapter;
   }
 
-  public async create(game: GameDto): Promise<ApiResponse<Game>> {
+  public async create(
+    game: GameDto,
+    authorizationToken: string
+  ): Promise<ApiResponse<Game>> {
     return await this.httpRequestAdapter.post(
       this.apiLink + "/game/create-game",
       game,
-      this.tokenHandler.getAuthorization()
+      authorizationToken
     );
   }
 
-  public async getAll(): Promise<ApiResponse<Game[]>> {
+  public async getAll(
+    authorizationToken: string
+  ): Promise<ApiResponse<Game[]>> {
     return await this.httpRequestAdapter.get(
       this.apiLink + "/game/get-all-games",
-      this.tokenHandler.getAuthorization()
+      authorizationToken
     );
   }
 
-  public async getById(gameId: string): Promise<ApiResponse<Game>> {
+  public async getById(
+    gameId: string,
+    authorizationToken: string
+  ): Promise<ApiResponse<Game>> {
     return await this.httpRequestAdapter.get(
       this.apiLink + "/game/get-game/" + gameId,
-      this.tokenHandler.getAuthorization()
+      authorizationToken
     );
   }
 
-  public async delete(gameId: string): Promise<ApiResponse<Game>> {
+  public async delete(
+    gameId: string,
+    authorizationToken: string
+  ): Promise<ApiResponse<Game>> {
     return await this.httpRequestAdapter.delete(
       this.apiLink + "/game/delete-game/" + gameId,
-      this.tokenHandler.getAuthorization()
+      authorizationToken
     );
   }
 
   public async update(
     gameId: string,
-    game: GameDto
+    game: GameDto,
+    authorizationToken: string
   ): Promise<ApiResponse<Game>> {
     return await this.httpRequestAdapter.patch(
       this.apiLink + "/game/update-game/" + gameId,
       game,
-      this.tokenHandler.getAuthorization()
+      authorizationToken
     );
   }
 }

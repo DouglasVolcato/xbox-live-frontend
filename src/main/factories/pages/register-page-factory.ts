@@ -11,7 +11,7 @@ import { FlexJustificationEnum } from "../../../presentation/enums/div/flex-just
 import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum";
 import { RegisterPage } from "../../../presentation/pages/register-page";
 
-export function makeRegisterPage(): RegisterPage {
+export function makeRegisterPageFactory(): RegisterPage {
   const formTitle = new Title("Register", "registerForm-title");
 
   const nameLabel = new Label("Name", "registerForm-nameLabel");

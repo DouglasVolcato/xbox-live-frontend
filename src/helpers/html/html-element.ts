@@ -60,4 +60,9 @@ export class HtmlElement {
     const element: any = document.getElementById(this.id);
     element.innerText = value;
   }
+
+  public insertHtml(data: string, location = "beforeend"): void {
+    const element: any = document.getElementById(this.id);
+    element.insertAdjacentHTML(location, data);
+  }
 }

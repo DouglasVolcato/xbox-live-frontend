@@ -1,8 +1,5 @@
-import { mockedProfile } from "../../../infra/mocks/profile";
 import { Button } from "../../../presentation/components/button";
 import { Div } from "../../../presentation/components/div";
-import { Image } from "../../../presentation/components/image";
-import { Paragraph } from "../../../presentation/components/paragraph";
 import { Title } from "../../../presentation/components/title";
 import { ButtonTypeEnum } from "../../../presentation/enums/button/button-type-enum";
 import { DivTypeEnum } from "../../../presentation/enums/div/div-type-enum";
@@ -12,26 +9,6 @@ import { ProfileListPage } from "../../../presentation/pages/profileList-page";
 
 export function makeProfileListPageFactory(): ProfileListPage {
   const pageTitle = new Title("Choose a profile", "profileList-title");
-
-  const profileImage = new Image(
-    "profile image",
-    mockedProfile.imageUrl,
-    "profileList-profiles-profileDiv-image",
-    ["profileList-image"]
-  );
-  const profileName = new Paragraph(
-    mockedProfile.title,
-    "profileList-profiles-profileDiv-profileName",
-    ["profileList-name"]
-  );
-  const profileDiv = new Div(
-    DivTypeEnum.DIV,
-    FlexDirectionEnum.COLUMN,
-    FlexJustificationEnum.EVENLY,
-    [profileImage, profileName],
-    "profileList-profiles-profileDiv",
-    ["profileList-div"]
-  );
 
   const addProfileButton = new Button(
     "Add",
@@ -48,7 +25,7 @@ export function makeProfileListPageFactory(): ProfileListPage {
     DivTypeEnum.DIV,
     FlexDirectionEnum.ROW,
     FlexJustificationEnum.EVENLY,
-    [profileDiv, profileDiv, profileDiv, addProfileButton],
+    [addProfileButton],
     "profileList-flexBody",
     ["flex-wrap"]
   );

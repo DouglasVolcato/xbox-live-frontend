@@ -11,5 +11,10 @@ export function makeRouteComposerFactory(): RouteComposer {
       componentId: "registerForm-buttonsDiv-closeButtonButton",
       route: "/login",
     },
+    { componentId: "profileList-addProfileButton", route: "/profile-creation" },
+    {
+      componentId: "profileCreationForm-buttonsDiv-closeButton",
+      route: "/profile-list",
+    },
   ]);
 }

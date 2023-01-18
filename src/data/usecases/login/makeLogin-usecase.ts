@@ -18,12 +18,11 @@ export class MakeLoginUseCase implements Service {
     const passwordInput = new HtmlElement("loginForm-passwordInput");
 
     loginButton.addEventListener("click", async () => {
-      navigateCallbackFunction();
       const response = await this.authRouter.login({
         email: emailInput.getValue(),
         password: passwordInput.getValue(),
       });
-      if (response.body.token) {
+      if (response.statusCode === 200) {
         this.tokenHandler.storeToken(response.body.token);
         navigateCallbackFunction();
       }

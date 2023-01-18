@@ -19,14 +19,13 @@ export class RegisterUserUseCase implements Service {
     const cpfInput = new HtmlElement("registerForm-cpfInput");
 
     registerButton.addEventListener("click", async () => {
-      navigateCallbackFunction();
       const response = await this.userRouter.create({
         name: nameInput.getValue(),
         email: emailInput.getValue(),
         password: passwordInput.getValue(),
         cpf: cpfInput.getValue(),
       });
-      if (response.body.name) {
+      if (response.statusCode === 201) {
         navigateCallbackFunction();
       }
     });

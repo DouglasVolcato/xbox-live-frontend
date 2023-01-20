@@ -5,7 +5,7 @@ export function makeRouteComposerFactory(): RouteComposer {
     { componentId: "menuDiv-home", route: "/home-page" },
     { componentId: "menuDiv-favoriteGames", route: "/favorite-games" },
     { componentId: "menuDiv-gameList", route: "/game-list" },
-    { componentId: "header-userInfo-userImage", route: "/logged-profile" },
+    { componentId: "header-userInfo-userImage", route: "/logged-user" },
     { componentId: "loginForm-buttonsDiv-registerButton", route: "/register" },
     {
       componentId: "registerForm-buttonsDiv-closeButtonButton",

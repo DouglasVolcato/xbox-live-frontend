@@ -35,7 +35,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Route path="register" element={<Register />} />
       <Route path="profile-list" element={<ProfileList />} />
       <Route path="profile-creation" element={<ProfileCreation />} />
-      <Route path="logged-profile" element={<LoggedUser />} />
+      <Route path="logged-user" element={<LoggedUser />} />
       <Route path="favorite-games" element={<FavoriteGames />} />
       <Route path="game-list" element={<GameList />} />
       <Route path="game-view" element={<GameView />} />

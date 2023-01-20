@@ -11,23 +11,38 @@ import { FlexDirectionEnum } from "../../../presentation/enums/div/flex-directio
 import { FlexJustificationEnum } from "../../../presentation/enums/div/flex-justification-enum";
 import { ComponentComposer } from "../../../presentation/helpers/composers/component-composer";
 import { ComponentInterface } from "../../../presentation/abstract/component-interface";
+import { Input } from "../../../presentation/components/input";
+import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum";
+import { ProfileHandler } from "../../../helpers/profile/profileHandler-helper";
 
 export class GenerateProfileCardsUseCase implements Service {
   private readonly profileRouter: ProfileRouter;
   private readonly tokenHandler: TokenHandler;
+  private readonly profileHandler: ProfileHandler;
 
-  constructor(profileRouter: ProfileRouter, tokenHandler: TokenHandler) {
+  constructor(
+    profileRouter: ProfileRouter,
+    tokenHandler: TokenHandler,
+    profileHandler: ProfileHandler
+  ) {
     this.profileRouter = profileRouter;
     this.tokenHandler = tokenHandler;
+    this.profileHandler = profileHandler;
   }
 
-  public async execute(): Promise<void> {
+  public async execute(navigateCallbackFunction = () => {}): Promise<void> {
     const authorization = this.tokenHandler.getAuthorization();
-    const response = await this.profileRouter.getAll(authorization);
-    const profiles = response.body.map((data) => this.getProfileCard(data));
-    const html = new ComponentComposer(profiles).compose();
-    const profileListDiv = new HtmlElement("profileList-flexBody");
-    profileListDiv.insertHtml(html, "afterbegin");
+    await this.profileRouter
+      .getAll(authorization)
+      .then((response: any) => {
+        const profiles = response.body.map((data: any) =>
+          this.getProfileCard(data)
+        );
+        const html = new ComponentComposer(profiles).compose();
+        const profileListDiv = new HtmlElement("profileList-flexBody");
+        profileListDiv.insertHtml(html, "afterbegin");
+      })
+      .then(() => this.addEventListenerToProfiles(navigateCallbackFunction));
   }
 
   private getProfileCard(profile: Profile): ComponentInterface {
@@ -42,13 +57,33 @@ export class GenerateProfileCardsUseCase implements Service {
       "profileList-profiles-profileDiv-profileName",
       ["profileList-name"]
     );
+    const profileId = new Input(
+      InputTypeEnum.HIDDEN,
+      profile.id,
+      "profileList-profiles-profileDiv-profileId",
+      "",
+      ["hiddenInput"]
+    );
     return new Div(
       DivTypeEnum.DIV,
       FlexDirectionEnum.COLUMN,
       FlexJustificationEnum.EVENLY,
-      [profileImage, profileName],
+      [profileImage, profileName, profileId],
       "profileList-profiles-profileDiv",
       ["profileList-div"]
     );
+  }
+
+  private addEventListenerToProfiles(
+    navigateCallbackFunction = () => {}
+  ): void {
+    const profiles = document.querySelectorAll(".profileList-div");
+    for (const profile of profiles) {
+      profile.addEventListener("click", () => {
+        const profileId = profile.querySelector("input")?.value || "";
+        this.profileHandler.storeProfile(profileId);
+        navigateCallbackFunction();
+      });
+    }
   }
 }

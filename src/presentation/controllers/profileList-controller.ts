@@ -18,7 +18,11 @@ export class ProfileListController implements ControllerInterface {
     return this.profileListPage.render();
   }
 
-  public async updateProfileCards(): Promise<void> {
-    return await this.generateProfileCardsUseCase.execute();
+  public async updateProfileCards(
+    navigateCallbackFunction: () => void
+  ): Promise<void> {
+    return await this.generateProfileCardsUseCase.execute(
+      navigateCallbackFunction
+    );
   }
 }

@@ -2,7 +2,7 @@ import { RouteComposer } from "../../../presentation/helpers/composers/route-com
 
 export function makeRouteComposerFactory(): RouteComposer {
   return new RouteComposer([
-    { componentId: "menuDiv-home", route: "/" },
+    { componentId: "menuDiv-home", route: "/home-page" },
     { componentId: "menuDiv-favoriteGames", route: "/favorite-games" },
     { componentId: "menuDiv-gameList", route: "/game-list" },
     { componentId: "header-userInfo-userImage", route: "/logged-profile" },

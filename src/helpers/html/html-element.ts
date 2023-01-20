@@ -65,4 +65,9 @@ export class HtmlElement {
     const element: any = document.getElementById(this.id);
     element.insertAdjacentHTML(location, data);
   }
+
+  public setSrc(src: string): void {
+    const element: any = document.getElementById(this.id);
+    element.src = src;
+  }
 }

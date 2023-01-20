@@ -80,6 +80,7 @@ export class GenerateProfileCardsUseCase implements Service {
     const profiles = document.querySelectorAll(".profileList-div");
     for (const profile of profiles) {
       profile.addEventListener("click", () => {
+        this.profileHandler.removeProfile();
         const profileId = profile.querySelector("input")?.value || "";
         this.profileHandler.storeProfile(profileId);
         navigateCallbackFunction();

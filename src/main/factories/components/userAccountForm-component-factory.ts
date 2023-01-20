@@ -1,4 +1,3 @@
-import { mockedUser } from "../../../infra/mocks/user";
 import { Button } from "../../../presentation/components/button";
 import { Div } from "../../../presentation/components/div";
 import { Input } from "../../../presentation/components/input";
@@ -16,7 +15,7 @@ export function makeUserAccountFormFactory(): Div {
   const nameLabel = new Label("Name", "userAccountForm-nameLabel");
   const nameInput = new Input(
     InputTypeEnum.TEXT,
-    mockedUser.name,
+    "",
     "userAccountForm-nameInput",
     "Name"
   );
@@ -24,7 +23,7 @@ export function makeUserAccountFormFactory(): Div {
   const emailLabel = new Label("Email", "userAccountForm-emailLabel");
   const emailInput = new Input(
     InputTypeEnum.EMAIL,
-    mockedUser.email,
+    "",
     "userAccountForm-emailInput",
     "Email"
   );
@@ -32,7 +31,7 @@ export function makeUserAccountFormFactory(): Div {
   const passwordLabel = new Label("Password", "userAccountForm-passwordLabel");
   const passwordInput = new Input(
     InputTypeEnum.PASSWORD,
-    mockedUser.password,
+    "",
     "userAccountForm-passwordInput",
     "Password"
   );
@@ -40,7 +39,7 @@ export function makeUserAccountFormFactory(): Div {
   const cpfLabel = new Label("CPF", "userAccountForm-cpfLabel");
   const cpfInput = new Input(
     InputTypeEnum.TEXT,
-    mockedUser.cpf,
+    "",
     "userAccountForm-cpfInput",
     "CPF"
   );

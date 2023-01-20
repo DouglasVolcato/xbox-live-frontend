@@ -42,8 +42,11 @@ export class UserRouter extends ApiConnection {
     userEmail: string,
     authorizationToken: string
   ): Promise<ApiResponse<User>> {
-    return await this.httpRequestAdapter.get(
-      this.apiLink + "/user/get-user-by-email/" + userEmail,
+    return await this.httpRequestAdapter.post(
+      this.apiLink + "/user/get-user-by-email",
+      {
+        email: userEmail,
+      },
       authorizationToken
     );
   }

@@ -1,4 +1,3 @@
-import { mockedProfile } from "../../../infra/mocks/profile";
 import { Button } from "../../../presentation/components/button";
 import { Div } from "../../../presentation/components/div";
 import { Image } from "../../../presentation/components/image";
@@ -17,7 +16,7 @@ export function makeProfileFormFactory(): Div {
   const nameLabel = new Label("Title", "profileForm-nameLabel");
   const nameInput = new Input(
     InputTypeEnum.TEXT,
-    mockedProfile.title,
+    "",
     "profileForm-nameInput",
     "Profile title"
   );
@@ -25,16 +24,12 @@ export function makeProfileFormFactory(): Div {
   const imageLabel = new Label("Image", "profileForm-imageLabel");
   const imageInput = new Input(
     InputTypeEnum.TEXT,
-    mockedProfile.imageUrl,
+    "",
     "profileForm-imageInput",
     "Image url"
   );
 
-  const profileImage = new Image(
-    "Profile",
-    mockedProfile.imageUrl,
-    "profileForm-image"
-  );
+  const profileImage = new Image("Profile", "", "profileForm-image");
 
   const updateButton = new Button(
     "Update",

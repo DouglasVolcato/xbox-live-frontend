@@ -21,12 +21,12 @@ export class GetUserInfoUseCase implements Service {
 
   public async execute(): Promise<void> {
     const authorization = this.tokenHandler.getAuthorization();
-    const userEmail = this.userIdHandler.getUserId();
+    const userId = this.userIdHandler.getUserId();
     const name = new HtmlElement("userAccountForm-nameInput");
     const email = new HtmlElement("userAccountForm-emailInput");
     const cpf = new HtmlElement("userAccountForm-cpfInput");
 
-    this.userRouter.getByEmail(userEmail, authorization).then((response) => {
+    this.userRouter.getById(userId, authorization).then((response) => {
       name.setValue(response.body.name);
       email.setValue(response.body.email);
       cpf.setValue(response.body.cpf);

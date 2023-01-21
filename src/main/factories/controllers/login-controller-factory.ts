@@ -5,14 +5,17 @@ import { LoginController } from "../../../presentation/controllers/login-control
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { makeLoginPage } from "../pages/login-page-factory";
 import { UserIdHandler } from "../../../helpers/user/userIdHandler-helper";
+import { UserRouter } from "../../../infra/api/routers/user-router";
 
 export function makeLoginControllerFactory(): LoginController {
   const httpRequestAdapter = new HttpRequestAdapter();
   const tokenHandler = new TokenHandler();
   const userIdHandler = new UserIdHandler();
   const authRouter = new AuthRouter(httpRequestAdapter);
+  const userRouter = new UserRouter(httpRequestAdapter);
   const makeLoginUseCase = new MakeLoginUseCase(
     authRouter,
+    userRouter,
     tokenHandler,
     userIdHandler
   );

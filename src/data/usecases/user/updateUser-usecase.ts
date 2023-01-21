@@ -30,7 +30,7 @@ export class UpdateUserUseCase implements Service {
     const authorization = this.tokenHandler.getAuthorization();
 
     updateButton.addEventListener("click", async () => {
-      const userId = await this.getUserId();
+      const userId = this.userIdHandler.getUserId();
       const password = userPassword.getValue();
 
       const updatedBody: any = {};
@@ -52,12 +52,5 @@ export class UpdateUserUseCase implements Service {
           }
         });
     });
-  }
-
-  private async getUserId(): Promise<string> {
-    const userEmail = this.userIdHandler.getUserId();
-    const authorization = this.tokenHandler.getAuthorization();
-    const response = await this.userRouter.getByEmail(userEmail, authorization);
-    return response.body.id;
   }
 }

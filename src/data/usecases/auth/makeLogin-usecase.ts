@@ -3,18 +3,22 @@ import { AuthRouter } from "../../../infra/api/routers/auth-router";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { Service } from "../../abstract/service-interface";
 import { UserIdHandler } from "../../../helpers/user/userIdHandler-helper";
+import { UserRouter } from "../../../infra/api/routers/user-router";
 
 export class MakeLoginUseCase implements Service {
   private readonly authRouter: AuthRouter;
+  private readonly userRouter: UserRouter;
   private readonly tokenHandler: TokenHandler;
   private readonly userIdHandler: UserIdHandler;
 
   constructor(
     authRouter: AuthRouter,
+    userRouter: UserRouter,
     tokenHandler: TokenHandler,
     userIdHandler: UserIdHandler
   ) {
     this.authRouter = authRouter;
+    this.userRouter = userRouter;
     this.tokenHandler = tokenHandler;
     this.userIdHandler = userIdHandler;
   }
@@ -37,11 +41,21 @@ export class MakeLoginUseCase implements Service {
       if (response.statusCode === 200) {
         const token = response.body.token;
         this.tokenHandler.storeToken(token);
-        this.userIdHandler.storeUserId(email);
+        const authorization = this.tokenHandler.getAuthorization();
+        const userId = await this.getUserId(email, authorization);
+        this.userIdHandler.storeUserId(userId);
         navigateCallbackFunction();
       } else {
         this.tokenHandler.removeToken();
       }
     });
+  }
+
+  private async getUserId(
+    userEmail: string,
+    authorization: string
+  ): Promise<string> {
+    const response = await this.userRouter.getByEmail(userEmail, authorization);
+    return response.body.id;
   }
 }

@@ -3,7 +3,7 @@ import { UpdateProfileUseCase } from "../../../data/usecases/profile/updateProfi
 import { GetUserInfoUseCase } from "../../../data/usecases/user/getUserInfo-usecase";
 import { UpdateUserUseCase } from "../../../data/usecases/user/updateUser-usecase";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
-import { ProfileHandler } from "../../../helpers/profile/profileHandler-helper";
+import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { UserHandler } from "../../../helpers/user/userHandler-helper";
 import { ProfileRouter } from "../../../infra/api/routers/profile-router";
@@ -24,12 +24,12 @@ export function makeLoggedUserControllerFactory(): LoggedUserController {
     userHandler
   );
 
-  const profileHandler = new ProfileHandler();
+  const profileIdHandler = new ProfileIdHandler();
   const profileRouter = new ProfileRouter(httpRequestAdapter);
   const getProfileInfoUseCase = new GetProfileInfoUseCase(
     profileRouter,
     tokenHandler,
-    profileHandler
+    profileIdHandler
   );
 
   const updateUserUseCase = new UpdateUserUseCase(
@@ -40,7 +40,7 @@ export function makeLoggedUserControllerFactory(): LoggedUserController {
   const updateProfileUseCase = new UpdateProfileUseCase(
     profileRouter,
     tokenHandler,
-    profileHandler
+    profileIdHandler
   );
 
   return new LoggedUserController(

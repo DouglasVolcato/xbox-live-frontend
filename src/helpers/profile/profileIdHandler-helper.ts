@@ -1,13 +1,13 @@
-export class ProfileHandler {
-  public storeProfile(profileId: string): void {
+export class ProfileIdHandler {
+  public storeProfileId(profileId: string): void {
     localStorage.setItem("selectedProfileId", profileId);
   }
 
-  public removeProfile(): void {
+  public removeProfileId(): void {
     localStorage.removeItem("selectedProfileId");
   }
 
-  public getProfile(): string {
+  public getProfileId(): string {
     return localStorage.getItem("selectedProfileId") || "";
   }
 }

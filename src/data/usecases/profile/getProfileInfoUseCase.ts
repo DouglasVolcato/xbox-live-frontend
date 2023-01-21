@@ -1,5 +1,5 @@
 import { HtmlElement } from "../../../helpers/html/html-element";
-import { ProfileHandler } from "../../../helpers/profile/profileHandler-helper";
+import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { ProfileRouter } from "../../../infra/api/routers/profile-router";
 import { Service } from "../../abstract/service-interface";
@@ -7,21 +7,21 @@ import { Service } from "../../abstract/service-interface";
 export class GetProfileInfoUseCase implements Service {
   private readonly profileRouter: ProfileRouter;
   private readonly tokenHandler: TokenHandler;
-  private readonly profileHandler: ProfileHandler;
+  private readonly profileIdHandler: ProfileIdHandler;
 
   constructor(
     profileRouter: ProfileRouter,
     tokenHandler: TokenHandler,
-    profileHandler: ProfileHandler
+    profileIdHandler: ProfileIdHandler
   ) {
     this.profileRouter = profileRouter;
     this.tokenHandler = tokenHandler;
-    this.profileHandler = profileHandler;
+    this.profileIdHandler = profileIdHandler;
   }
 
   public async execute(): Promise<void> {
     const authorization = this.tokenHandler.getAuthorization();
-    const profileId = this.profileHandler.getProfile();
+    const profileId = this.profileIdHandler.getProfileId();
     const profileTitle = new HtmlElement("profileForm-nameInput");
     const profileImageUrl = new HtmlElement("profileForm-imageInput");
     const profileImage = new HtmlElement("profileForm-image");

@@ -13,21 +13,21 @@ import { ComponentComposer } from "../../../presentation/helpers/composers/compo
 import { ComponentInterface } from "../../../presentation/abstract/component-interface";
 import { Input } from "../../../presentation/components/input";
 import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum";
-import { ProfileHandler } from "../../../helpers/profile/profileHandler-helper";
+import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
 
 export class GenerateProfileCardsUseCase implements Service {
   private readonly profileRouter: ProfileRouter;
   private readonly tokenHandler: TokenHandler;
-  private readonly profileHandler: ProfileHandler;
+  private readonly profileIdHandler: ProfileIdHandler;
 
   constructor(
     profileRouter: ProfileRouter,
     tokenHandler: TokenHandler,
-    profileHandler: ProfileHandler
+    profileIdHandler: ProfileIdHandler
   ) {
     this.profileRouter = profileRouter;
     this.tokenHandler = tokenHandler;
-    this.profileHandler = profileHandler;
+    this.profileIdHandler = profileIdHandler;
   }
 
   public async execute(navigateCallbackFunction = () => {}): Promise<void> {
@@ -80,9 +80,9 @@ export class GenerateProfileCardsUseCase implements Service {
     const profiles = document.querySelectorAll(".profileList-div");
     for (const profile of profiles) {
       profile.addEventListener("click", () => {
-        this.profileHandler.removeProfile();
+        this.profileIdHandler.removeProfileId();
         const profileId = profile.querySelector("input")?.value || "";
-        this.profileHandler.storeProfile(profileId);
+        this.profileIdHandler.storeProfileId(profileId);
         navigateCallbackFunction();
       });
     }

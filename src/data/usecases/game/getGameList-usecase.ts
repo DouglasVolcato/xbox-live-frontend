@@ -38,8 +38,8 @@ export class GetGameListUseCase implements Service {
       .then((response: ApiResponse<Game[]>) => {
         const games = response.body.map((data: Game) => this.getGameCard(data));
         const html = new ComponentComposer(games).compose();
-        const profileListDiv = new HtmlElement("homepage-gamesDiv");
-        profileListDiv.insertHtml(html, "afterbegin");
+        const gameListDiv = new HtmlElement("gameList-gamesDiv");
+        gameListDiv.insertHtml(html, "afterbegin");
       })
       .then(() => this.addEventListenerToGames(navigateCallbackFunction));
   }
@@ -47,18 +47,18 @@ export class GetGameListUseCase implements Service {
   private getGameCard(game: Game): ComponentInterface {
     const gameTitle = new Paragraph(
       game.title,
-      "homepage-gamesDiv-gameCard-gameTitle"
+      "gameList-gamesDiv-gameCard-gameTitle"
     );
     const gameImage = new Image(
       "Game image",
       game.coverImageUrl,
-      "homepage-gamesDiv-gameCard-gameImage",
+      "gameList-gamesDiv-gameCard-gameImage",
       ["gameCardImage"]
     );
     const gameId = new Input(
       InputTypeEnum.HIDDEN,
       game.id,
-      "homepage-gamesDiv-gameCard-gameId",
+      "gameList-gamesDiv-gameCard-gameId",
       "",
       ["hiddenInput"]
     );
@@ -67,7 +67,7 @@ export class GetGameListUseCase implements Service {
       FlexDirectionEnum.COLUMN,
       FlexJustificationEnum.EVENLY,
       [gameImage, gameTitle, gameId],
-      "homepage-gamesDiv-gameCard",
+      "gameList-gamesDiv-gameCard",
       [
         "homepage-gameCard",
         "background-dark-blue",

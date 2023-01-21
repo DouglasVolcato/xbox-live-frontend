@@ -8,5 +8,5 @@ const { ROW } = FlexDirectionEnum;
 const { EVENLY } = FlexJustificationEnum;
 
 export function makeGameListFactory(): Div {
-  return new Div(DIV, ROW, EVENLY, [], "homepage-gamesDiv", ["flex-wrap"]);
+  return new Div(DIV, ROW, EVENLY, [], "gameList-gamesDiv", ["flex-wrap"]);
 }

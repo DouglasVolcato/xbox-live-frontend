@@ -1,17 +1,17 @@
-import { SetGameListUseCase } from "../../data/usecases/game/setGameList-usecase";
+import { GetGameListUseCase } from "../../data/usecases/game/getGameList-usecase";
 import { ControllerInterface } from "../abstract/controller.interface";
 import { GameListPage } from "../pages/gameList-page";
 
 export class GameListController implements ControllerInterface {
   private readonly gameListPage: GameListPage;
-  private readonly setGameListUseCase: SetGameListUseCase;
+  private readonly getGameListUseCase: GetGameListUseCase;
 
   constructor(
     gameListPage: GameListPage,
-    setGameListUseCase: SetGameListUseCase
+    getGameListUseCase: GetGameListUseCase
   ) {
     this.gameListPage = gameListPage;
-    this.setGameListUseCase = setGameListUseCase;
+    this.getGameListUseCase = getGameListUseCase;
   }
 
   public renderPage(): string {
@@ -21,6 +21,6 @@ export class GameListController implements ControllerInterface {
   public async setGameList(
     navigateCallbackFunction: () => void
   ): Promise<void> {
-    return await this.setGameListUseCase.execute(navigateCallbackFunction);
+    return await this.getGameListUseCase.execute(navigateCallbackFunction);
   }
 }

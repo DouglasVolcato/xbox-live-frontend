@@ -16,7 +16,7 @@ import { InputTypeEnum } from "../../../presentation/enums/input/input-type-enum
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
 import { GameRouter } from "../../../infra/api/routers/game-router";
 
-export class SetGameListUseCase implements Service {
+export class GetGameListUseCase implements Service {
   private readonly gameRouter: GameRouter;
   private readonly tokenHandler: TokenHandler;
   private readonly gameIdHandler: GameIdHandler;

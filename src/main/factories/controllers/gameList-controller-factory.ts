@@ -1,4 +1,4 @@
-import { SetGameListUseCase } from "../../../data/usecases/game/setGameList-usecase";
+import { GetGameListUseCase } from "../../../data/usecases/game/getGameList-usecase";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
@@ -12,10 +12,10 @@ export function makeGameListControllerFactory(): GameListController {
   const gameRouter = new GameRouter(httpRequestAdapter);
   const tokenHandler = new TokenHandler();
   const gameIdHandler = new GameIdHandler();
-  const setGameListUseCase = new SetGameListUseCase(
+  const getGameListUseCase = new GetGameListUseCase(
     gameRouter,
     tokenHandler,
     gameIdHandler
   );
-  return new GameListController(gameListPage, setGameListUseCase);
+  return new GameListController(gameListPage, getGameListUseCase);
 }

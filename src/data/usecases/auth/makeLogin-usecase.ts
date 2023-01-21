@@ -2,21 +2,21 @@ import { HtmlElement } from "../../../helpers/html/html-element";
 import { AuthRouter } from "../../../infra/api/routers/auth-router";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { Service } from "../../abstract/service-interface";
-import { UserHandler } from "../../../helpers/user/userHandler-helper";
+import { UserIdHandler } from "../../../helpers/user/userIdHandler-helper";
 
 export class MakeLoginUseCase implements Service {
   private readonly authRouter: AuthRouter;
   private readonly tokenHandler: TokenHandler;
-  private readonly userHandler: UserHandler;
+  private readonly userIdHandler: UserIdHandler;
 
   constructor(
     authRouter: AuthRouter,
     tokenHandler: TokenHandler,
-    userHandler: UserHandler
+    userIdHandler: UserIdHandler
   ) {
     this.authRouter = authRouter;
     this.tokenHandler = tokenHandler;
-    this.userHandler = userHandler;
+    this.userIdHandler = userIdHandler;
   }
 
   public execute(navigateCallbackFunction = () => {}): void {
@@ -37,7 +37,7 @@ export class MakeLoginUseCase implements Service {
       if (response.statusCode === 200) {
         const token = response.body.token;
         this.tokenHandler.storeToken(token);
-        this.userHandler.storeUser(email);
+        this.userIdHandler.storeUserId(email);
         navigateCallbackFunction();
       } else {
         this.tokenHandler.removeToken();

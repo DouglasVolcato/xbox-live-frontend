@@ -2,25 +2,27 @@ import { HtmlElement } from "../../../helpers/html/html-element";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { Service } from "../../abstract/service-interface";
 import { UserRouter } from "../../../infra/api/routers/user-router";
-import { UserHandler } from "../../../helpers/user/userHandler-helper";
+import { UserIdHandler } from "../../../helpers/user/userIdHandler-helper";
 
 export class UpdateUserUseCase implements Service {
   private readonly userRouter: UserRouter;
   private readonly tokenHandler: TokenHandler;
-  private readonly userHandler: UserHandler;
+  private readonly userIdHandler: UserIdHandler;
 
   constructor(
     userRouter: UserRouter,
     tokenHandler: TokenHandler,
-    userHandler: UserHandler
+    userIdHandler: UserIdHandler
   ) {
     this.userRouter = userRouter;
     this.tokenHandler = tokenHandler;
-    this.userHandler = userHandler;
+    this.userIdHandler = userIdHandler;
   }
 
   public execute(navigateCallbackFunction = () => {}): void {
-    const updateButton = new HtmlElement("userAccountForm-buttonsDiv-updateButton");
+    const updateButton = new HtmlElement(
+      "userAccountForm-buttonsDiv-updateButton"
+    );
     const username = new HtmlElement("userAccountForm-nameInput");
     const useremail = new HtmlElement("userAccountForm-emailInput");
     const userPassword = new HtmlElement("userAccountForm-passwordInput");
@@ -53,7 +55,7 @@ export class UpdateUserUseCase implements Service {
   }
 
   private async getUserId(): Promise<string> {
-    const userEmail = this.userHandler.getUser();
+    const userEmail = this.userIdHandler.getUserId();
     const authorization = this.tokenHandler.getAuthorization();
     const response = await this.userRouter.getByEmail(userEmail, authorization);
     return response.body.id;

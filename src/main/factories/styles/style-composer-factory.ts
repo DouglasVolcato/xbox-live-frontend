@@ -30,6 +30,7 @@ export function makeStyleComposerFactory(): StyleComposer {
     "./src/presentation/styles/pages/gameEditionAdmin-page.css",
     "./src/presentation/styles/pages/gameCreationAdmin-page.css",
     "./src/presentation/styles/pages/gameView-page.css",
+    "./src/presentation/styles/pages/gameList-page.css",
   ];
 
   return new StyleComposer([...globals, ...colors, ...components, ...pages]);

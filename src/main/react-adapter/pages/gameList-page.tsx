@@ -1,7 +1,17 @@
-import { makeGameListPageFactory } from "../../factories/pages/gameList-page-factory";
+import { useEffect } from "react";
+import { makeGameListControllerFactory } from "../../factories/controllers/gameList-controller-factory";
 import { HtmlComponent } from "../helpers/html-component-helper";
 
 export function GameList() {
-  const gameList = makeGameListPageFactory();
-  return <HtmlComponent component={gameList.render()} />;
+  const gameListController = makeGameListControllerFactory();
+
+  function test() {
+    alert("Game selected!");
+  }
+
+  useEffect(() => {
+    gameListController.setGameList(test);
+  });
+
+  return <HtmlComponent component={gameListController.renderPage()} />;
 }

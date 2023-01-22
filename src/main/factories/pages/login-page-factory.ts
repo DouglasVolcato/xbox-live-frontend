@@ -1,4 +1,3 @@
-import { mockedUser } from "../../../infra/mocks/user";
 import { Button } from "../../../presentation/components/button";
 import { Div } from "../../../presentation/components/div";
 import { Input } from "../../../presentation/components/input";

@@ -70,4 +70,9 @@ export class HtmlElement {
     const element: any = document.getElementById(this.id);
     element.src = src;
   }
+
+  public setHref(href: string): void {
+    const element: any = document.getElementById(this.id);
+    element.href = href;
+  }
 }

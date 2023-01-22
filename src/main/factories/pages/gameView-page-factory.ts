@@ -1,4 +1,3 @@
-import { mockedGame } from "../../../infra/mocks/game";
 import { Anchor } from "../../../presentation/components/anchor";
 import { Button } from "../../../presentation/components/button";
 import { Div } from "../../../presentation/components/div";
@@ -17,7 +16,7 @@ export function makeGameViewPageFactory(): GameViewPage {
   const header = makeHeaderFactory();
   const menu = makeMenuFactory();
 
-  const title = new Title(mockedGame.title, "gameView-titleDiv-title");
+  const title = new Title("", "gameView-titleDiv-title");
   const favotiteButton = new Button(
     "Favorite",
     ButtonTypeEnum.BUTTON,
@@ -34,32 +33,32 @@ export function makeGameViewPageFactory(): GameViewPage {
 
   const gameImage = new Image(
     "Game image",
-    mockedGame.coverImageUrl,
+    "",
     "gameView-gameBody-gameDescriptionDiv-image"
   );
 
   const description = new Paragraph(
-    mockedGame.description,
+    "",
     "gameView-gameBody-gameDescriptionDiv-gameDescription-description"
   );
 
   const year = new Paragraph(
-    "Year: " + mockedGame.year.toString(),
+    "Year: " + "",
     "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-year"
   );
   const imdb = new Paragraph(
-    "Imdb: " + mockedGame.imdbScore.toString(),
+    "Imdb: " + "",
     "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-imdb"
   );
 
   const gameplayAnchor = new Anchor(
     "Gameplay",
-    mockedGame.gameplayYouTubeUrl,
+    "",
     "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-gameplayAnchor"
   );
   const trailerAnchor = new Anchor(
     "Trailer",
-    mockedGame.trailerYouTubeUrl,
+    "",
     "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-trailerAnchor"
   );
 

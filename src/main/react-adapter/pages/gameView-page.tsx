@@ -1,7 +1,13 @@
-import { makeGameViewPageFactory } from "../../factories/pages/gameView-page-factory";
+import { useEffect } from "react";
+import { makeGameViewControllerFactory } from "../../factories/controllers/gameView-controller-factory";
 import { HtmlComponent } from "../helpers/html-component-helper";
 
 export function GameView() {
-  const gameViewPage = makeGameViewPageFactory();
-  return <HtmlComponent component={gameViewPage.render()} />;
+  const gameViewController = makeGameViewControllerFactory();
+
+  useEffect(() => {
+    gameViewController.setGameInfo();
+  });
+
+  return <HtmlComponent component={gameViewController.renderPage()} />;
 }

@@ -7,6 +7,7 @@ export function GameView() {
 
   useEffect(() => {
     gameViewController.setGameInfo();
+    gameViewController.favoriteGame();
   });
 
   return <HtmlComponent component={gameViewController.renderPage()} />;

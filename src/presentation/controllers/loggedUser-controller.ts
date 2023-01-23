@@ -1,3 +1,4 @@
+import { DeleteProfileUseCase } from "../../data/usecases/profile/deleteProfile-usecase";
 import { GetProfileInfoUseCase } from "../../data/usecases/profile/getProfileInfoUseCase";
 import { UpdateProfileUseCase } from "../../data/usecases/profile/updateProfile-usecase";
 import { GetUserInfoUseCase } from "../../data/usecases/user/getUserInfo-usecase";
@@ -11,19 +12,22 @@ export class LoggedUserController implements ControllerInterface {
   private readonly getProfileInfoUseCase: GetProfileInfoUseCase;
   private readonly updateUserUseCase: UpdateUserUseCase;
   private readonly updateProfileUseCase: UpdateProfileUseCase;
+  private readonly deleteProfileUseCase: DeleteProfileUseCase;
 
   constructor(
     loggedUserPage: LoggedUserPage,
     getUserInfoUseCase: GetUserInfoUseCase,
     getProfileInfoUseCase: GetProfileInfoUseCase,
     updateUserUseCase: UpdateUserUseCase,
-    updateProfileUseCase: UpdateProfileUseCase
+    updateProfileUseCase: UpdateProfileUseCase,
+    deleteProfileUseCase: DeleteProfileUseCase
   ) {
     this.loggedUserPage = loggedUserPage;
     this.getUserInfoUseCase = getUserInfoUseCase;
     this.getProfileInfoUseCase = getProfileInfoUseCase;
     this.updateUserUseCase = updateUserUseCase;
     this.updateProfileUseCase = updateProfileUseCase;
+    this.deleteProfileUseCase = deleteProfileUseCase;
   }
 
   public renderPage(): string {
@@ -44,5 +48,9 @@ export class LoggedUserController implements ControllerInterface {
 
   public updateProfile(navigateCallbackFunction: () => void): void {
     this.updateProfileUseCase.execute(navigateCallbackFunction);
+  }
+
+  public deleteProfile(navigateCallbackFunction: () => void): void {
+    this.deleteProfileUseCase.execute(navigateCallbackFunction);
   }
 }

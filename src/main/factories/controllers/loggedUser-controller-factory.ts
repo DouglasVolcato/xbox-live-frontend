@@ -1,3 +1,4 @@
+import { DeleteProfileUseCase } from "../../../data/usecases/profile/deleteProfile-usecase";
 import { GetProfileInfoUseCase } from "../../../data/usecases/profile/getProfileInfoUseCase";
 import { UpdateProfileUseCase } from "../../../data/usecases/profile/updateProfile-usecase";
 import { GetUserInfoUseCase } from "../../../data/usecases/user/getUserInfo-usecase";
@@ -42,12 +43,18 @@ export function makeLoggedUserControllerFactory(): LoggedUserController {
     tokenHandler,
     profileIdHandler
   );
+  const deleteProfileUseCase = new DeleteProfileUseCase(
+    profileRouter,
+    tokenHandler,
+    profileIdHandler
+  );
 
   return new LoggedUserController(
     loggedUserPage,
     getUserInfoUseCase,
     getProfileInfoUseCase,
     updateUserUseCase,
-    updateProfileUseCase
+    updateProfileUseCase,
+    deleteProfileUseCase
   );
 }

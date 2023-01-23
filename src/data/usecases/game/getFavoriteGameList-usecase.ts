@@ -47,6 +47,7 @@ export class GetFavoriteGameListUseCase implements Service {
         );
         const html = new ComponentComposer(profiles).compose();
         const profileListDiv = new HtmlElement("favoriteGames-gamesDiv");
+        profileListDiv.deleteChildren();
         profileListDiv.insertHtml(html, "afterbegin");
       })
       .then(() => this.addEventListenerToGames(navigateCallbackFunction));

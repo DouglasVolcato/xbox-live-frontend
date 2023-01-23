@@ -39,6 +39,7 @@ export class GetGameListUseCase implements Service {
         const games = response.body.map((data: Game) => this.getGameCard(data));
         const html = new ComponentComposer(games).compose();
         const gameListDiv = new HtmlElement("gameList-gamesDiv");
+        gameListDiv.deleteChildren();
         gameListDiv.insertHtml(html, "afterbegin");
       })
       .then(() => this.addEventListenerToGames(navigateCallbackFunction));

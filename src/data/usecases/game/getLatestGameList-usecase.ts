@@ -43,6 +43,7 @@ export class GetLatestGameListUseCase implements Service {
           );
           const html = new ComponentComposer(games).compose();
           const gameListDiv = new HtmlElement("homePage-gamesDiv");
+          gameListDiv.deleteChildren();
           gameListDiv.insertHtml(html, "afterbegin");
         } else {
           const games = [];
@@ -52,6 +53,7 @@ export class GetLatestGameListUseCase implements Service {
           }
           const html = new ComponentComposer(games).compose();
           const gameListDiv = new HtmlElement("homePage-gamesDiv");
+          gameListDiv.deleteChildren();
           gameListDiv.insertHtml(html, "afterbegin");
         }
       })

@@ -46,9 +46,15 @@ export function makeGameViewPageFactory(): GameViewPage {
     "Year: " + "",
     "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-year"
   );
+
   const imdb = new Paragraph(
     "Imdb: " + "",
     "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-imdb"
+  );
+
+  const gender = new Paragraph(
+    "Gender: " + "",
+    "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-gender"
   );
 
   const gameplayAnchor = new Anchor(
@@ -66,7 +72,7 @@ export function makeGameViewPageFactory(): GameViewPage {
     DivTypeEnum.DIV,
     FlexDirectionEnum.COLUMN,
     FlexJustificationEnum.EVENLY,
-    [year, imdb, gameplayAnchor, trailerAnchor],
+    [year, imdb, gender, gameplayAnchor, trailerAnchor],
     "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo"
   );
 

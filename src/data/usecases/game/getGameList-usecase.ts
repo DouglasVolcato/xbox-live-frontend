@@ -32,17 +32,36 @@ export class GetGameListUseCase implements Service {
   }
 
   public async execute(navigateCallbackFunction = () => {}): Promise<void> {
+    await this.renderGameCards("", navigateCallbackFunction);
+  }
+
+  private async renderGameCards(
+    categoryFilter = "",
+    navigateCallbackFunction = () => {}
+  ): Promise<void> {
     const authorization = this.tokenHandler.getAuthorization();
     await this.gameRouter
       .getAll(authorization)
       .then((response: ApiResponse<Game[]>) => {
-        const games = response.body.map((data: Game) => this.getGameCard(data));
+        const receivedGames = response.body;
+        const games = receivedGames
+          .filter((data) => {
+            if (categoryFilter !== "") {
+              return data.gender.toUpperCase() === categoryFilter.toUpperCase();
+            } else {
+              return true;
+            }
+          })
+          .map((data: Game) => this.getGameCard(data));
         const html = new ComponentComposer(games).compose();
         const gameListDiv = new HtmlElement("gameList-gamesDiv");
         gameListDiv.deleteChildren();
         gameListDiv.insertHtml(html, "afterbegin");
       })
-      .then(() => this.addEventListenerToGames(navigateCallbackFunction));
+      .then(() => {
+        this.addEventListenerToGames(navigateCallbackFunction);
+        this.addCategoryFilter();
+      });
   }
 
   private getGameCard(game: Game): ComponentInterface {
@@ -88,5 +107,13 @@ export class GetGameListUseCase implements Service {
         navigateCallbackFunction();
       });
     }
+  }
+
+  private async addCategoryFilter(): Promise<void> {
+    const selectComponent = new HtmlElement("gameList-categoryFilter-select");
+    selectComponent.addEventListener("change", async (): Promise<void> => {
+      const filter = selectComponent.getValue();
+      this.renderGameCards(filter);
+    });
   }
 }

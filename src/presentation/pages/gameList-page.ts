@@ -6,13 +6,21 @@ import { Title } from "../components/title";
 export class GameListPage implements PageInterface {
   private readonly header: Header;
   private readonly title: Title;
+  private readonly categoryFilter: Div;
   private readonly menuDiv: Div;
   private readonly gameList: Div;
 
-  constructor(header: Header, menuDiv: Div, title: Title, gameList: Div) {
+  constructor(
+    header: Header,
+    menuDiv: Div,
+    title: Title,
+    categoryFilter: Div,
+    gameList: Div
+  ) {
     this.header = header;
-    this.title = title;
     this.menuDiv = menuDiv;
+    this.title = title;
+    this.categoryFilter = categoryFilter;
     this.gameList = gameList;
   }
 
@@ -22,6 +30,7 @@ export class GameListPage implements PageInterface {
             ${this.header.render()}
             ${this.menuDiv.render()}
             ${this.title.render()}
+            ${this.categoryFilter.render()}
             ${this.gameList.render()}
         </main>
     `;

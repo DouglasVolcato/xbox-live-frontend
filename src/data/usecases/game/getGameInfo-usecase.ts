@@ -37,6 +37,9 @@ export class GetGameInfoUseCase implements Service {
       const imdb = new HtmlElement(
         "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-imdb"
       );
+      const gender = new HtmlElement(
+        "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-gender"
+      );
       const gameplayAnchor = new HtmlElement(
         "gameView-gameBody-gameDescriptionDiv-gameDescription-aditionalInfo-gameplayAnchor"
       );
@@ -49,6 +52,7 @@ export class GetGameInfoUseCase implements Service {
       description.setInnerText(game.description);
       year.setInnerText("Year: " + game.year.toString());
       imdb.setInnerText("IMDB: " + game.imdbScore.toString());
+      gender.setInnerText("Gender: " + game.gender);
       gameplayAnchor.setHref(game.gameplayYouTubeUrl);
       trailerAnchor.setHref(game.trailerYouTubeUrl);
     });

@@ -1,4 +1,5 @@
 import { GetFavoriteGameListUseCase } from "../../../data/usecases/game/getFavoriteGameList-usecase";
+import { GetProfileHeaderUseCase } from "../../../data/usecases/profile/getProfileHeader-usecase";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
 import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
@@ -20,8 +21,14 @@ export function makeFavoriteGamesControllerFactory(): FavoriteGamesController {
     profileIdHandler,
     gameIdHandler
   );
+  const getProfileHeaderUseCase = new GetProfileHeaderUseCase(
+    profileRouter,
+    tokenHandler,
+    profileIdHandler
+  );
   return new FavoriteGamesController(
     favoriteGamesPage,
-    getFavoriteGamesListUseCase
+    getFavoriteGamesListUseCase,
+    getProfileHeaderUseCase
   );
 }

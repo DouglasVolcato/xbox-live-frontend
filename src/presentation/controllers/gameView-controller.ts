@@ -1,5 +1,6 @@
 import { FavoriteGameUseCase } from "../../data/usecases/game/favoriteGame-usecase";
 import { GetGameInfoUseCase } from "../../data/usecases/game/getGameInfo-usecase";
+import { GetProfileHeaderUseCase } from "../../data/usecases/profile/getProfileHeader-usecase";
 import { ControllerInterface } from "../abstract/controller.interface";
 import { GameViewPage } from "../pages/gameView-page";
 
@@ -7,15 +8,18 @@ export class GameViewController implements ControllerInterface {
   private readonly gameViewPage: GameViewPage;
   private readonly getGameInfoUseCase: GetGameInfoUseCase;
   private readonly favoriteGameUseCase: FavoriteGameUseCase;
+  private readonly getProfileHeaderUseCase: GetProfileHeaderUseCase;
 
   constructor(
     gameViewPage: GameViewPage,
     getGameInfoUseCase: GetGameInfoUseCase,
-    favoriteGameUseCase: FavoriteGameUseCase
+    favoriteGameUseCase: FavoriteGameUseCase,
+    getProfileHeaderUseCase: GetProfileHeaderUseCase
   ) {
     this.gameViewPage = gameViewPage;
     this.getGameInfoUseCase = getGameInfoUseCase;
     this.favoriteGameUseCase = favoriteGameUseCase;
+    this.getProfileHeaderUseCase = getProfileHeaderUseCase;
   }
 
   public renderPage(): string {
@@ -28,5 +32,9 @@ export class GameViewController implements ControllerInterface {
 
   public async favoriteGame(): Promise<void> {
     return await this.favoriteGameUseCase.execute();
+  }
+
+  public updateHeader(): void {
+    this.getProfileHeaderUseCase.execute();
   }
 }

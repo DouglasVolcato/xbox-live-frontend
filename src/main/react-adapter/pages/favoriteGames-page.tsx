@@ -11,6 +11,7 @@ export function FavoriteGames() {
 
   useEffect(() => {
     favoriteGamesController.setGameList(test);
+    favoriteGamesController.updateHeader();
   });
 
   return <HtmlComponent component={favoriteGamesController.renderPage()} />;

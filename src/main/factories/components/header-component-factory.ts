@@ -1,5 +1,3 @@
-import { mockedProfile } from "../../../infra/mocks/profile";
-import { mockedUser } from "../../../infra/mocks/user";
 import { Div } from "../../../presentation/components/div";
 import { Header } from "../../../presentation/components/header";
 import { Image } from "../../../presentation/components/image";
@@ -13,15 +11,12 @@ const { ROW } = FlexDirectionEnum;
 const { EVENLY } = FlexJustificationEnum;
 
 export function makeHeaderFactory(): Header {
-  const userName = new Paragraph(mockedUser.name, "header-userInfo-userName", [
+  const userName = new Paragraph("", "header-userInfo-userName", [
     "profileName",
   ]);
-  const userImage = new Image(
-    "User",
-    mockedProfile.imageUrl,
-    "header-userInfo-userImage",
-    ["profileImage"]
-  );
+  const userImage = new Image("User", "", "header-userInfo-userImage", [
+    "profileImage",
+  ]);
   const userInfo = new Div(
     DIV,
     ROW,

@@ -11,6 +11,7 @@ export function Homepage() {
 
   useEffect(() => {
     homepage.setGameList(test);
+    homepage.updateHeader();
   });
 
   return <HtmlComponent component={homepage.renderPage()} />;

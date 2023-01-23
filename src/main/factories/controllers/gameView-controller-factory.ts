@@ -1,5 +1,6 @@
 import { FavoriteGameUseCase } from "../../../data/usecases/game/favoriteGame-usecase";
 import { GetGameInfoUseCase } from "../../../data/usecases/game/getGameInfo-usecase";
+import { GetProfileHeaderUseCase } from "../../../data/usecases/profile/getProfileHeader-usecase";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
 import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
@@ -28,9 +29,15 @@ export function makeGameViewControllerFactory(): GameViewController {
     profileRouter,
     tokenHandler
   );
+  const getProfileHeaderUseCase = new GetProfileHeaderUseCase(
+    profileRouter,
+    tokenHandler,
+    profileIdHandler
+  );
   return new GameViewController(
     gameViewPage,
     getGameInfoUseCase,
-    favoriteGameUseCase
+    favoriteGameUseCase,
+    getProfileHeaderUseCase
   );
 }

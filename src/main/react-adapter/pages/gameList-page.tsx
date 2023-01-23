@@ -11,6 +11,7 @@ export function GameList() {
 
   useEffect(() => {
     gameListController.setGameList(test);
+    gameListController.updateHeader();
   });
 
   return <HtmlComponent component={gameListController.renderPage()} />;

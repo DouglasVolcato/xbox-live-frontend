@@ -50,6 +50,12 @@ export function makeUserAccountFormFactory(): Div {
     "userAccountForm-buttonsDiv-updateButton",
     ["border-light-green", "background-dark-green"]
   );
+  const logoutButton = new Button(
+    "Logout",
+    ButtonTypeEnum.BUTTON,
+    "userAccountForm-buttonsDiv-logoutButton",
+    ["border-light-blue", "background-dark-blue"]
+  );
   const deleteButton = new Button(
     "Delete",
     ButtonTypeEnum.BUTTON,
@@ -61,7 +67,7 @@ export function makeUserAccountFormFactory(): Div {
     DivTypeEnum.DIV,
     FlexDirectionEnum.ROW,
     FlexJustificationEnum.EVENLY,
-    [updateButton, deleteButton],
+    [logoutButton, updateButton, deleteButton],
     "userAccountForm-buttonsDiv"
   );
 

@@ -1,6 +1,7 @@
 import { DeleteProfileUseCase } from "../../data/usecases/profile/deleteProfile-usecase";
 import { GetProfileInfoUseCase } from "../../data/usecases/profile/getProfileInfoUseCase";
 import { UpdateProfileUseCase } from "../../data/usecases/profile/updateProfile-usecase";
+import { DeleteUserUseCase } from "../../data/usecases/user/deleteUser-usecase";
 import { GetUserInfoUseCase } from "../../data/usecases/user/getUserInfo-usecase";
 import { UpdateUserUseCase } from "../../data/usecases/user/updateUser-usecase";
 import { ControllerInterface } from "../abstract/controller.interface";
@@ -13,6 +14,7 @@ export class LoggedUserController implements ControllerInterface {
   private readonly updateUserUseCase: UpdateUserUseCase;
   private readonly updateProfileUseCase: UpdateProfileUseCase;
   private readonly deleteProfileUseCase: DeleteProfileUseCase;
+  private readonly deleteUserUseCase: DeleteUserUseCase;
 
   constructor(
     loggedUserPage: LoggedUserPage,
@@ -20,7 +22,8 @@ export class LoggedUserController implements ControllerInterface {
     getProfileInfoUseCase: GetProfileInfoUseCase,
     updateUserUseCase: UpdateUserUseCase,
     updateProfileUseCase: UpdateProfileUseCase,
-    deleteProfileUseCase: DeleteProfileUseCase
+    deleteProfileUseCase: DeleteProfileUseCase,
+    deleteUserUseCase: DeleteUserUseCase
   ) {
     this.loggedUserPage = loggedUserPage;
     this.getUserInfoUseCase = getUserInfoUseCase;
@@ -28,6 +31,7 @@ export class LoggedUserController implements ControllerInterface {
     this.updateUserUseCase = updateUserUseCase;
     this.updateProfileUseCase = updateProfileUseCase;
     this.deleteProfileUseCase = deleteProfileUseCase;
+    this.deleteUserUseCase = deleteUserUseCase;
   }
 
   public renderPage(): string {
@@ -52,5 +56,9 @@ export class LoggedUserController implements ControllerInterface {
 
   public deleteProfile(navigateCallbackFunction: () => void): void {
     this.deleteProfileUseCase.execute(navigateCallbackFunction);
+  }
+
+  public deleteUser(navigateCallbackFunction: () => void): void {
+    this.deleteUserUseCase.execute(navigateCallbackFunction);
   }
 }

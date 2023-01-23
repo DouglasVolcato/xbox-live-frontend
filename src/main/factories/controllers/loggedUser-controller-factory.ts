@@ -1,6 +1,7 @@
 import { DeleteProfileUseCase } from "../../../data/usecases/profile/deleteProfile-usecase";
 import { GetProfileInfoUseCase } from "../../../data/usecases/profile/getProfileInfoUseCase";
 import { UpdateProfileUseCase } from "../../../data/usecases/profile/updateProfile-usecase";
+import { DeleteUserUseCase } from "../../../data/usecases/user/deleteUser-usecase";
 import { GetUserInfoUseCase } from "../../../data/usecases/user/getUserInfo-usecase";
 import { UpdateUserUseCase } from "../../../data/usecases/user/updateUser-usecase";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
@@ -16,7 +17,6 @@ export function makeLoggedUserControllerFactory(): LoggedUserController {
   const loggedUserPage = makeLoggedUserPageFactory();
   const httpRequestAdapter = new HttpRequestAdapter();
   const tokenHandler = new TokenHandler();
-
   const userIdHandler = new UserIdHandler();
   const userRouter = new UserRouter(httpRequestAdapter);
   const getUserInfoUseCase = new GetUserInfoUseCase(
@@ -24,7 +24,6 @@ export function makeLoggedUserControllerFactory(): LoggedUserController {
     tokenHandler,
     userIdHandler
   );
-
   const profileIdHandler = new ProfileIdHandler();
   const profileRouter = new ProfileRouter(httpRequestAdapter);
   const getProfileInfoUseCase = new GetProfileInfoUseCase(
@@ -48,13 +47,18 @@ export function makeLoggedUserControllerFactory(): LoggedUserController {
     tokenHandler,
     profileIdHandler
   );
-
+  const deleteUserUseCase = new DeleteUserUseCase(
+    userRouter,
+    tokenHandler,
+    userIdHandler
+  );
   return new LoggedUserController(
     loggedUserPage,
     getUserInfoUseCase,
     getProfileInfoUseCase,
     updateUserUseCase,
     updateProfileUseCase,
-    deleteProfileUseCase
+    deleteProfileUseCase,
+    deleteUserUseCase
   );
 }

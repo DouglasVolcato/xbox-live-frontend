@@ -17,12 +17,17 @@ export function LoggedUser() {
     alert("Deleted!");
   }
 
+  function testDeleteUser() {
+    alert("Deleted!");
+  }
+
   useEffect(() => {
     loggedUserPage.getUserInfo();
     loggedUserPage.updateUser(testUpdateUser);
+    loggedUserPage.deleteUser(testDeleteUser);
     loggedUserPage.getProfileInfo();
     loggedUserPage.updateProfile(testUpdateProfile);
-    loggedUserPage.deleteProfile(testDeleteProfile)
+    loggedUserPage.deleteProfile(testDeleteProfile);
   });
 
   return <HtmlComponent component={loggedUserPage.renderPage()} />;

@@ -1,4 +1,5 @@
 import { GetLatestGameListUseCase } from "../../../data/usecases/game/getLatestGameList-usecase";
+import { ClockUpdateUseCase } from "../../../data/usecases/other/clockUpdate-usecase";
 import { GetProfileHeaderUseCase } from "../../../data/usecases/profile/getProfileHeader-usecase";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
@@ -27,9 +28,11 @@ export function makeHomePageControllerFactory(): HomePageController {
     tokenHandler,
     profileIdHandler
   );
+  const clockUpdateUseCase = new ClockUpdateUseCase();
   return new HomePageController(
     homePage,
     getLatestGameListUseCase,
-    getProfileHeaderUseCase
+    getProfileHeaderUseCase,
+    clockUpdateUseCase
   );
 }

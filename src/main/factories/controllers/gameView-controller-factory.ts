@@ -1,5 +1,6 @@
 import { FavoriteGameUseCase } from "../../../data/usecases/game/favoriteGame-usecase";
 import { GetGameInfoUseCase } from "../../../data/usecases/game/getGameInfo-usecase";
+import { ClockUpdateUseCase } from "../../../data/usecases/other/clockUpdate-usecase";
 import { GetProfileHeaderUseCase } from "../../../data/usecases/profile/getProfileHeader-usecase";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
@@ -34,10 +35,12 @@ export function makeGameViewControllerFactory(): GameViewController {
     tokenHandler,
     profileIdHandler
   );
+  const clockUpdateUseCase = new ClockUpdateUseCase();
   return new GameViewController(
     gameViewPage,
     getGameInfoUseCase,
     favoriteGameUseCase,
-    getProfileHeaderUseCase
+    getProfileHeaderUseCase,
+    clockUpdateUseCase
   );
 }

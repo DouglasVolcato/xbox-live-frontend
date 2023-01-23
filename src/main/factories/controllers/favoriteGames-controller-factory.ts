@@ -1,4 +1,5 @@
 import { GetFavoriteGameListUseCase } from "../../../data/usecases/game/getFavoriteGameList-usecase";
+import { ClockUpdateUseCase } from "../../../data/usecases/other/clockUpdate-usecase";
 import { GetProfileHeaderUseCase } from "../../../data/usecases/profile/getProfileHeader-usecase";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
@@ -26,9 +27,10 @@ export function makeFavoriteGamesControllerFactory(): FavoriteGamesController {
     tokenHandler,
     profileIdHandler
   );
+  const clockUpdateUseCase = new ClockUpdateUseCase()
   return new FavoriteGamesController(
     favoriteGamesPage,
     getFavoriteGamesListUseCase,
-    getProfileHeaderUseCase
+    getProfileHeaderUseCase,clockUpdateUseCase
   );
 }

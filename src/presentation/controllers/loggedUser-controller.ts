@@ -1,3 +1,4 @@
+import { LogoutUseCase } from "../../data/usecases/auth/logout-usecase";
 import { DeleteProfileUseCase } from "../../data/usecases/profile/deleteProfile-usecase";
 import { GetProfileInfoUseCase } from "../../data/usecases/profile/getProfileInfoUseCase";
 import { UpdateProfileUseCase } from "../../data/usecases/profile/updateProfile-usecase";
@@ -15,6 +16,7 @@ export class LoggedUserController implements ControllerInterface {
   private readonly updateProfileUseCase: UpdateProfileUseCase;
   private readonly deleteProfileUseCase: DeleteProfileUseCase;
   private readonly deleteUserUseCase: DeleteUserUseCase;
+  private readonly logoutUseCase: LogoutUseCase;
 
   constructor(
     loggedUserPage: LoggedUserPage,
@@ -23,7 +25,8 @@ export class LoggedUserController implements ControllerInterface {
     updateUserUseCase: UpdateUserUseCase,
     updateProfileUseCase: UpdateProfileUseCase,
     deleteProfileUseCase: DeleteProfileUseCase,
-    deleteUserUseCase: DeleteUserUseCase
+    deleteUserUseCase: DeleteUserUseCase,
+    logoutUseCase: LogoutUseCase
   ) {
     this.loggedUserPage = loggedUserPage;
     this.getUserInfoUseCase = getUserInfoUseCase;
@@ -32,6 +35,7 @@ export class LoggedUserController implements ControllerInterface {
     this.updateProfileUseCase = updateProfileUseCase;
     this.deleteProfileUseCase = deleteProfileUseCase;
     this.deleteUserUseCase = deleteUserUseCase;
+    this.logoutUseCase = logoutUseCase;
   }
 
   public renderPage(): string {
@@ -60,5 +64,9 @@ export class LoggedUserController implements ControllerInterface {
 
   public deleteUser(navigateCallbackFunction: () => void): void {
     this.deleteUserUseCase.execute(navigateCallbackFunction);
+  }
+
+  public logout(navigateCallbackFunction: () => void): void {
+    this.logoutUseCase.execute(navigateCallbackFunction);
   }
 }

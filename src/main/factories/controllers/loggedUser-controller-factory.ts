@@ -1,3 +1,4 @@
+import { LogoutUseCase } from "../../../data/usecases/auth/logout-usecase";
 import { DeleteProfileUseCase } from "../../../data/usecases/profile/deleteProfile-usecase";
 import { GetProfileInfoUseCase } from "../../../data/usecases/profile/getProfileInfoUseCase";
 import { UpdateProfileUseCase } from "../../../data/usecases/profile/updateProfile-usecase";
@@ -52,6 +53,7 @@ export function makeLoggedUserControllerFactory(): LoggedUserController {
     tokenHandler,
     userIdHandler
   );
+  const logoutUseCase = new LogoutUseCase(tokenHandler);
   return new LoggedUserController(
     loggedUserPage,
     getUserInfoUseCase,
@@ -59,6 +61,7 @@ export function makeLoggedUserControllerFactory(): LoggedUserController {
     updateUserUseCase,
     updateProfileUseCase,
     deleteProfileUseCase,
-    deleteUserUseCase
+    deleteUserUseCase,
+    logoutUseCase
   );
 }

@@ -21,6 +21,10 @@ export function LoggedUser() {
     alert("Deleted!");
   }
 
+  function testLogout() {
+    alert("Logged out!");
+  }
+
   useEffect(() => {
     loggedUserPage.getUserInfo();
     loggedUserPage.updateUser(testUpdateUser);
@@ -28,6 +32,7 @@ export function LoggedUser() {
     loggedUserPage.getProfileInfo();
     loggedUserPage.updateProfile(testUpdateProfile);
     loggedUserPage.deleteProfile(testDeleteProfile);
+    loggedUserPage.logout(testLogout);
   });
 
   return <HtmlComponent component={loggedUserPage.renderPage()} />;

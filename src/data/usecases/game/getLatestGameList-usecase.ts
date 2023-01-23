@@ -37,7 +37,6 @@ export class GetLatestGameListUseCase implements Service {
       .getAll(authorization)
       .then((response: ApiResponse<Game[]>) => {
         const gameListLength = response.body.length;
-
         if (gameListLength <= 4) {
           const games = response.body.map((data: Game) =>
             this.getGameCard(data)

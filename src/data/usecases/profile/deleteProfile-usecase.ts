@@ -27,11 +27,11 @@ export class DeleteProfileUseCase implements Service {
       await this.profileRouter
         .delete(profileId, authorization)
         .then((response) => {
+          if (response.message) {
+            alert(response.message);
+          }
           if (response.statusCode === 200) {
-            alert("Profile deleted.");
             navigateCallbackFunction();
-          } else {
-            alert("An error occurred.");
           }
         });
     });

@@ -53,7 +53,6 @@ export class UpdateProfileUseCase implements Service {
   private updateImageRealTime(): void {
     const profileImageUrl = new HtmlElement("profileForm-imageInput");
     const profileImage = new HtmlElement("profileForm-image");
-
     profileImageUrl.addEventListener("change", () => {
       profileImage.setSrc(profileImageUrl.getValue());
     });

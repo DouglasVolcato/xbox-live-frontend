@@ -34,7 +34,7 @@ export class GenerateProfileCardsUseCase implements Service {
     const authorization = this.tokenHandler.getAuthorization();
     await this.profileRouter
       .getAll(authorization)
-      .then((response: any) => {
+      .then((response) => {
         const profiles = response.body.map((data: any) =>
           this.getProfileCard(data)
         );

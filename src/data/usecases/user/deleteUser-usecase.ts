@@ -27,11 +27,11 @@ export class DeleteUserUseCase implements Service {
     const authorization = this.tokenHandler.getAuthorization();
     deleteButton.addEventListener("click", async () => {
       await this.userRouter.delete(userId, authorization).then((response) => {
+        if (response.message) {
+          alert(response.message);
+        }
         if (response.statusCode === 200) {
-          alert("User deleted.");
           navigateCallbackFunction();
-        } else {
-          alert("An error occurred.");
         }
       });
     });

@@ -26,14 +26,16 @@ export class DeleteUserUseCase implements Service {
     const userId = this.userIdHandler.getUserId();
     const authorization = this.tokenHandler.getAuthorization();
     deleteButton.addEventListener("click", async () => {
-      await this.userRouter.delete(userId, authorization).then((response) => {
-        if (response.message) {
-          alert(response.message);
-        }
-        if (response.statusCode === 200) {
-          navigateCallbackFunction();
-        }
-      });
+      if (window.confirm("Delete your account?")) {
+        await this.userRouter.delete(userId, authorization).then((response) => {
+          if (response.message) {
+            alert(response.message);
+          }
+          if (response.statusCode === 200) {
+            navigateCallbackFunction();
+          }
+        });
+      }
     });
   }
 }

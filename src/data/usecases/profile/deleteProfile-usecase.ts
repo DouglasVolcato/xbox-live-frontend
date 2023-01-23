@@ -24,16 +24,18 @@ export class DeleteProfileUseCase implements Service {
     const profileId = this.profileIdHandler.getProfileId();
     const authorization = this.tokenHandler.getAuthorization();
     deleteButton.addEventListener("click", async () => {
-      await this.profileRouter
-        .delete(profileId, authorization)
-        .then((response) => {
-          if (response.message) {
-            alert(response.message);
-          }
-          if (response.statusCode === 200) {
-            navigateCallbackFunction();
-          }
-        });
+      if (window.confirm("Delete this profile?")) {
+        await this.profileRouter
+          .delete(profileId, authorization)
+          .then((response) => {
+            if (response.message) {
+              alert(response.message);
+            }
+            if (response.statusCode === 200) {
+              navigateCallbackFunction();
+            }
+          });
+      }
     });
   }
 }

@@ -1,38 +1,40 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { makeLoggedUserControllerFactory } from "../../factories/controllers/loggedUser-controller-factory";
 import { HtmlComponent } from "../helpers/html-component-helper";
 
 export function LoggedUser() {
+  const navigate = useNavigate();
   const loggedUserPage = makeLoggedUserControllerFactory();
 
-  function testUpdateUser() {
-    alert("User Updated!");
+  function updateUser() {
+    navigate("/logged-user");
   }
 
-  function testUpdateProfile() {
-    alert("Profile Updated!");
+  function updateProfile() {
+    navigate("/logged-user");
   }
 
-  function testDeleteProfile() {
-    alert("Deleted!");
+  function deleteProfile() {
+    navigate("/profile-list");
   }
 
-  function testDeleteUser() {
-    alert("Deleted!");
+  function deleteUser() {
+    navigate("/login");
   }
 
-  function testLogout() {
-    alert("Logged out!");
+  function logout() {
+    navigate("/login");
   }
 
   useEffect(() => {
     loggedUserPage.getUserInfo();
-    loggedUserPage.updateUser(testUpdateUser);
-    loggedUserPage.deleteUser(testDeleteUser);
+    loggedUserPage.updateUser(updateUser);
+    loggedUserPage.deleteUser(deleteUser);
     loggedUserPage.getProfileInfo();
-    loggedUserPage.updateProfile(testUpdateProfile);
-    loggedUserPage.deleteProfile(testDeleteProfile);
-    loggedUserPage.logout(testLogout);
+    loggedUserPage.updateProfile(updateProfile);
+    loggedUserPage.deleteProfile(deleteProfile);
+    loggedUserPage.logout(logout);
   });
 
   return <HtmlComponent component={loggedUserPage.renderPage()} />;

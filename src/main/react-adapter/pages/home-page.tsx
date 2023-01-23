@@ -1,16 +1,18 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { makeHomePageControllerFactory } from "../../factories/controllers/homePage-controller-factory";
 import { HtmlComponent } from "../helpers/html-component-helper";
 
 export function Homepage() {
+  const navigate = useNavigate();
   const homepage = makeHomePageControllerFactory();
 
-  function test() {
-    alert("Game selected!");
+  function gameSelected() {
+    navigate("/game-view");
   }
 
   useEffect(() => {
-    homepage.setGameList(test);
+    homepage.setGameList(gameSelected);
     homepage.updateHeader();
   });
 

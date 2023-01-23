@@ -26,7 +26,8 @@ export class Select extends HtmlElement implements ComponentInterface {
   private composeOptions(): string {
     let options = "";
     this.options.map((option) => {
-      return `<option value="${option.value}">${option.option}</option>`;
+      options =
+        options + `<option value="${option.value}">${option.option}</option>`;
     });
     return options;
   }

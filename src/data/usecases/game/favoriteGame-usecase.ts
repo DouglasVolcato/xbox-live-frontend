@@ -44,7 +44,7 @@ export class FavoriteGameUseCase implements Service {
         .removeGames(profileId, [gameId], authorization)
         .then((response) => {
           if (response.statusCode === 200) {
-            alert("Game removed from favorites.");
+            alert("Game removed from favorites!");
           }
         });
     } else {
@@ -52,7 +52,7 @@ export class FavoriteGameUseCase implements Service {
         .addGames(profileId, [gameId], authorization)
         .then((response) => {
           if (response.statusCode === 200) {
-            alert("Game added to favorites.");
+            alert("Game added to favorites!");
           }
         });
     }

@@ -48,6 +48,7 @@ export class UpdateUserUseCase implements Service {
             alert(response.message);
           }
           if (response.statusCode === 200) {
+            alert("User updated!");
             navigateCallbackFunction();
           }
         });

@@ -44,6 +44,7 @@ export class MakeLoginUseCase implements Service {
         const authorization = this.tokenHandler.getAuthorization();
         const userId = await this.getUserId(email, authorization);
         this.userIdHandler.storeUserId(userId);
+        alert("Logged in!");
         navigateCallbackFunction();
       } else {
         this.tokenHandler.removeToken();

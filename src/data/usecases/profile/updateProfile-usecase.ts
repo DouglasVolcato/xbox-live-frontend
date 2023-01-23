@@ -44,6 +44,7 @@ export class UpdateProfileUseCase implements Service {
             alert(response.message);
           }
           if (response.statusCode === 200) {
+            alert("Profile updated!")
             navigateCallbackFunction();
           }
         });

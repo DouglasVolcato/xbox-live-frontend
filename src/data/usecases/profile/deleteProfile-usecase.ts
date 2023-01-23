@@ -32,6 +32,7 @@ export class DeleteProfileUseCase implements Service {
               alert(response.message);
             }
             if (response.statusCode === 200) {
+              alert("Profile deleted!");
               navigateCallbackFunction();
             }
           });

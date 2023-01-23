@@ -32,6 +32,7 @@ export class DeleteUserUseCase implements Service {
             alert(response.message);
           }
           if (response.statusCode === 200) {
+            alert("User deleted!");
             navigateCallbackFunction();
           }
         });

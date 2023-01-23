@@ -29,6 +29,7 @@ export class RegisterUserUseCase implements Service {
         alert(response.message);
       }
       if (response.statusCode === 201) {
+        alert("User created!");
         navigateCallbackFunction();
       }
     });

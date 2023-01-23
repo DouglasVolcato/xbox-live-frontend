@@ -32,6 +32,7 @@ export class CreateProfileUseCase implements Service {
         alert(response.message);
       }
       if (response.statusCode === 201) {
+        alert("Profile created!");
         navigateCallbackFunction();
       }
     });

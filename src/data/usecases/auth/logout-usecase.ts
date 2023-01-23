@@ -15,6 +15,7 @@ export class LogoutUseCase implements Service {
     );
     logoutButton.addEventListener("click", () => {
       if (window.confirm("Logout from this account?")) {
+        alert("Logged out!");
         this.tokenHandler.removeToken();
         navigateCallbackFunction();
       }

@@ -16,6 +16,7 @@ export function makeStyleComposerFactory(): StyleComposer {
     "./src/presentation/styles/components/label.css",
     "./src/presentation/styles/components/form.css",
     "./src/presentation/styles/components/anchor.css",
+    "./src/presentation/styles/components/select.css",
   ];
   const pages = [
     "./src/presentation/styles/pages/home-page.css",

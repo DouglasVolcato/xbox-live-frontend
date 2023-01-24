@@ -32,27 +32,17 @@ export class GetGameListUseCase implements Service {
   }
 
   public async execute(navigateCallbackFunction = () => {}): Promise<void> {
-    await this.renderGameCards("", navigateCallbackFunction);
+    await this.renderGameCards(navigateCallbackFunction);
   }
 
   private async renderGameCards(
-    categoryFilter = "",
     navigateCallbackFunction = () => {}
   ): Promise<void> {
     const authorization = this.tokenHandler.getAuthorization();
     await this.gameRouter
       .getAll(authorization)
       .then((response: ApiResponse<Game[]>) => {
-        const receivedGames = response.body;
-        const games = receivedGames
-          .filter((data) => {
-            if (categoryFilter !== "") {
-              return data.gender.toUpperCase() === categoryFilter.toUpperCase();
-            } else {
-              return true;
-            }
-          })
-          .map((data: Game) => this.getGameCard(data));
+        const games = response.body.map((data: Game) => this.getGameCard(data));
         const html = new ComponentComposer(games).compose();
         const gameListDiv = new HtmlElement("gameList-gamesDiv");
         gameListDiv.deleteChildren();
@@ -60,7 +50,7 @@ export class GetGameListUseCase implements Service {
       })
       .then(() => {
         this.addEventListenerToGames(navigateCallbackFunction);
-        this.addCategoryFilter();
+        this.addCategoryFilter(navigateCallbackFunction);
       });
   }
 
@@ -109,11 +99,33 @@ export class GetGameListUseCase implements Service {
     }
   }
 
-  private async addCategoryFilter(): Promise<void> {
+  private async addCategoryFilter(
+    navigateCallbackFunction = () => {}
+  ): Promise<void> {
     const selectComponent = new HtmlElement("gameList-categoryFilter-select");
     selectComponent.addEventListener("change", async (): Promise<void> => {
-      const filter = selectComponent.getValue();
-      this.renderGameCards(filter);
+      const gameListDiv = new HtmlElement("gameList-gamesDiv");
+      gameListDiv.deleteChildren();
+      const authorization = this.tokenHandler.getAuthorization();
+      this.gameRouter
+        .getAll(authorization)
+        .then((response: ApiResponse<Game[]>) => {
+          const receivedGames = response.body.filter(
+            (data) =>
+              data.gender.toUpperCase() ===
+              selectComponent.getValue().toUpperCase()
+          );
+          const games = receivedGames.map((data: Game) =>
+            this.getGameCard(data)
+          );
+          gameListDiv.deleteChildren();
+          const html = new ComponentComposer(games).compose();
+          gameListDiv.insertHtml(html, "afterbegin");
+        })
+        .then(() => {
+          this.addEventListenerToGames(navigateCallbackFunction);
+          this.addCategoryFilter(navigateCallbackFunction);
+        });
     });
   }
 }

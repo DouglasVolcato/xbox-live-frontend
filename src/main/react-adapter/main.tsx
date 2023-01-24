@@ -21,7 +21,7 @@ import { UsersAdmin } from "./pages/usersAdmin-page";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <BrowserRouter>
-    <StyleComposer />
+    {/* <StyleComposer /> */}
     <RouteComposer />
     <Validator />
     <Routes>
@@ -43,7 +43,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Route path="game-edition-admin" element={<GameEditionAdmin />} />
         <Route path="game-creation-admin" element={<GameCreationAdmin />} />
       */}
-
     </Routes>
   </BrowserRouter>
 );

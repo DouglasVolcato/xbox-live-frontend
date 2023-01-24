@@ -1,7 +1,12 @@
-import { makeStyleComposerFactory } from "../../factories/styles/style-composer-factory";
-import { HtmlComponent } from "../helpers/html-component-helper";
+import { useEffect } from "react";
+import { makeStylesControllerFactory } from "../../factories/controllers/styles-controller-factory";
 
 export function StyleComposer() {
-  const styles = makeStyleComposerFactory();
-  return <HtmlComponent component={styles.compose()} />;
+  const stylesController = makeStylesControllerFactory();
+
+  useEffect(() => {
+    stylesController.renderStyles();
+  });
+
+  return <></>;
 }

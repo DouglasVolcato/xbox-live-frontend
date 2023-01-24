@@ -5,7 +5,7 @@ export class StyleComposer {
     let styleComposer = "";
     this.styleFilePaths.map((stylePath) => {
       styleComposer =
-        styleComposer + `<link rel="stylesheet" href="${stylePath}">`;
+        styleComposer + `<link rel="stylesheet" href="${stylePath}" type="text/css">`;
     });
     return styleComposer;
   }

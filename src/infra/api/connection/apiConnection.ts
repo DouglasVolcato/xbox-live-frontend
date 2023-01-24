@@ -1,3 +1,4 @@
 export class ApiConnection {
-  protected readonly apiLink = "http://localhost:3000";
+  protected readonly apiLink =
+    "https://xbox-live-backend-production.up.railway.app";
 }

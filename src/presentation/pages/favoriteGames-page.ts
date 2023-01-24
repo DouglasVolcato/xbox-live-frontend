@@ -2,7 +2,6 @@ import { PageInterface } from "../abstract/page-interface";
 import { Div } from "../components/div";
 import { Header } from "../components/header";
 import { Title } from "../components/title";
-import { updateHour } from "./helpers/update-hour";
 
 export class FavoriteGamesPage implements PageInterface {
   private readonly header: Header;

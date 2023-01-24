@@ -40,7 +40,6 @@ export class GenerateProfileCardsUseCase implements Service {
         );
         const html = new ComponentComposer(profiles).compose();
         const profileListDiv = new HtmlElement("profileList-flexBody");
-        profileListDiv.deleteChildren();
         profileListDiv.insertHtml(html, "afterbegin");
       })
       .then(() => this.addEventListenerToProfiles(navigateCallbackFunction));

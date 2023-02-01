@@ -16,9 +16,9 @@ export function makeAdminHeaderFactory(): Div {
     ["border-light-blue", "background-dark-blue"]
   );
   const profilesHandlingButton = new Button(
-    "Profiles",
+    "Users",
     ButtonTypeEnum.BUTTON,
-    "adminHeader-buttonsDiv-profilesButton",
+    "adminHeader-buttonsDiv-usersButton",
     ["border-light-green", "background-dark-green"]
   );
   const returnButton = new Button(

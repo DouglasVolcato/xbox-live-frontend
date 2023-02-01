@@ -110,11 +110,15 @@ export class GetGameListUseCase implements Service {
       this.gameRouter
         .getAll(authorization)
         .then((response: ApiResponse<Game[]>) => {
-          const receivedGames = response.body.filter(
-            (data) =>
-              data.gender.toUpperCase() ===
-              selectComponent.getValue().toUpperCase()
-          );
+          const receivedGames = response.body.filter((data) => {
+            const filter = selectComponent.getValue();
+            const filterUnset =
+              filter.trim() === "" || filter === null || filter === undefined;
+            if (filterUnset) {
+              return true;
+            }
+            return data.gender.toUpperCase() === filter.toUpperCase();
+          });
           const games = receivedGames.map((data: Game) =>
             this.getGameCard(data)
           );

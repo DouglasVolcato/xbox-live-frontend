@@ -20,5 +20,13 @@ export function makeRouteComposerFactory(): RouteComposer {
       componentId: "adminHeader-buttonsDiv-returnButton",
       route: "/profile-list",
     },
+    {
+      componentId: "adminHeader-buttonsDiv-gamesButton",
+      route: "/games-admin",
+    },
+    {
+      componentId: "adminHeader-buttonsDiv-usersButton",
+      route: "/users-admin",
+    },
   ]);
 }

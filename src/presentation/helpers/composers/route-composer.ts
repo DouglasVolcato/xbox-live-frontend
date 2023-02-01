@@ -10,7 +10,7 @@ export class RouteComposer {
     this.routes = routes;
   }
 
-  compose(callbackFunction: (route: string) => void): void {
+  public compose(callbackFunction: (route: string) => void): void {
     this.routes.map((route) => {
       document
         .getElementById(route.componentId)

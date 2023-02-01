@@ -11,8 +11,13 @@ export function ProfileList() {
     navigate("/home-page");
   }
 
+  function adminPageNavigation() {
+    navigate("/home-admin");
+  }
+
   useEffect(() => {
     profileList.updateProfileCards(profileSelected);
+    profileList.unlockAdminMenu(adminPageNavigation);
   });
 
   return <HtmlComponent component={profileList.renderPage()} />;

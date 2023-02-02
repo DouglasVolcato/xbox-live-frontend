@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { RouteComposer } from "./components/routes";
-import { StyleComposer } from "./components/styles";
 import { FavoriteGames } from "./pages/favoriteGames-page";
 import { GameList } from "./pages/gameList-page";
 import { GameView } from "./pages/gameView-page";
@@ -15,9 +14,10 @@ import { Validator } from "./helpers/validator-helper";
 import { GamesAdmin } from "./pages/gamesAdmin-page";
 import { HomeAdmin } from "./pages/homeAdmin-page";
 import { GameCreationAdmin } from "./pages/gameCreationAdmin";
+import { UsersAdmin } from "./pages/usersAdmin-page";
 import { GameEditionAdmin } from "./pages/gameEditionAdmin";
 import { UserEditionAdmin } from "./pages/userEditionAdmin-page";
-import { UsersAdmin } from "./pages/usersAdmin-page";
+import { StyleComposer } from "./components/styles";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <BrowserRouter>
@@ -38,11 +38,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Route path="home-admin" element={<HomeAdmin />} />
       <Route path="games-admin" element={<GamesAdmin />} />
       <Route path="users-admin" element={<UsersAdmin />} />
+      <Route path="game-creation-admin" element={<GameCreationAdmin />} />
 
       {/* 
         <Route path="user-edition-admin" element={<UserEditionAdmin />} />
         <Route path="game-edition-admin" element={<GameEditionAdmin />} />
-        <Route path="game-creation-admin" element={<GameCreationAdmin />} />
       */}
     </Routes>
   </BrowserRouter>

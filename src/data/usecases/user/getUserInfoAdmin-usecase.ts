@@ -26,11 +26,9 @@ export class GetUserInfoAdminUseCase implements Service {
       const user = data.body;
       const name = new HtmlElement("userEditionAdminForm-nameInput");
       const email = new HtmlElement("userEditionAdminForm-emailInput");
-      const password = new HtmlElement("userEditionAdminForm-passwordInput");
       const cpf = new HtmlElement("userEditionAdminForm-cpfInput");
       name.setValue(user.name);
       email.setValue(user.email);
-      password.setValue(user.password);
       cpf.setValue(user.cpf);
     });
   }

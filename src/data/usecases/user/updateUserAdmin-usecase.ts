@@ -1,6 +1,7 @@
 import { HtmlElement } from "../../../helpers/html/html-element";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { EditionUserIdHandler } from "../../../helpers/user/editionUserIdHandler-helper";
+import { UserDto } from "../../../infra/api/dtos/user-dto";
 import { UserRouter } from "../../../infra/api/routers/user-router";
 import { Service } from "../../abstract/service-interface";
 
@@ -31,17 +32,18 @@ export class UpdateUserAdminUseCase implements Service {
     const userCpf = new HtmlElement("userEditionAdminForm-cpfInput");
 
     updateButton.addEventListener("click", async () => {
+      const updatedUser: UserDto = {
+        name: userName.getValue(),
+        email: userEmail.getValue(),
+        cpf: userCpf.getValue(),
+      };
+
+      if (userPassword.getValue().trim() !== "") {
+        updatedUser.password = userPassword.getValue();
+      }
+
       await this.userRouter
-        .update(
-          userId,
-          {
-            name: userName.getValue(),
-            email: userEmail.getValue(),
-            password: userPassword.getValue(),
-            cpf: userCpf.getValue(),
-          },
-          authorization
-        )
+        .update(userId, updatedUser, authorization)
         .then((response) => {
           if (response.message) {
             alert(response.message);

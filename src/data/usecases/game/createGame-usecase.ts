@@ -28,7 +28,7 @@ export class CreateGameUseCase implements Service {
     const gameYear = new HtmlElement("gameCreationAdminForm-yearInput");
     const gameImdbScore = new HtmlElement("gameCreationAdminForm-imdbInput");
     const gameTrailerUrl = new HtmlElement(
-      "gameCreationAdminForm-trailerUrlLabel"
+      "gameCreationAdminForm-trailerUrlInput"
     );
     const gameGameplayUrl = new HtmlElement(
       "gameCreationAdminForm-gameplayUrlInput"

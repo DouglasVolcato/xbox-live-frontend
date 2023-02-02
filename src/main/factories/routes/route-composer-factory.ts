@@ -32,5 +32,9 @@ export function makeRouteComposerFactory(): RouteComposer {
       componentId: "adminGameList-gamesDiv-addGameButton",
       route: "/game-creation-admin",
     },
+    {
+      componentId: "gameCreationAdminForm-buttonsDiv-returnButton",
+      route: "/games-admin",
+    },
   ]);
 }

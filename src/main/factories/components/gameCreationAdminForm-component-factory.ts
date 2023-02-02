@@ -88,16 +88,16 @@ export function makeGameCreationAdminFormFactory(): Div {
     "Gameplay url"
   );
 
-  const updateButton = new Button(
-    "Update",
+  const createButton = new Button(
+    "Create",
     ButtonTypeEnum.BUTTON,
-    "gameCreationAdminForm-buttonsDiv-updateButton",
+    "gameCreationAdminForm-buttonsDiv-createButton",
     ["border-light-green", "background-dark-green"]
   );
-  const deleteButton = new Button(
-    "Delete",
+  const returnButton = new Button(
+    "Return",
     ButtonTypeEnum.BUTTON,
-    "gameCreationAdminForm-buttonsDiv-deleteButton",
+    "gameCreationAdminForm-buttonsDiv-returnButton",
     ["border-light-red", "background-dark-red"]
   );
 
@@ -105,7 +105,7 @@ export function makeGameCreationAdminFormFactory(): Div {
     DivTypeEnum.DIV,
     FlexDirectionEnum.ROW,
     FlexJustificationEnum.EVENLY,
-    [updateButton, deleteButton],
+    [createButton, returnButton],
     "gameCreationAdminForm-buttonsDiv"
   );
 

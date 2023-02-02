@@ -4,14 +4,14 @@ import { ProfileCreationPage } from "../pages/profileCreation-page";
 
 export class ProfileCreationController implements ControllerInterface {
   private readonly profileCreationPage: ProfileCreationPage;
-  private readonly createProfileseCase: CreateProfileUseCase;
+  private readonly createProfileUseCase: CreateProfileUseCase;
 
   constructor(
     profileCreation: ProfileCreationPage,
-    createProfileseCase: CreateProfileUseCase
+    createProfileUseCase: CreateProfileUseCase
   ) {
     this.profileCreationPage = profileCreation;
-    this.createProfileseCase = createProfileseCase;
+    this.createProfileUseCase = createProfileUseCase;
   }
 
   public renderPage(): string {
@@ -19,6 +19,6 @@ export class ProfileCreationController implements ControllerInterface {
   }
 
   public createProfile(navigateCallbackFunction: () => void): void {
-    return this.createProfileseCase.execute(navigateCallbackFunction);
+    return this.createProfileUseCase.execute(navigateCallbackFunction);
   }
 }

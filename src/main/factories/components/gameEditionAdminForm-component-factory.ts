@@ -1,4 +1,3 @@
-import { mockedGame } from "../../../infra/mocks/game";
 import { Button } from "../../../presentation/components/button";
 import { Div } from "../../../presentation/components/div";
 import { Input } from "../../../presentation/components/input";
@@ -16,7 +15,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   const titleLabel = new Label("Title", "gameEditionAdminForm-titleLabel");
   const titleInput = new Input(
     InputTypeEnum.TEXT,
-    mockedGame.title,
+    "",
     "gameEditionAdminForm-titleInput",
     "Title"
   );
@@ -27,7 +26,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   );
   const coverImageUrlInput = new Input(
     InputTypeEnum.TEXT,
-    mockedGame.coverImageUrl,
+    "",
     "gameEditionAdminForm-coverImageUrlInput",
     "Image url"
   );
@@ -38,7 +37,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   );
   const descriptionInput = new Input(
     InputTypeEnum.TEXT,
-    mockedGame.description,
+    "",
     "gameEditionAdminForm-descriptionInput",
     "Description"
   );
@@ -46,7 +45,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   const yearLabel = new Label("Year", "gameEditionAdminForm-yearLabel");
   const yearInput = new Input(
     InputTypeEnum.NUMBER,
-    mockedGame.year.toString(),
+    "",
     "gameEditionAdminForm-yearInput",
     "Year"
   );
@@ -54,7 +53,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   const genderLabel = new Label("Gender", "gameEditionAdminForm-genderLabel");
   const genderInput = new Input(
     InputTypeEnum.TEXT,
-    mockedGame.gender,
+    "",
     "gameEditionAdminForm-genderInput",
     "Gender"
   );
@@ -62,7 +61,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   const imdbLabel = new Label("Imdb", "gameEditionAdminForm-imdbLabel");
   const imdbInput = new Input(
     InputTypeEnum.NUMBER,
-    mockedGame.imdbScore.toString(),
+    "",
     "gameEditionAdminForm-imdbInput",
     "Imdb"
   );
@@ -73,7 +72,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   );
   const trailerUrlInput = new Input(
     InputTypeEnum.TEXT,
-    mockedGame.trailerYouTubeUrl,
+    "",
     "gameEditionAdminForm-trailerUrlInput",
     "Trailer url"
   );
@@ -84,7 +83,7 @@ export function makeGameEditionAdminFormFactory(): Div {
   );
   const gameplayUrlInput = new Input(
     InputTypeEnum.TEXT,
-    mockedGame.gameplayYouTubeUrl,
+    "",
     "gameEditionAdminForm-gameplayUrlInput",
     "Gameplay url"
   );

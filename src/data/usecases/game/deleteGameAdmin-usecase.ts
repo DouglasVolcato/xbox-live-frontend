@@ -26,7 +26,7 @@ export class DeleteGameAdminUseCase implements Service {
     const gameId = this.gameIdHandler.getGameId();
     const authorization = this.tokenHandler.getAuthorization();
     deleteButton.addEventListener("click", async () => {
-      if (window.confirm("Delete this profile?")) {
+      if (window.confirm("Delete this game?")) {
         await this.gameRouter.delete(gameId, authorization).then((response) => {
           if (response.message) {
             alert(response.message);

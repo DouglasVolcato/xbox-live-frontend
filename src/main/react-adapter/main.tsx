@@ -34,16 +34,12 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Route path="game-list" element={<GameList />} />
       <Route path="game-view" element={<GameView />} />
       <Route path="home-page" element={<Homepage />} />
-
       <Route path="home-admin" element={<HomeAdmin />} />
       <Route path="games-admin" element={<GamesAdmin />} />
       <Route path="users-admin" element={<UsersAdmin />} />
       <Route path="game-creation-admin" element={<GameCreationAdmin />} />
       <Route path="game-edition-admin" element={<GameEditionAdmin />} />
-
-      {/* 
-        <Route path="user-edition-admin" element={<UserEditionAdmin />} />
-      */}
+      <Route path="user-edition-admin" element={<UserEditionAdmin />} />
     </Routes>
   </BrowserRouter>
 );

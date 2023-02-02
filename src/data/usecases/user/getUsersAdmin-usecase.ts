@@ -57,6 +57,11 @@ export class GetUsersAdminListUseCase implements Service {
       "adminUsersList-usersDiv-userCard-userTitle",
       ["background-dark-blue"]
     );
+    const userEmail = new Paragraph(
+      "Email: " + user.email,
+      "adminUsersList-usersDiv-userCard-userEmail",
+      ["background-dark-blue"]
+    );
     const userIdInput = new Input(
       InputTypeEnum.HIDDEN,
       user.id,
@@ -68,7 +73,7 @@ export class GetUsersAdminListUseCase implements Service {
       DivTypeEnum.DIV,
       FlexDirectionEnum.COLUMN,
       FlexJustificationEnum.EVENLY,
-      [userId, userName, userIdInput],
+      [userId, userName, userEmail, userIdInput],
       "adminUsersList-usersDiv-userCard",
       ["background-dark-blue", "border-light-gray", "adminUserCard"]
     );

@@ -1,3 +1,3 @@
 export interface Service {
-  execute(): void;
+  execute(callbackFunction?: any): void | Promise<void>;
 }

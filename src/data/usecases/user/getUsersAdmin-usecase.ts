@@ -75,7 +75,7 @@ export class GetUsersAdminListUseCase implements Service {
       FlexJustificationEnum.EVENLY,
       [userId, userName, userEmail, userIdInput],
       "adminUsersList-usersDiv-userCard",
-      ["background-dark-blue", "border-light-gray", "adminUserCard"]
+      ["background-dark-blue", "border-light-gray", "adminUserCard", "userCard"]
     );
   }
 

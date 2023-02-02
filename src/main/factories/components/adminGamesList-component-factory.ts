@@ -18,7 +18,7 @@ export function makeAdminGamesListFactory(): Div {
     FlexJustificationEnum.EVENLY,
     [],
     "adminGameList-gamesDiv",
-    ["flex-wrap"]
+    ["flex-wrap", "gameList-gameCard"]
   );
 
   return new Div(

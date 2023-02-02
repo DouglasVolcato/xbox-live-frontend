@@ -17,3 +17,12 @@
 #gameList-categoryFilter label{
     margin: auto;
 }
+
+#adminGameList-gamesDiv-addGameButton{
+    width: 200px;
+    margin: 20px auto 10px auto;
+}
+
+.adminGameCard{
+    margin: 10px;
+}

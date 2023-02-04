@@ -24,7 +24,7 @@ describe("ApiConnection", () => {
 
   test("GetLink method should return main api link if no link is given during class intance", () => {
     const { apiConnection } = makeSut();
-    const limk = apiConnection.getLink();
-    expect(limk).toBe(apiLink);
+    const link = apiConnection.getLink();
+    expect(link).toBe(apiLink);
   });
 });

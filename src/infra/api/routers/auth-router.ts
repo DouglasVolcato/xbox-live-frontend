@@ -4,17 +4,22 @@ import { TokenDto } from "../dtos/token-dto";
 import { LoginDto } from "../dtos/login-dto";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 
-export class AuthRouter extends ApiConnection {
+export class AuthRouter {
   private readonly httpRequestAdapter: HttpRequestAdapter;
+  private readonly apiConnection: ApiConnection;
 
-  constructor(httpRequestAdapter: HttpRequestAdapter) {
-    super();
+  constructor(
+    httpRequestAdapter: HttpRequestAdapter,
+    apiConnection: ApiConnection
+  ) {
     this.httpRequestAdapter = httpRequestAdapter;
+    this.apiConnection = apiConnection;
   }
 
   public async login(loginData: LoginDto): Promise<ApiResponse<TokenDto>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.post(
-      this.apiLink + "/auth/login",
+      apiLink + "/auth/login",
       loginData
     );
   }

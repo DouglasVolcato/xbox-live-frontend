@@ -1,4 +1,11 @@
 export class ApiConnection {
-  protected readonly apiLink =
-    "http://localhost:3000";
+  private readonly apiLink: string;
+
+  constructor(link: string) {
+    this.apiLink = link;
+  }
+
+  public getLink(): string {
+    return this.apiLink;
+  }
 }

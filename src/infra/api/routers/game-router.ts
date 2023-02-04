@@ -4,20 +4,25 @@ import { Game } from "../../../domain/game";
 import { GameDto } from "../dtos/game-dto";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 
-export class GameRouter extends ApiConnection {
+export class GameRouter {
   private readonly httpRequestAdapter: HttpRequestAdapter;
+  private readonly apiConnection: ApiConnection;
 
-  constructor(httpRequestAdapter: HttpRequestAdapter) {
-    super();
+  constructor(
+    httpRequestAdapter: HttpRequestAdapter,
+    apiConnection: ApiConnection
+  ) {
     this.httpRequestAdapter = httpRequestAdapter;
+    this.apiConnection = apiConnection;
   }
 
   public async create(
     game: GameDto,
     authorizationToken: string
   ): Promise<ApiResponse<Game>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.post(
-      this.apiLink + "/game/create-game",
+      apiLink + "/game/create-game",
       game,
       authorizationToken
     );
@@ -26,8 +31,9 @@ export class GameRouter extends ApiConnection {
   public async getAll(
     authorizationToken: string
   ): Promise<ApiResponse<Game[]>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.get(
-      this.apiLink + "/game/get-all-games",
+      apiLink + "/game/get-all-games",
       authorizationToken
     );
   }
@@ -36,8 +42,9 @@ export class GameRouter extends ApiConnection {
     gameId: string,
     authorizationToken: string
   ): Promise<ApiResponse<Game>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.get(
-      this.apiLink + "/game/get-game/" + gameId,
+      apiLink + "/game/get-game/" + gameId,
       authorizationToken
     );
   }
@@ -46,8 +53,9 @@ export class GameRouter extends ApiConnection {
     gameId: string,
     authorizationToken: string
   ): Promise<ApiResponse<Game>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.delete(
-      this.apiLink + "/game/delete-game/" + gameId,
+      apiLink + "/game/delete-game/" + gameId,
       authorizationToken
     );
   }
@@ -57,8 +65,9 @@ export class GameRouter extends ApiConnection {
     game: GameDto,
     authorizationToken: string
   ): Promise<ApiResponse<Game>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.patch(
-      this.apiLink + "/game/update-game/" + gameId,
+      apiLink + "/game/update-game/" + gameId,
       game,
       authorizationToken
     );

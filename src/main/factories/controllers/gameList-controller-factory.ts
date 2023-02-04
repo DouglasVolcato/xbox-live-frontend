@@ -5,6 +5,7 @@ import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapte
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
 import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
+import { ApiConnection } from "../../../infra/api/connection/apiConnection";
 import { GameRouter } from "../../../infra/api/routers/game-router";
 import { ProfileRouter } from "../../../infra/api/routers/profile-router";
 import { GameListController } from "../../../presentation/controllers/gameList-controller";
@@ -13,7 +14,8 @@ import { makeGameListPageFactory } from "../pages/gameList-page-factory";
 export function makeGameListControllerFactory(): GameListController {
   const gameListPage = makeGameListPageFactory();
   const httpRequestAdapter = new HttpRequestAdapter();
-  const gameRouter = new GameRouter(httpRequestAdapter);
+  const apiConnection = new ApiConnection();
+  const gameRouter = new GameRouter(httpRequestAdapter, apiConnection);
   const tokenHandler = new TokenHandler();
   const gameIdHandler = new GameIdHandler();
   const getGameListUseCase = new GetGameListUseCase(
@@ -21,7 +23,7 @@ export function makeGameListControllerFactory(): GameListController {
     tokenHandler,
     gameIdHandler
   );
-  const profileRouter = new ProfileRouter(httpRequestAdapter);
+  const profileRouter = new ProfileRouter(httpRequestAdapter, apiConnection);
   const profileIdHandler = new ProfileIdHandler();
   const getProfileHeaderUseCase = new GetProfileHeaderUseCase(
     profileRouter,

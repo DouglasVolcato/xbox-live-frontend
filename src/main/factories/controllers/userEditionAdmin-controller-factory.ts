@@ -5,6 +5,7 @@ import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapte
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { EditionUserIdHandler } from "../../../helpers/user/editionUserIdHandler-helper";
 import { UserIdHandler } from "../../../helpers/user/userIdHandler-helper";
+import { ApiConnection } from "../../../infra/api/connection/apiConnection";
 import { UserRouter } from "../../../infra/api/routers/user-router";
 import { UserEditionAdminController } from "../../../presentation/controllers/userEditionAdmin-controller";
 import { makeUserEditionAdminPageFactory } from "../pages/userEditionAdmin-page-factory";
@@ -12,7 +13,8 @@ import { makeUserEditionAdminPageFactory } from "../pages/userEditionAdmin-page-
 export function makeUserEditionAdminControllerFactory(): UserEditionAdminController {
   const userEditionAdminPage = makeUserEditionAdminPageFactory();
   const httpRequestAdapter = new HttpRequestAdapter();
-  const userRouter = new UserRouter(httpRequestAdapter);
+  const apiConnection = new ApiConnection();
+  const userRouter = new UserRouter(httpRequestAdapter, apiConnection);
   const tokenHandler = new TokenHandler();
   const editionUserIdHandler = new EditionUserIdHandler();
   const getUserInfoAdminUseCase = new GetUserInfoAdminUseCase(

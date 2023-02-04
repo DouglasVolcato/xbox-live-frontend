@@ -5,6 +5,7 @@ import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapte
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
 import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
+import { ApiConnection } from "../../../infra/api/connection/apiConnection";
 import { ProfileRouter } from "../../../infra/api/routers/profile-router";
 import { FavoriteGamesController } from "../../../presentation/controllers/favoriteGames-controller";
 import { makeFavoriteGamesPageFactory } from "../pages/favoriteGames-page-factory";
@@ -12,7 +13,8 @@ import { makeFavoriteGamesPageFactory } from "../pages/favoriteGames-page-factor
 export function makeFavoriteGamesControllerFactory(): FavoriteGamesController {
   const favoriteGamesPage = makeFavoriteGamesPageFactory();
   const httpRequestAdapter = new HttpRequestAdapter();
-  const profileRouter = new ProfileRouter(httpRequestAdapter);
+  const apiConnection = new ApiConnection()
+  const profileRouter = new ProfileRouter(httpRequestAdapter, apiConnection);
   const tokenHandler = new TokenHandler();
   const profileIdHandler = new ProfileIdHandler();
   const gameIdHandler = new GameIdHandler();

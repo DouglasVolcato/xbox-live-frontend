@@ -6,13 +6,15 @@ import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapte
 import { makeLoginPage } from "../pages/login-page-factory";
 import { UserIdHandler } from "../../../helpers/user/userIdHandler-helper";
 import { UserRouter } from "../../../infra/api/routers/user-router";
+import { ApiConnection } from "../../../infra/api/connection/apiConnection";
 
 export function makeLoginControllerFactory(): LoginController {
   const httpRequestAdapter = new HttpRequestAdapter();
   const tokenHandler = new TokenHandler();
   const userIdHandler = new UserIdHandler();
-  const authRouter = new AuthRouter(httpRequestAdapter);
-  const userRouter = new UserRouter(httpRequestAdapter);
+  const apiConnection = new ApiConnection();
+  const authRouter = new AuthRouter(httpRequestAdapter, apiConnection);
+  const userRouter = new UserRouter(httpRequestAdapter, apiConnection);
   const makeLoginUseCase = new MakeLoginUseCase(
     authRouter,
     userRouter,

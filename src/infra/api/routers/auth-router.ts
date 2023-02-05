@@ -1,16 +1,17 @@
-import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { TokenDto } from "../dtos/token-dto";
 import { LoginDto } from "../dtos/login-dto";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { AuthRouterInterface } from "./abstract/auth-router-interface";
+import { ApiConnectionInterface } from "../connection/abstract/apiConnection-abstract";
+import { HttpRequestAdapterInterface } from "../../../helpers/adapters/abstract/httpRequest-adapter-interface";
 
-export class AuthRouter {
-  private readonly httpRequestAdapter: HttpRequestAdapter;
-  private readonly apiConnection: ApiConnection;
+export class AuthRouter implements AuthRouterInterface {
+  private readonly httpRequestAdapter: HttpRequestAdapterInterface;
+  private readonly apiConnection: ApiConnectionInterface;
 
   constructor(
-    httpRequestAdapter: HttpRequestAdapter,
-    apiConnection: ApiConnection
+    httpRequestAdapter: HttpRequestAdapterInterface,
+    apiConnection: ApiConnectionInterface
   ) {
     this.httpRequestAdapter = httpRequestAdapter;
     this.apiConnection = apiConnection;

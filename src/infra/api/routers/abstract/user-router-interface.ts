@@ -3,6 +3,7 @@ import { ApiResponse } from "../../dtos/apiResponse-dto";
 import { UserDto } from "../../dtos/user-dto";
 
 export interface UserRouterInterface {
+  create(user: UserDto): Promise<ApiResponse<User>>;
   getAll(authorizationToken: string): Promise<ApiResponse<User[]>>;
   getById(
     userId: string,

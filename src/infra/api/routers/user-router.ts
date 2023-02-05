@@ -17,6 +17,14 @@ export class UserRouter implements UserRouterInterface {
     this.apiConnection = apiConnection;
   }
 
+  public async create(user: UserDto): Promise<ApiResponse<User>> {
+    const apiLink = this.apiConnection.getLink();
+    return await this.httpRequestAdapter.post(
+      apiLink + "/user/create-user",
+      user
+    );
+  }
+
   public async getAll(
     authorizationToken: string
   ): Promise<ApiResponse<User[]>> {

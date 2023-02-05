@@ -1,4 +1,5 @@
 import { User } from "../../../domain/user";
+
 export function makeFakeUser(): User {
   return {
     id: "fake_id",

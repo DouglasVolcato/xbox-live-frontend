@@ -13,7 +13,7 @@ export function makeFakeGame(): Game {
     gameplayYouTubeUrl: "fake_gameplayYouTubeUrl",
     createdAt: "fake_createdAt",
     updatedAt: "fake_updatedAt",
-    userId: "fake_userId",  
+    userId: "fake_userId",
     profileId: "fake_profileId",
   };
 }

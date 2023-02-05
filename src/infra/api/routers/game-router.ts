@@ -1,16 +1,17 @@
-import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { Game } from "../../../domain/game";
 import { GameDto } from "../dtos/game-dto";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { HttpRequestAdapterInterface } from "../../../helpers/adapters/abstract/httpRequest-adapter-interface";
+import { ApiConnectionInterface } from "../connection/abstract/apiConnection-abstract";
+import { GameRouterInterface } from "./abstract/game-router-interface";
 
-export class GameRouter {
-  private readonly httpRequestAdapter: HttpRequestAdapter;
-  private readonly apiConnection: ApiConnection;
+export class GameRouter implements GameRouterInterface {
+  private readonly httpRequestAdapter: HttpRequestAdapterInterface;
+  private readonly apiConnection: ApiConnectionInterface;
 
   constructor(
-    httpRequestAdapter: HttpRequestAdapter,
-    apiConnection: ApiConnection
+    httpRequestAdapter: HttpRequestAdapterInterface,
+    apiConnection: ApiConnectionInterface
   ) {
     this.httpRequestAdapter = httpRequestAdapter;
     this.apiConnection = apiConnection;

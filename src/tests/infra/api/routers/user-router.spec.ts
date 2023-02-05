@@ -72,18 +72,18 @@ describe("UserRouter", () => {
   test("GetAll method should call httpRequestAdapter get method", () => {
     const { httpRequestAdapter, userRouter } = makeSut();
     const token = makeFakeToken();
-    const postRequestSpy = jest.spyOn(httpRequestAdapter, "get");
+    const getRequestSpy = jest.spyOn(httpRequestAdapter, "get");
     userRouter.getAll(token);
-    expect(postRequestSpy).toHaveBeenCalled();
+    expect(getRequestSpy).toHaveBeenCalled();
   });
 
   test("GetAll method should call httpRequestAdapter get method with correct values", () => {
     const { httpRequestAdapter, userRouter } = makeSut();
     const token = makeFakeToken();
     const apiLink = makeFakeLink();
-    const postRequestSpy = jest.spyOn(httpRequestAdapter, "get");
+    const getRequestSpy = jest.spyOn(httpRequestAdapter, "get");
     userRouter.getAll(token);
-    expect(postRequestSpy).toHaveBeenCalledWith(
+    expect(getRequestSpy).toHaveBeenCalledWith(
       apiLink + "/user/get-all-users",
       token
     );
@@ -112,9 +112,9 @@ describe("UserRouter", () => {
     const { httpRequestAdapter, userRouter } = makeSut();
     const userId = makeFakeUser().id;
     const token = makeFakeToken();
-    const postRequestSpy = jest.spyOn(httpRequestAdapter, "get");
+    const getRequestSpy = jest.spyOn(httpRequestAdapter, "get");
     userRouter.getById(userId, token);
-    expect(postRequestSpy).toHaveBeenCalled();
+    expect(getRequestSpy).toHaveBeenCalled();
   });
 
   test("GetById method should call httpRequestAdapter get method with correct values", () => {
@@ -122,9 +122,9 @@ describe("UserRouter", () => {
     const userId = makeFakeUser().id;
     const token = makeFakeToken();
     const apiLink = makeFakeLink();
-    const postRequestSpy = jest.spyOn(httpRequestAdapter, "get");
+    const getRequestSpy = jest.spyOn(httpRequestAdapter, "get");
     userRouter.getById(userId, token);
-    expect(postRequestSpy).toHaveBeenCalledWith(
+    expect(getRequestSpy).toHaveBeenCalledWith(
       apiLink + "/user/get-user-by-id/" + userId,
       token
     );
@@ -199,9 +199,9 @@ describe("UserRouter", () => {
     const { httpRequestAdapter, userRouter } = makeSut();
     const userId = makeFakeUser().id;
     const token = makeFakeToken();
-    const postRequestSpy = jest.spyOn(httpRequestAdapter, "delete");
+    const deleteRequestSpy = jest.spyOn(httpRequestAdapter, "delete");
     userRouter.delete(userId, token);
-    expect(postRequestSpy).toHaveBeenCalled();
+    expect(deleteRequestSpy).toHaveBeenCalled();
   });
 
   test("Delete method should call httpRequestAdapter delete method with correct values", () => {
@@ -209,9 +209,9 @@ describe("UserRouter", () => {
     const userId = makeFakeUser().id;
     const token = makeFakeToken();
     const apiLink = makeFakeLink();
-    const postRequestSpy = jest.spyOn(httpRequestAdapter, "delete");
+    const deleteRequestSpy = jest.spyOn(httpRequestAdapter, "delete");
     userRouter.delete(userId, token);
-    expect(postRequestSpy).toHaveBeenCalledWith(
+    expect(deleteRequestSpy).toHaveBeenCalledWith(
       apiLink + "/user/delete-user/" + userId,
       token
     );
@@ -243,9 +243,9 @@ describe("UserRouter", () => {
     const userData = makeFakeUser();
     const userId = userData.id;
     const token = makeFakeToken();
-    const postRequestSpy = jest.spyOn(httpRequestAdapter, "patch");
+    const patchRequestSpy = jest.spyOn(httpRequestAdapter, "patch");
     userRouter.update(userId, userData, token);
-    expect(postRequestSpy).toHaveBeenCalled();
+    expect(patchRequestSpy).toHaveBeenCalled();
   });
 
   test("Update method should call httpRequestAdapter patch method with correct values", () => {
@@ -254,9 +254,9 @@ describe("UserRouter", () => {
     const userId = userData.id;
     const token = makeFakeToken();
     const apiLink = makeFakeLink();
-    const postRequestSpy = jest.spyOn(httpRequestAdapter, "patch");
+    const patchRequestSpy = jest.spyOn(httpRequestAdapter, "patch");
     userRouter.update(userId, userData, token);
-    expect(postRequestSpy).toHaveBeenCalledWith(
+    expect(patchRequestSpy).toHaveBeenCalledWith(
       apiLink + "/user/update-user/" + userId,
       userData,
       token

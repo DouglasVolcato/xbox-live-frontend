@@ -45,7 +45,7 @@ describe("UserRouter", () => {
   test("Delete method should throw if httpRequestAdapter delete method throws", () => {});
 
   test("Update method should call apiConnection getLink method", () => {});
-  test("Update method should call httpRequestAdapter update method", () => {});
-  test("Update method should call httpRequestAdapter update method with correct values", () => {});
-  test("Update method should throw if httpRequestAdapter update method throws", () => {});
+  test("Update method should call httpRequestAdapter patch method", () => {});
+  test("Update method should call httpRequestAdapter patch method with correct values", () => {});
+  test("Update method should throw if httpRequestAdapter patch method throws", () => {});
 });

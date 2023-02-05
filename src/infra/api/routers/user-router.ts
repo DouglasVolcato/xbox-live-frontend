@@ -12,8 +12,8 @@ export class UserRouter implements UserRouterInterface {
   private readonly apiConnection: ApiConnectionInterface;
 
   constructor(
-    httpRequestAdapter: HttpRequestAdapter,
-    apiConnection: ApiConnection
+    httpRequestAdapter: HttpRequestAdapterInterface,
+    apiConnection: ApiConnectionInterface
   ) {
     this.httpRequestAdapter = httpRequestAdapter;
     this.apiConnection = apiConnection;

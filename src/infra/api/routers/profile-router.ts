@@ -1,16 +1,17 @@
-import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { ProfileDto } from "../dtos/profile-dto";
 import { Profile } from "../../../domain/profile";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { ProfileRouterInterface } from "./abstract/profile-router-interface";
+import { HttpRequestAdapterInterface } from "../../../helpers/adapters/abstract/httpRequest-adapter-interface";
+import { ApiConnectionInterface } from "../connection/abstract/apiConnection-abstract";
 
-export class ProfileRouter {
-  private readonly httpRequestAdapter: HttpRequestAdapter;
-  private readonly apiConnection: ApiConnection;
+export class ProfileRouter implements ProfileRouterInterface {
+  private readonly httpRequestAdapter: HttpRequestAdapterInterface;
+  private readonly apiConnection: ApiConnectionInterface;
 
   constructor(
-    httpRequestAdapter: HttpRequestAdapter,
-    apiConnection: ApiConnection
+    httpRequestAdapter: HttpRequestAdapterInterface,
+    apiConnection: ApiConnectionInterface
   ) {
     this.httpRequestAdapter = httpRequestAdapter;
     this.apiConnection = apiConnection;

@@ -19,6 +19,11 @@ function makeSut(): SutTypes {
 }
 
 describe("UserRouter", () => {
+  test("Create method should call apiConnection getLink method", () => {});
+  test("Create method should call httpRequestAdapter post method", () => {});
+  test("Create method should call httpRequestAdapter post method with correct values", () => {});
+  test("Create method should throw if httpRequestAdapter post method throws", () => {});
+
   test("GetAll method should call apiConnection getLink method", () => {});
   test("GetAll method should call httpRequestAdapter get method", () => {});
   test("GetAll method should call httpRequestAdapter get method with correct values", () => {});

@@ -1,9 +1,6 @@
 import { ApiConnection } from "../../../../infra/api/connection/apiConnection";
 import { apiLink } from "../../../../infra/api/connection/apiLink";
-
-function makeFakeLink(): string {
-  return "www.fakeLink.com";
-}
+import { makeFakeLink } from "../../../mocks/fakers/link-fake";
 
 type SutTypes = {
   apiConnection: ApiConnection;

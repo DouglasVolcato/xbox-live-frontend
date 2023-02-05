@@ -1,8 +1,6 @@
 import { User } from "../../../domain/user";
-import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { UserDto } from "../dtos/user-dto";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
 import { HttpRequestAdapterInterface } from "../../../helpers/adapters/abstract/httpRequest-adapter-interface";
 import { ApiConnectionInterface } from "../connection/abstract/apiConnection-abstract";
 import { UserRouterInterface } from "./abstract/user-router-interface";

@@ -1,5 +1,6 @@
 import { HttpRequestAdapterInterface } from "../../../../helpers/adapters/abstract/httpRequest-adapter-interface";
 import { ApiConnectionInterface } from "../../../../infra/api/connection/abstract/apiConnection-abstract";
+import { AuthRouterInterface } from "../../../../infra/api/routers/abstract/auth-router-interface";
 import { AuthRouter } from "../../../../infra/api/routers/auth-router";
 import { HttpRequestAdapterMock } from "../../../mocks/adapters/httpRequest-adapter-mock";
 import { ApiConnectionMock } from "../../../mocks/api/apiConnection-mock";
@@ -10,7 +11,7 @@ import { makeFakeLoginData } from "../../../mocks/fakers/loginData-fake";
 type SutTypes = {
   httpRequestAdapter: HttpRequestAdapterInterface;
   apiConnection: ApiConnectionInterface;
-  authRouter: AuthRouter;
+  authRouter: AuthRouterInterface;
 };
 
 function makeSut(): SutTypes {

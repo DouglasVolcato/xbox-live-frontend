@@ -3,10 +3,13 @@ import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { UserDto } from "../dtos/user-dto";
 import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { HttpRequestAdapterInterface } from "../../../helpers/adapters/abstract/httpRequest-adapter-interface";
+import { ApiConnectionInterface } from "../connection/abstract/apiConnection-abstract";
+import { UserRouterInterface } from "./abstract/user-router-interface";
 
-export class UserRouter {
-  private readonly httpRequestAdapter: HttpRequestAdapter;
-  private readonly apiConnection: ApiConnection;
+export class UserRouter implements UserRouterInterface {
+  private readonly httpRequestAdapter: HttpRequestAdapterInterface;
+  private readonly apiConnection: ApiConnectionInterface;
 
   constructor(
     httpRequestAdapter: HttpRequestAdapter,

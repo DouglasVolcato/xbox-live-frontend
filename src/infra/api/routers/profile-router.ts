@@ -1,23 +1,29 @@
-import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { ProfileDto } from "../dtos/profile-dto";
 import { Profile } from "../../../domain/profile";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { ProfileRouterInterface } from "./abstract/profile-router-interface";
+import { HttpRequestAdapterInterface } from "../../../helpers/adapters/abstract/httpRequest-adapter-interface";
+import { ApiConnectionInterface } from "../connection/abstract/apiConnection-abstract";
 
-export class ProfileRouter extends ApiConnection {
-  private readonly httpRequestAdapter: HttpRequestAdapter;
+export class ProfileRouter implements ProfileRouterInterface {
+  private readonly httpRequestAdapter: HttpRequestAdapterInterface;
+  private readonly apiConnection: ApiConnectionInterface;
 
-  constructor(httpRequestAdapter: HttpRequestAdapter) {
-    super();
+  constructor(
+    httpRequestAdapter: HttpRequestAdapterInterface,
+    apiConnection: ApiConnectionInterface
+  ) {
     this.httpRequestAdapter = httpRequestAdapter;
+    this.apiConnection = apiConnection;
   }
 
   public async create(
     profile: ProfileDto,
     authorizationToken: string
   ): Promise<ApiResponse<Profile>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.post(
-      this.apiLink + "/profile/create-profile",
+      apiLink + "/profile/create-profile",
       profile,
       authorizationToken
     );
@@ -26,8 +32,9 @@ export class ProfileRouter extends ApiConnection {
   public async getAll(
     authorizationToken: string
   ): Promise<ApiResponse<Profile[]>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.get(
-      this.apiLink + "/profile/get-all-profiles",
+      apiLink + "/profile/get-all-profiles",
       authorizationToken
     );
   }
@@ -36,8 +43,9 @@ export class ProfileRouter extends ApiConnection {
     profileId: string,
     authorizationToken: string
   ): Promise<ApiResponse<Profile>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.get(
-      this.apiLink + "/profile/get-profile/" + profileId,
+      apiLink + "/profile/get-profile/" + profileId,
       authorizationToken
     );
   }
@@ -46,8 +54,9 @@ export class ProfileRouter extends ApiConnection {
     profileId: string,
     authorizationToken: string
   ): Promise<ApiResponse<Profile>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.delete(
-      this.apiLink + "/profile/delete-profile/" + profileId,
+      apiLink + "/profile/delete-profile/" + profileId,
       authorizationToken
     );
   }
@@ -57,8 +66,9 @@ export class ProfileRouter extends ApiConnection {
     profile: ProfileDto,
     authorizationToken: string
   ): Promise<ApiResponse<Profile>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.patch(
-      this.apiLink + "/profile/update-profile/" + profileId,
+      apiLink + "/profile/update-profile/" + profileId,
       profile,
       authorizationToken
     );
@@ -69,8 +79,9 @@ export class ProfileRouter extends ApiConnection {
     gameIdList: string[],
     authorizationToken: string
   ): Promise<ApiResponse<Profile>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.patch(
-      this.apiLink + "/profile/add-games-profile/" + profileId,
+      apiLink + "/profile/add-games-profile/" + profileId,
       {
         favoriteGames: gameIdList,
       },
@@ -83,8 +94,9 @@ export class ProfileRouter extends ApiConnection {
     gameIdList: string[],
     authorizationToken: string
   ): Promise<ApiResponse<Profile>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.patch(
-      this.apiLink + "/profile/remove-games-profile/" + profileId,
+      apiLink + "/profile/remove-games-profile/" + profileId,
       {
         favoriteGames: gameIdList,
       },

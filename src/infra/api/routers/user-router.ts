@@ -1,20 +1,26 @@
 import { User } from "../../../domain/user";
-import { ApiConnection } from "../connection/apiConnection";
 import { ApiResponse } from "../dtos/apiResponse-dto";
 import { UserDto } from "../dtos/user-dto";
-import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapter";
+import { HttpRequestAdapterInterface } from "../../../helpers/adapters/abstract/httpRequest-adapter-interface";
+import { ApiConnectionInterface } from "../connection/abstract/apiConnection-abstract";
+import { UserRouterInterface } from "./abstract/user-router-interface";
 
-export class UserRouter extends ApiConnection {
-  private readonly httpRequestAdapter: HttpRequestAdapter;
+export class UserRouter implements UserRouterInterface {
+  private readonly httpRequestAdapter: HttpRequestAdapterInterface;
+  private readonly apiConnection: ApiConnectionInterface;
 
-  constructor(httpRequestAdapter: HttpRequestAdapter) {
-    super();
+  constructor(
+    httpRequestAdapter: HttpRequestAdapterInterface,
+    apiConnection: ApiConnectionInterface
+  ) {
     this.httpRequestAdapter = httpRequestAdapter;
+    this.apiConnection = apiConnection;
   }
 
   public async create(user: UserDto): Promise<ApiResponse<User>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.post(
-      this.apiLink + "/user/create-user",
+      apiLink + "/user/create-user",
       user
     );
   }
@@ -22,8 +28,9 @@ export class UserRouter extends ApiConnection {
   public async getAll(
     authorizationToken: string
   ): Promise<ApiResponse<User[]>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.get(
-      this.apiLink + "/user/get-all-users",
+      apiLink + "/user/get-all-users",
       authorizationToken
     );
   }
@@ -32,8 +39,9 @@ export class UserRouter extends ApiConnection {
     userId: string,
     authorizationToken: string
   ): Promise<ApiResponse<User>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.get(
-      this.apiLink + "/user/get-user-by-id/" + userId,
+      apiLink + "/user/get-user-by-id/" + userId,
       authorizationToken
     );
   }
@@ -42,8 +50,9 @@ export class UserRouter extends ApiConnection {
     userEmail: string,
     authorizationToken: string
   ): Promise<ApiResponse<User>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.post(
-      this.apiLink + "/user/get-user-by-email",
+      apiLink + "/user/get-user-by-email",
       {
         email: userEmail,
       },
@@ -55,8 +64,9 @@ export class UserRouter extends ApiConnection {
     userId: string,
     authorizationToken: string
   ): Promise<ApiResponse<User>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.delete(
-      this.apiLink + "/user/delete-user/" + userId,
+      apiLink + "/user/delete-user/" + userId,
       authorizationToken
     );
   }
@@ -66,8 +76,9 @@ export class UserRouter extends ApiConnection {
     user: UserDto,
     authorizationToken: string
   ): Promise<ApiResponse<User>> {
+    const apiLink = this.apiConnection.getLink();
     return await this.httpRequestAdapter.patch(
-      this.apiLink + "/user/update-user/" + userId,
+      apiLink + "/user/update-user/" + userId,
       user,
       authorizationToken
     );

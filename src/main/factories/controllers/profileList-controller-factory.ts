@@ -4,6 +4,7 @@ import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapte
 import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
 import { UserIdHandler } from "../../../helpers/user/userIdHandler-helper";
+import { ApiConnection } from "../../../infra/api/connection/apiConnection";
 import { ProfileRouter } from "../../../infra/api/routers/profile-router";
 import { UserRouter } from "../../../infra/api/routers/user-router";
 import { ProfileListController } from "../../../presentation/controllers/profileList-controller";
@@ -11,8 +12,9 @@ import { makeProfileListPageFactory } from "../pages/profileList-page-factory";
 
 export function makeProfileListControllerFactory(): ProfileListController {
   const httpRequestAdapter = new HttpRequestAdapter();
-  const profileRouter = new ProfileRouter(httpRequestAdapter);
-  const userRouter = new UserRouter(httpRequestAdapter);
+  const apiConnection = new ApiConnection();
+  const profileRouter = new ProfileRouter(httpRequestAdapter, apiConnection);
+  const userRouter = new UserRouter(httpRequestAdapter, apiConnection);
   const tokenHandler = new TokenHandler();
   const profileIdHandler = new ProfileIdHandler();
   const userIdHandler = new UserIdHandler();

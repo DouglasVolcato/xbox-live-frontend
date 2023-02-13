@@ -1,6 +1,7 @@
 import axios from "axios";
+import { HttpRequestAdapterInterface } from "./abstract/httpRequest-adapter-interface";
 
-export class HttpRequestAdapter {
+export class HttpRequestAdapter implements HttpRequestAdapterInterface {
   public async post(
     url: string,
     body: any,

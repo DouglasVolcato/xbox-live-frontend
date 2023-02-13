@@ -5,6 +5,7 @@ import { HttpRequestAdapter } from "../../../helpers/adapters/httpRequest-adapte
 import { GameIdHandler } from "../../../helpers/game/gameIdHandler-helper";
 import { ProfileIdHandler } from "../../../helpers/profile/profileIdHandler-helper";
 import { TokenHandler } from "../../../helpers/token/tokenHandler-helper";
+import { ApiConnection } from "../../../infra/api/connection/apiConnection";
 import { GameRouter } from "../../../infra/api/routers/game-router";
 import { ProfileRouter } from "../../../infra/api/routers/profile-router";
 import { HomePageController } from "../../../presentation/controllers/homePage-controller";
@@ -15,13 +16,14 @@ export function makeHomePageControllerFactory(): HomePageController {
   const httpRequestAdapter = new HttpRequestAdapter();
   const tokenHandler = new TokenHandler();
   const gameIdHandler = new GameIdHandler();
-  const gameRouter = new GameRouter(httpRequestAdapter);
+  const apiConnection = new ApiConnection();
+  const gameRouter = new GameRouter(httpRequestAdapter, apiConnection);
   const getLatestGameListUseCase = new GetLatestGameListUseCase(
     gameRouter,
     tokenHandler,
     gameIdHandler
   );
-  const profileRouter = new ProfileRouter(httpRequestAdapter);
+  const profileRouter = new ProfileRouter(httpRequestAdapter, apiConnection);
   const profileIdHandler = new ProfileIdHandler();
   const getProfileHeaderUseCase = new GetProfileHeaderUseCase(
     profileRouter,

@@ -1,1 +1,2 @@
-export const apiLink: string = "http://localhost:3000";
+export const apiLink: string =
+  "https://xbox-live-backend-production.up.railway.app";
